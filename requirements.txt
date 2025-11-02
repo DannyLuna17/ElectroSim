@@ -1,0 +1,5 @@
+pygame>=2.6.1
+numpy>=2.0.0
+numba>=0.59
+scipy
+intel-cmplr-lib-rt

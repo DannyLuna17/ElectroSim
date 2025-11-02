@@ -1,0 +1,996 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ElectroSim &#8212; ElectroSim Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Getting Started" href="getting_started.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ElectroSim Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="electrosim">
+<h1>ElectroSim<a class="headerlink" href="#electrosim" title="Link to this heading">#</a></h1>
+<p>Welcome to the ElectroSim documentation. This site provides:</p>
+<ul class="simple">
+<li><p>A user guide to run and operate the simulation</p></li>
+<li><p>A developer guide focused on architecture, physics, and performance</p></li>
+<li><p>A complete API reference generated from source</p></li>
+<li><p>Mathematical foundations with LaTeX derivations</p></li>
+<li><p>Annotated, line-by-line explanations for each function</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">User Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#system-requirements">System Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#quick-start-choose-your-platform">Quick Start (Choose Your Platform)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#platform-specific-notes">Platform-Specific Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#running-electrosim-locally-web-version">Running ElectroSim Locally (Web Version)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#verifying-installation">Verifying Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#building-documentation-optional">Building Documentation (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#updating-the-web-deployment">Updating the Web Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#common-issues-and-solutions">Common Issues and Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#next-steps">Next Steps</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#getting-help">Getting Help</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/running.html">Running the Simulation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/running.html#basic-launch">Basic Launch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/running.html#window-configuration">Window Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/running.html#time-integration">Time Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/running.html#default-scene">Default Scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/running.html#performance-monitoring">Performance Monitoring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/running.html#related-documentation">Related Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/controls.html">Controls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/controls.html#mouse">Mouse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/controls.html#keyboard">Keyboard</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/visualization.html">Visualization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/visualization.html#particle-rendering">Particle Rendering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/visualization.html#electric-field-visualization">Electric Field Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/visualization.html#force-vectors">Force Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/visualization.html#velocity-vectors">Velocity Vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/visualization.html#particle-trajectories">Particle Trajectories</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/visualization.html#metric-grid">Metric Grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/visualization.html#overlay-information">Overlay Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/visualization.html#background-and-theme">Background and Theme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/visualization.html#performance-considerations">Performance Considerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/visualization.html#related-documentation">Related Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/configuration.html">Configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/configuration.html#window-and-display">Window and Display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/configuration.html#physics-parameters">Physics Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/configuration.html#particle-defaults-and-limits">Particle Defaults and Limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/configuration.html#visualization-settings">Visualization Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/configuration.html#performance-options">Performance Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/configuration.html#interaction-settings">Interaction Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/configuration.html#validation-settings">Validation Settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/configuration.html#configuration-workflow">Configuration Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/configuration.html#web-version-overrides">Web Version Overrides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/configuration.html#performance-tuning-guide">Performance Tuning Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/configuration.html#related-documentation">Related Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="user_guide/web.html">Running ElectroSim on the Web</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/web.html#quick-start">Quick Start</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/web.html#what-runs-in-the-browser">What Runs in the Browser</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/web.html#keyboard-and-mouse-controls">Keyboard and Mouse Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/web.html#differences-vs-desktop">Differences vs Desktop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_guide/web.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Developer Guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/architecture.html">Architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/architecture.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/architecture.html#modules-and-responsibilities">Modules and responsibilities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/architecture.html#dependency-diagram">Dependency diagram</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/architecture.html#data-flow">Data Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/architecture.html#design-patterns">Design Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/architecture.html#extension-points">Extension Points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/architecture.html#error-handling">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/architecture.html#platform-specific-adaptations">Platform-Specific Adaptations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/architecture.html#testing-strategy">Testing Strategy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/architecture.html#related-documentation">Related Documentation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/physics_overview.html">Physics Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/physics_overview.html#units-and-domain">Units and Domain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/physics_overview.html#force-model">Force Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/physics_overview.html#time-integration-pipeline">Time Integration Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/physics_overview.html#collisions-and-merging">Collisions and Merging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/physics_overview.html#boundary-handling">Boundary Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/physics_overview.html#energy-accounting">Energy Accounting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/physics_overview.html#field-evaluation-and-visualization">Field Evaluation and Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/physics_overview.html#validation-hooks">Validation Hooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/physics_overview.html#related-modules">Related Modules</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/performance.html">Performance Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/performance.html#built-in-profiling">Built-in Profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/performance.html#cost-drivers">Cost Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/performance.html#tuning-workflow">Tuning Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/performance.html#batch-experiments">Batch Experiments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/performance.html#browser-considerations">Browser Considerations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/validation.html">Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/validation.html#uniform-field-scenario">Uniform Field Scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/validation.html#how-to-run-it">How to Run It</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/validation.html#reading-the-overlay">Reading the Overlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/validation.html#customising-the-scenario">Customising the Scenario</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/validation.html#automating-from-code">Automating from Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="developer_guide/web_integration.html">Web Integration (Pyodide + pygame-ce)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/web_integration.html#components-and-data-sources">Components and Data Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/web_integration.html#keyboard-input-bridging">Keyboard Input Bridging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/web_integration.html#field-sampling-fallback">Field Sampling Fallback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/web_integration.html#expected-behavior-web">Expected Behavior (Web)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/web_integration.html#limitations">Limitations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer_guide/web_integration.html#debugging-tips">Debugging Tips</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.html">electrosim</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.config.html">electrosim.config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.simulation.engine.html">electrosim.simulation.engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.simulation.physics.html">electrosim.simulation.physics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.rendering.primitives.html">electrosim.rendering.primitives</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.rendering.particles.html">electrosim.rendering.particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.rendering.field.html">electrosim.rendering.field</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.rendering.field_sampler.html">electrosim.rendering.field_sampler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.rendering.trails.html">electrosim.rendering.trails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.rendering.overlay.html">electrosim.rendering.overlay</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.rendering.draw.html">electrosim.rendering.draw</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/electrosim.ui.controls.html">electrosim.ui.controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/_autosummary/main.html">main</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Mathematical Foundations</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="math/coulomb_periodic.html">Coulomb Force with Periodic Boundary Conditions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/plummer_softening.html">Plummer-like Softening</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/rk4_derivation.html">RK4 Derivation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/elastic_collision_impulse.html">Elastic Collision Impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/potential_energy_modeling.html">Potential Energy Modeling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="math/field_visualization_mapping.html">Field Visualization Mapping</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="math/field_visualization_mapping.html#brightness-mode">Brightness mode</a></li>
+<li class="toctree-l2"><a class="reference internal" href="math/field_visualization_mapping.html#length-mode">Length mode</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Annotated Source (Line-by-line)</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="annotated/simulation_physics.html">Annotated: electrosim.simulation.physics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_physics.html#minimum-image-displacement">minimum_image_displacement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_physics.html#electric-force-pair">electric_force_pair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_physics.html#compute-accelerations-numba-path-shape-and-algorithm">compute_accelerations (Numba path shape and algorithm)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_physics.html#total-potential-energy">total_potential_energy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_physics.html#rk4-integrate-stages-and-state-policy">rk4_integrate (stages and state policy)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_physics.html#resolve-collisions-merge-and-elastic-phases">resolve_collisions (merge and elastic phases)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotated/simulation_engine.html">Annotated: electrosim.simulation.engine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#particle-dataclass">Particle dataclass</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#simulation-init">Simulation.<strong>init</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#reset-to-default-scene">reset_to_default_scene</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#clear">clear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#add-particle">add_particle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#update-color">_update_color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#select-particle-at-screen-pos">select_particle_at_screen_pos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#adjust-selected-charge-mass-radius">adjust_selected_charge/mass/radius</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#toggle-selected-fixed">toggle_selected_fixed</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#remove-selected-particle">remove_selected_particle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#recompute-energies">recompute_energies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#wrap-all-positions">_wrap_all_positions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#ensure-selected-valid">_ensure_selected_valid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#compute-last-forces">_compute_last_forces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#update-trails-advance-time-and-trails">update_trails / _advance_time_and_trails</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#step-substep">step_substep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/simulation_engine.html#step-frame">step_frame</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotated/rendering_primitives.html">Annotated: electrosim.rendering.primitives</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_primitives.html#world-vector-to-screen-screen-vector-to-world">world_vector_to_screen / screen_vector_to_world</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_primitives.html#draw-arrow">_draw_arrow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_primitives.html#draw-meter-grid">draw_meter_grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_primitives.html#draw-glow-at-screen-pos">draw_glow_at_screen_pos</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotated/rendering_field.html">Annotated: electrosim.rendering.field</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_field.html#get-sampler">_get_sampler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_field.html#draw-field-grid">draw_field_grid</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotated/rendering_field_sampler.html">Annotated: electrosim.rendering.field_sampler</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_field_sampler.html#electricfieldsampler">ElectricFieldSampler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_field_sampler.html#grid-dims">_grid_dims</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_field_sampler.html#recompute">recompute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_field_sampler.html#iter-centers-and-vectors-px">iter_centers_and_vectors_px</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotated/rendering_particles.html">Annotated: electrosim.rendering.particles</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_particles.html#draw-particles">draw_particles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_particles.html#draw-velocity-vectors">draw_velocity_vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_particles.html#draw-force-vectors">draw_force_vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_particles.html#draw-particle-glows">draw_particle_glows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotated/rendering_trails.html">Annotated: electrosim.rendering.trails</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_trails.html#draw-trails">draw_trails</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotated/rendering_overlay.html">Annotated: electrosim.rendering.overlay</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotated/rendering_overlay.html#draw-overlay">draw_overlay</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotated/ui_controls.html">Annotated: electrosim.ui.controls</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotated/ui_controls.html#inputstate">InputState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/ui_controls.html#handle-events">handle_events</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/ui_controls.html#render-placement-preview">render_placement_preview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="annotated/ui_controls.html#render-hover-tooltip">render_hover_tooltip</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="annotated/main.html">Annotated: main.py</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="annotated/main.html#main">main</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="right-next"
+       href="getting_started.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Getting Started</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Danny Luna.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

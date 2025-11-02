@@ -1,0 +1,912 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>main &#8212; ElectroSim Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/main';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ElectroSim Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer_guide/validation.html">
+    <no title>
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/validation.html">
+    <no title>
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">main</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for main</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pygame</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">electrosim</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">electrosim.simulation.engine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Simulation</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">electrosim.rendering.draw</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+	<span class="n">draw_field_grid</span><span class="p">,</span>
+	<span class="n">draw_meter_grid</span><span class="p">,</span>
+	<span class="n">draw_force_vectors</span><span class="p">,</span>
+	<span class="n">draw_overlay</span><span class="p">,</span>
+	<span class="n">draw_particle_glows</span><span class="p">,</span>
+	<span class="n">draw_particles</span><span class="p">,</span>
+	<span class="n">draw_trails</span><span class="p">,</span>
+	<span class="n">draw_velocity_vectors</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">electrosim.ui.controls</span><span class="w"> </span><span class="kn">import</span> <span class="n">InputState</span><span class="p">,</span> <span class="n">handle_events</span><span class="p">,</span> <span class="n">render_placement_preview</span><span class="p">,</span> <span class="n">render_hover_tooltip</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">electrosim.rendering.trails</span><span class="w"> </span><span class="kn">import</span> <span class="n">draw_polyline_world</span>
+
+
+<div class="viewcode-block" id="main">
+<a class="viewcode-back" href="../api/_autosummary/main.html#main.main">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;Run the main event loop: handle input, step simulation, and render.</span>
+<span class="sd"> </span>
+<span class="sd">	Initializes Pygame and the window, constructs the `Simulation` and `InputState`,</span>
+<span class="sd">	and iterates frames by processing input, stepping the simulation by substeps,</span>
+<span class="sd">	drawing the scene, and overlaying performance and state metrics.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">pygame</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+	<span class="n">screen</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_mode</span><span class="p">((</span><span class="n">config</span><span class="o">.</span><span class="n">WINDOW_WIDTH_PX</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">WINDOW_HEIGHT_PX</span><span class="p">))</span>
+	<span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span><span class="s2">&quot;ElectroSim - Charged particle simulator&quot;</span><span class="p">)</span>
+	<span class="n">clock</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">Clock</span><span class="p">()</span>
+	<span class="n">font</span> <span class="o">=</span> <span class="n">pygame</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">SysFont</span><span class="p">(</span><span class="s2">&quot;consolas,sans-serif&quot;</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+	<span class="n">ppm</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">PIXELS_PER_METER</span>
+
+	<span class="n">sim</span> <span class="o">=</span> <span class="n">Simulation</span><span class="p">()</span>
+	<span class="n">input_state</span> <span class="o">=</span> <span class="n">InputState</span><span class="p">()</span>
+
+	<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+		<span class="n">frame_t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+		<span class="c1"># Events and controls</span>
+		<span class="n">handle_events</span><span class="p">(</span><span class="n">pygame</span><span class="p">,</span> <span class="n">sim</span><span class="p">,</span> <span class="n">input_state</span><span class="p">,</span> <span class="n">ppm</span><span class="p">)</span>
+
+		<span class="c1"># Logic and physics step</span>
+		<span class="n">t_ph0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+		<span class="n">sim</span><span class="o">.</span><span class="n">step_frame</span><span class="p">()</span>
+		<span class="n">t_ph1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+		<span class="n">physics_ms</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_ph1</span> <span class="o">-</span> <span class="n">t_ph0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0</span>
+
+		<span class="c1"># Drawing</span>
+		<span class="n">field_ms</span> <span class="o">=</span> <span class="mf">0.0</span>
+		<span class="n">t_draw0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+
+		<span class="n">draw_force_vectors</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">last_forces</span><span class="p">,</span> <span class="n">ppm</span><span class="p">)</span>
+	
+		<span class="n">screen</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">COLOR_BG</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">sim</span><span class="o">.</span><span class="n">show_meter_grid</span><span class="p">:</span>
+			<span class="n">draw_meter_grid</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">world_size_m</span><span class="p">,</span> <span class="n">ppm</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">sim</span><span class="o">.</span><span class="n">show_field</span> <span class="ow">or</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;validation_active&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s2">&quot;UNIFORM_FIELD_VISUAL_OVERRIDE&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+			<span class="n">FIELD_GRID_STEP_PX</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">FIELD_GRID_STEP_PX</span>
+			<span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">FIELD_VIS_MODE</span> <span class="o">!=</span> <span class="s2">&quot;brightness&quot;</span><span class="p">:</span>
+				<span class="n">FIELD_GRID_STEP_PX</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">FIELD_GRID_STEP_PX</span><span class="o">*</span><span class="mf">2.6</span><span class="p">)</span> 
+			<span class="n">t_f0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+			<span class="n">draw_field_grid</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">world_size_m</span><span class="p">,</span> <span class="n">ppm</span><span class="p">,</span> <span class="n">FIELD_GRID_STEP_PX</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">SOFTENING_FRACTION</span><span class="p">)</span>
+			<span class="n">t_f1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+			<span class="n">field_ms</span> <span class="o">+=</span> <span class="p">(</span><span class="n">t_f1</span> <span class="o">-</span> <span class="n">t_f0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0</span>
+		<span class="c1"># Glow under trajectories and particles</span>
+		<span class="n">draw_particle_glows</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">ppm</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">sim</span><span class="o">.</span><span class="n">show_trails</span><span class="p">:</span>
+			<span class="n">draw_trails</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">ppm</span><span class="p">)</span>
+		<span class="c1"># Theory: draw analytical trajectory when validation is active</span>
+		<span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;validation_active&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="n">sim</span><span class="o">.</span><span class="n">validation_theory_traj</span><span class="p">:</span>
+			<span class="n">points</span> <span class="o">=</span> <span class="p">[</span><span class="n">xy</span> <span class="k">for</span> <span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">xy</span><span class="p">)</span> <span class="ow">in</span> <span class="n">sim</span><span class="o">.</span><span class="n">validation_theory_traj</span><span class="p">]</span>
+			<span class="n">draw_polyline_world</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">COLOR_THEORY_TRAJECTORY</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">ppm</span><span class="p">)</span>
+		<span class="n">draw_particles</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">ppm</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">selected_index</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">sim</span><span class="o">.</span><span class="n">show_velocities</span><span class="p">:</span>
+			<span class="n">draw_velocity_vectors</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">ppm</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">sim</span><span class="o">.</span><span class="n">show_forces</span><span class="p">:</span>
+			<span class="n">draw_force_vectors</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">last_forces</span><span class="p">,</span> <span class="n">ppm</span><span class="p">)</span>
+		<span class="n">render_placement_preview</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">input_state</span><span class="p">,</span> <span class="n">ppm</span><span class="p">)</span>
+
+		<span class="n">t_draw1</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
+		<span class="n">draw_ms_total</span> <span class="o">=</span> <span class="p">(</span><span class="n">t_draw1</span> <span class="o">-</span> <span class="n">t_draw0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0</span>
+		<span class="n">draw_ms</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">draw_ms_total</span> <span class="o">-</span> <span class="n">field_ms</span><span class="p">)</span>
+
+		<span class="c1"># Overlay</span>
+		<span class="n">fps</span> <span class="o">=</span> <span class="n">clock</span><span class="o">.</span><span class="n">get_fps</span><span class="p">()</span> <span class="ow">or</span> <span class="nb">float</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">FPS_TARGET</span><span class="p">)</span>
+		<span class="n">speed_label</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;0.5×&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;1×&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="s2">&quot;2×&quot;</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="s2">&quot;4×&quot;</span><span class="p">}[</span><span class="n">sim</span><span class="o">.</span><span class="n">speed_index</span><span class="p">]</span>
+		<span class="n">sim_state</span> <span class="o">=</span> <span class="p">{</span>
+			<span class="s2">&quot;fps&quot;</span><span class="p">:</span> <span class="n">fps</span><span class="p">,</span>
+			<span class="s2">&quot;n&quot;</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">particles</span><span class="p">),</span>
+			<span class="s2">&quot;speed_label&quot;</span><span class="p">:</span> <span class="n">speed_label</span><span class="p">,</span>
+			<span class="s2">&quot;dt_s&quot;</span><span class="p">:</span> <span class="n">config</span><span class="o">.</span><span class="n">DT_S</span><span class="p">,</span>
+			<span class="s2">&quot;substeps&quot;</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">SUBSTEPS_BASE_PER_FRAME</span> <span class="o">*</span> <span class="n">config</span><span class="o">.</span><span class="n">SPEED_MULTIPLIERS</span><span class="p">[</span><span class="n">sim</span><span class="o">.</span><span class="n">speed_index</span><span class="p">])),</span>
+			<span class="s2">&quot;E_kin&quot;</span><span class="p">:</span> <span class="n">sim</span><span class="o">.</span><span class="n">energy_kin</span><span class="p">,</span>
+			<span class="s2">&quot;E_pot&quot;</span><span class="p">:</span> <span class="n">sim</span><span class="o">.</span><span class="n">energy_pot</span><span class="p">,</span>
+			<span class="s2">&quot;E_tot&quot;</span><span class="p">:</span> <span class="n">sim</span><span class="o">.</span><span class="n">energy_tot</span><span class="p">,</span>
+		<span class="p">}</span>
+		<span class="c1"># Validation overlay payload</span>
+		<span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;validation_active&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+			<span class="n">E</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">UNIFORM_FIELD_VECTOR_NC</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">UNIFORM_FIELD_VECTOR_NC</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+			<span class="c1"># Acceleration a = (q/m)E from sim state if available</span>
+			<span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;validation_accel_mps2&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+				<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">validation_accel_mps2</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">validation_accel_mps2</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+			<span class="n">cur</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;validation_current_errors&quot;</span><span class="p">,</span> <span class="p">{})</span> <span class="ow">or</span> <span class="p">{}</span>
+			<span class="n">val_payload</span> <span class="o">=</span> <span class="p">{</span>
+				<span class="s2">&quot;active&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+				<span class="s2">&quot;E&quot;</span><span class="p">:</span> <span class="n">E</span><span class="p">,</span>
+				<span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="n">a</span><span class="p">,</span>
+				<span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">cur</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;t&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
+				<span class="s2">&quot;pos_err&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">cur</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;pos_err&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
+				<span class="s2">&quot;vel_err&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">cur</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;vel_err&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
+				<span class="s2">&quot;dt_s&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">DT_S</span><span class="p">),</span>
+				<span class="s2">&quot;duration_s&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s2">&quot;VALIDATION_DURATION_S&quot;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)),</span>
+			<span class="p">}</span>
+			<span class="c1"># Final comparison values</span>
+			<span class="n">val_payload</span><span class="p">[</span><span class="s2">&quot;reached_end&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="nb">getattr</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;validation_reached_end&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">))</span>
+			<span class="n">pos_th</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;validation_final_theory_pos_m&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+			<span class="n">vel_th</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;validation_final_theory_vel_mps&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+			<span class="n">pos_sim</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;validation_final_sim_pos_m&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+			<span class="n">vel_sim</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="s2">&quot;validation_final_sim_vel_mps&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">pos_th</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">vel_th</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+				<span class="n">val_payload</span><span class="p">[</span><span class="s2">&quot;pos_th&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">pos_th</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">pos_th</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+				<span class="n">val_payload</span><span class="p">[</span><span class="s2">&quot;vel_th&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">vel_th</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">vel_th</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+			<span class="k">if</span> <span class="n">pos_sim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">vel_sim</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+				<span class="n">val_payload</span><span class="p">[</span><span class="s2">&quot;pos_sim&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">pos_sim</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">pos_sim</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+				<span class="n">val_payload</span><span class="p">[</span><span class="s2">&quot;vel_sim&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">vel_sim</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">vel_sim</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+			<span class="n">sim_state</span><span class="p">[</span><span class="s2">&quot;validation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">val_payload</span>
+		<span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="s2">&quot;PROFILE_OVERLAY_ENABLED&quot;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+			<span class="n">tot_ms</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span> <span class="o">-</span> <span class="n">frame_t0</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1000.0</span>
+			<span class="n">sim_state</span><span class="p">[</span><span class="s2">&quot;profile&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+				<span class="s2">&quot;physics_ms&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">physics_ms</span><span class="p">),</span>
+				<span class="s2">&quot;field_ms&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">field_ms</span><span class="p">),</span>
+				<span class="s2">&quot;draw_ms&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">draw_ms</span><span class="p">),</span>
+				<span class="s2">&quot;total_ms&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">tot_ms</span><span class="p">),</span>
+			<span class="p">}</span>
+		<span class="n">draw_overlay</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">font</span><span class="p">,</span> <span class="n">sim_state</span><span class="p">,</span> <span class="n">input_state</span><span class="o">.</span><span class="n">overlay_enabled</span><span class="p">)</span>
+		<span class="n">render_hover_tooltip</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">font</span><span class="p">,</span> <span class="n">sim</span><span class="p">,</span> <span class="n">input_state</span><span class="p">,</span> <span class="n">ppm</span><span class="p">)</span>
+
+		<span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+		<span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">FPS_TARGET</span><span class="p">)</span></div>
+
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+	<span class="k">try</span><span class="p">:</span>
+		<span class="n">main</span><span class="p">()</span>
+	<span class="k">except</span> <span class="ne">SystemExit</span><span class="p">:</span>
+		<span class="k">raise</span>
+	<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+		<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Error: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+		<span class="k">raise</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Danny Luna.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

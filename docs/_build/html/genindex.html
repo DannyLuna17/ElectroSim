@@ -1,0 +1,1208 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Index &#8212; ElectroSim Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'genindex';</script>
+    <link rel="index" title="Index" href="#" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ElectroSim Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+
+<h1 id="index">Index</h1>
+
+<div class="genindex-jumpbox">
+ <a href="#A"><strong>A</strong></a>
+ | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
+ | <a href="#E"><strong>E</strong></a>
+ | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
+ | <a href="#I"><strong>I</strong></a>
+ | <a href="#M"><strong>M</strong></a>
+ | <a href="#O"><strong>O</strong></a>
+ | <a href="#P"><strong>P</strong></a>
+ | <a href="#R"><strong>R</strong></a>
+ | <a href="#S"><strong>S</strong></a>
+ | <a href="#T"><strong>T</strong></a>
+ | <a href="#U"><strong>U</strong></a>
+ | <a href="#V"><strong>V</strong></a>
+ | <a href="#W"><strong>W</strong></a>
+ 
+</div>
+<h2 id="A">A</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.add_particle">add_particle() (Simulation method)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.adjust_selected_charge">adjust_selected_charge() (Simulation method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.adjust_selected_mass">adjust_selected_mass() (Simulation method)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.adjust_selected_radius">adjust_selected_radius() (Simulation method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="C">C</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Particle.charge_c">charge_c (Particle attribute)</a>, <a href="api/_autosummary/electrosim.simulation.engine.html#id4">[1]</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.clear">clear() (Simulation method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Particle.color_rgb">color_rgb (Particle attribute)</a>, <a href="api/_autosummary/electrosim.simulation.engine.html#id7">[1]</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.compute_accelerations">compute_accelerations() (in module electrosim.simulation.physics)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState.drag_prev_fixed">drag_prev_fixed (InputState attribute)</a>, <a href="api/_autosummary/electrosim.ui.controls.html#id7">[1]</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState.drag_prev_velocity_mps">drag_prev_velocity_mps (InputState attribute)</a>, <a href="api/_autosummary/electrosim.ui.controls.html#id8">[1]</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState.dragging_selected">dragging_selected (InputState attribute)</a>, <a href="api/_autosummary/electrosim.ui.controls.html#id6">[1]</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.draw_field_grid">draw_field_grid() (in module electrosim.rendering.draw)</a>
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.field.html#electrosim.rendering.field.draw_field_grid">(in module electrosim.rendering.field)</a>
+</li>
+      </ul></li>
+      <li><a href="api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.draw_force_vectors">draw_force_vectors() (in module electrosim.rendering.draw)</a>
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.particles.html#electrosim.rendering.particles.draw_force_vectors">(in module electrosim.rendering.particles)</a>
+</li>
+      </ul></li>
+      <li><a href="api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.draw_glow_at_screen_pos">draw_glow_at_screen_pos() (in module electrosim.rendering.draw)</a>
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.primitives.html#electrosim.rendering.primitives.draw_glow_at_screen_pos">(in module electrosim.rendering.primitives)</a>
+</li>
+      </ul></li>
+      <li><a href="api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.draw_meter_grid">draw_meter_grid() (in module electrosim.rendering.draw)</a>
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.primitives.html#electrosim.rendering.primitives.draw_meter_grid">(in module electrosim.rendering.primitives)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.draw_overlay">draw_overlay() (in module electrosim.rendering.draw)</a>
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.overlay.html#electrosim.rendering.overlay.draw_overlay">(in module electrosim.rendering.overlay)</a>
+</li>
+      </ul></li>
+      <li><a href="api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.draw_particle_glows">draw_particle_glows() (in module electrosim.rendering.draw)</a>
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.particles.html#electrosim.rendering.particles.draw_particle_glows">(in module electrosim.rendering.particles)</a>
+</li>
+      </ul></li>
+      <li><a href="api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.draw_particles">draw_particles() (in module electrosim.rendering.draw)</a>
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.particles.html#electrosim.rendering.particles.draw_particles">(in module electrosim.rendering.particles)</a>
+</li>
+      </ul></li>
+      <li><a href="api/_autosummary/electrosim.rendering.trails.html#electrosim.rendering.trails.draw_polyline_world">draw_polyline_world() (in module electrosim.rendering.trails)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.draw_trails">draw_trails() (in module electrosim.rendering.draw)</a>
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.trails.html#electrosim.rendering.trails.draw_trails">(in module electrosim.rendering.trails)</a>
+</li>
+      </ul></li>
+      <li><a href="api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.draw_velocity_vectors">draw_velocity_vectors() (in module electrosim.rendering.draw)</a>
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.particles.html#electrosim.rendering.particles.draw_velocity_vectors">(in module electrosim.rendering.particles)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="E">E</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.electric_field_at_point">electric_field_at_point() (in module electrosim.simulation.physics)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.electric_force_pair">electric_force_pair() (in module electrosim.simulation.physics)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.rendering.field_sampler.html#electrosim.rendering.field_sampler.ElectricFieldSampler">ElectricFieldSampler (class in electrosim.rendering.field_sampler)</a>
+</li>
+      <li>
+    electrosim
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.html#module-electrosim">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.config
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.config.html#module-electrosim.config">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.rendering
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.html#module-electrosim.rendering">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.rendering.draw
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.draw.html#module-electrosim.rendering.draw">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.rendering.field
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.field.html#module-electrosim.rendering.field">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.rendering.field_sampler
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.field_sampler.html#module-electrosim.rendering.field_sampler">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.rendering.overlay
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.overlay.html#module-electrosim.rendering.overlay">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    electrosim.rendering.particles
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.particles.html#module-electrosim.rendering.particles">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.rendering.primitives
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.primitives.html#module-electrosim.rendering.primitives">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.rendering.trails
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.trails.html#module-electrosim.rendering.trails">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.simulation
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.simulation.html#module-electrosim.simulation">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.simulation.engine
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.simulation.engine.html#module-electrosim.simulation.engine">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.simulation.physics
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.simulation.physics.html#module-electrosim.simulation.physics">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.ui
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.ui.html#module-electrosim.ui">module</a>
+</li>
+      </ul></li>
+      <li>
+    electrosim.ui.controls
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.ui.controls.html#module-electrosim.ui.controls">module</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
+<h2 id="F">F</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Particle.fixed">fixed (Particle attribute)</a>, <a href="api/_autosummary/electrosim.simulation.engine.html#id6">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.rendering.field_sampler.html#electrosim.rendering.field_sampler.ElectricFieldSampler.grid_step_px">grid_step_px (ElectricFieldSampler attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.handle_events">handle_events() (in module electrosim.ui.controls)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Particle.history">history (Particle attribute)</a>, <a href="api/_autosummary/electrosim.simulation.engine.html#id8">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="I">I</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Particle.id">id (Particle attribute)</a>, <a href="api/_autosummary/electrosim.simulation.engine.html#id0">[1]</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState">InputState (class in electrosim.ui.controls)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.rendering.field_sampler.html#electrosim.rendering.field_sampler.ElectricFieldSampler.iter_centers_and_vectors_px">iter_centers_and_vectors_px() (ElectricFieldSampler method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="M">M</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li>
+    main
+
+      <ul>
+        <li><a href="api/_autosummary/main.html#module-main">module</a>
+</li>
+      </ul></li>
+      <li><a href="api/_autosummary/main.html#main.main">main() (in module main)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Particle.mass_kg">mass_kg (Particle attribute)</a>, <a href="api/_autosummary/electrosim.simulation.engine.html#id3">[1]</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.minimum_image_displacement">minimum_image_displacement() (in module electrosim.simulation.physics)</a>
+</li>
+      <li>
+    module
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.html#module-electrosim">electrosim</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.config.html#module-electrosim.config">electrosim.config</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.rendering.html#module-electrosim.rendering">electrosim.rendering</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.rendering.draw.html#module-electrosim.rendering.draw">electrosim.rendering.draw</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.rendering.field.html#module-electrosim.rendering.field">electrosim.rendering.field</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.rendering.field_sampler.html#module-electrosim.rendering.field_sampler">electrosim.rendering.field_sampler</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.rendering.overlay.html#module-electrosim.rendering.overlay">electrosim.rendering.overlay</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.rendering.particles.html#module-electrosim.rendering.particles">electrosim.rendering.particles</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.rendering.primitives.html#module-electrosim.rendering.primitives">electrosim.rendering.primitives</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.rendering.trails.html#module-electrosim.rendering.trails">electrosim.rendering.trails</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.simulation.html#module-electrosim.simulation">electrosim.simulation</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.simulation.engine.html#module-electrosim.simulation.engine">electrosim.simulation.engine</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.simulation.physics.html#module-electrosim.simulation.physics">electrosim.simulation.physics</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.ui.html#module-electrosim.ui">electrosim.ui</a>
+</li>
+        <li><a href="api/_autosummary/electrosim.ui.controls.html#module-electrosim.ui.controls">electrosim.ui.controls</a>
+</li>
+        <li><a href="api/_autosummary/main.html#module-main">main</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState.mouse_pos_px">mouse_pos_px (InputState attribute)</a>, <a href="api/_autosummary/electrosim.ui.controls.html#id5">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="O">O</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState.overlay_enabled">overlay_enabled (InputState attribute)</a>, <a href="api/_autosummary/electrosim.ui.controls.html#id4">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="P">P</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Particle">Particle (class in electrosim.simulation.engine)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.rendering.field_sampler.html#electrosim.rendering.field_sampler.ElectricFieldSampler.pixels_per_meter">pixels_per_meter (ElectricFieldSampler attribute)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState.place_current_px">place_current_px (InputState attribute)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState.place_start_px">place_start_px (InputState attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState.placing">placing (InputState attribute)</a>, <a href="api/_autosummary/electrosim.ui.controls.html#id0">[1]</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState.placing_fixed">placing_fixed (InputState attribute)</a>, <a href="api/_autosummary/electrosim.ui.controls.html#id2">[1]</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState.placing_negative">placing_negative (InputState attribute)</a>, <a href="api/_autosummary/electrosim.ui.controls.html#id1">[1]</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Particle.pos_m">pos_m (Particle attribute)</a>, <a href="api/_autosummary/electrosim.simulation.engine.html#id1">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="R">R</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Particle.radius_m">radius_m (Particle attribute)</a>, <a href="api/_autosummary/electrosim.simulation.engine.html#id5">[1]</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.rendering.field_sampler.html#electrosim.rendering.field_sampler.ElectricFieldSampler.recompute">recompute() (ElectricFieldSampler method)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.recompute_energies">recompute_energies() (Simulation method)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.remove_selected_particle">remove_selected_particle() (Simulation method)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.render_hover_tooltip">render_hover_tooltip() (in module electrosim.ui.controls)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.render_placement_preview">render_placement_preview() (in module electrosim.ui.controls)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.reset_to_default_scene">reset_to_default_scene() (Simulation method)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.resolve_collisions">resolve_collisions() (in module electrosim.simulation.physics)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.rk4_integrate">rk4_integrate() (in module electrosim.simulation.physics)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="S">S</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.screen_vector_to_world">screen_vector_to_world() (in module electrosim.rendering.draw)</a>
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.primitives.html#electrosim.rendering.primitives.screen_vector_to_world">(in module electrosim.rendering.primitives)</a>
+</li>
+      </ul></li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.select_particle_at_screen_pos">select_particle_at_screen_pos() (Simulation method)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation">Simulation (class in electrosim.simulation.engine)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.rendering.field_sampler.html#electrosim.rendering.field_sampler.ElectricFieldSampler.softening_fraction">softening_fraction (ElectricFieldSampler attribute)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.start_uniform_field_validation">start_uniform_field_validation() (Simulation method)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.step_frame">step_frame() (Simulation method)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.step_substep">step_substep() (Simulation method)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.stop_validation">stop_validation() (Simulation method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="T">T</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.toggle_selected_fixed">toggle_selected_fixed() (Simulation method)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.ui.controls.html#electrosim.ui.controls.InputState.tooltip_enabled">tooltip_enabled (InputState attribute)</a>, <a href="api/_autosummary/electrosim.ui.controls.html#id3">[1]</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.total_kinetic_energy">total_kinetic_energy() (in module electrosim.simulation.physics)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.total_potential_energy">total_potential_energy() (in module electrosim.simulation.physics)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="U">U</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.update_trails">update_trails() (Simulation method)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="V">V</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Particle.vel_mps">vel_mps (Particle attribute)</a>, <a href="api/_autosummary/electrosim.simulation.engine.html#id2">[1]</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="W">W</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.rendering.field_sampler.html#electrosim.rendering.field_sampler.ElectricFieldSampler.world_size_m">world_size_m (ElectricFieldSampler attribute)</a>
+</li>
+      <li><a href="api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.world_vector_to_screen">world_vector_to_screen() (in module electrosim.rendering.draw)</a>
+
+      <ul>
+        <li><a href="api/_autosummary/electrosim.rendering.primitives.html#electrosim.rendering.primitives.world_vector_to_screen">(in module electrosim.rendering.primitives)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.wrap_position_in_place">wrap_position_in_place() (in module electrosim.simulation.physics)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Danny Luna.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

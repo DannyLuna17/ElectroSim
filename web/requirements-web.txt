@@ -1,0 +1,10 @@
+# Web version requirements
+# Note: These are loaded by Pyodide in the browser, not pip
+
+# Core scientific libraries (available in Pyodide)
+numpy
+scipy
+pygame
+
+matplotlib
+

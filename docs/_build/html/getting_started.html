@@ -1,0 +1,1280 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Getting Started &#8212; ElectroSim Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="_static/documentation_options.js?v=8d563738"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'getting_started';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Running the Simulation" href="user_guide/running.html" />
+    <link rel="prev" title="ElectroSim" href="index.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ElectroSim Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Getting Started</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="getting-started">
+<h1>Getting Started<a class="headerlink" href="#getting-started" title="Link to this heading">#</a></h1>
+<p>This guide walks you through installing and running ElectroSim on desktop and web platforms.</p>
+<section id="system-requirements">
+<h2>System Requirements<a class="headerlink" href="#system-requirements" title="Link to this heading">#</a></h2>
+<section id="desktop-version">
+<h3>Desktop Version<a class="headerlink" href="#desktop-version" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Operating System</strong>: Windows, Linux, or macOS</p></li>
+<li><p><strong>Python</strong>: 3.x</p></li>
+<li><p><strong>RAM</strong>: Minimum 2 GB, recommended 4 GB+</p></li>
+<li><p><strong>Display</strong>: 1280×800 or higher resolution</p></li>
+<li><p><strong>GPU</strong>: Not required (CPU-only simulation)</p></li>
+</ul>
+</section>
+<section id="web-version">
+<h3>Web Version<a class="headerlink" href="#web-version" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Browser</strong>: Chrome 90+, Firefox 88+, Safari 15+, or Edge 90+</p></li>
+<li><p><strong>RAM</strong>: Minimum 300 MB available for browser tab</p></li>
+<li><p><strong>Internet</strong>: Required for first load (~50-60 MB download)</p></li>
+<li><p><strong>JavaScript</strong>: Must be enabled</p></li>
+<li><p><strong>WebAssembly</strong>: Must be supported (enabled by default in modern browsers)</p></li>
+</ul>
+</section>
+</section>
+<section id="quick-start-choose-your-platform">
+<h2>Quick Start (Choose Your Platform)<a class="headerlink" href="#quick-start-choose-your-platform" title="Link to this heading">#</a></h2>
+<section id="option-1-web-version-easiest-no-installation">
+<h3>Option 1: Web Version (Easiest - No Installation)<a class="headerlink" href="#option-1-web-version-easiest-no-installation" title="Link to this heading">#</a></h3>
+<p><strong>Try the live demo</strong>: <a class="reference external" href="https://electro-sim.vercel.app/">https://electro-sim.vercel.app/</a></p>
+<ol class="arabic simple">
+<li><p>Open the link in a modern browser</p></li>
+<li><p>Wait for Pyodide and packages to load (30-60 seconds first time)</p></li>
+<li><p>Click “Start Simulation”</p></li>
+<li><p>Place particles with mouse, control with keyboard</p></li>
+</ol>
+<p>That’s it. No installation required.</p>
+</section>
+<section id="option-2-desktop-version-best-performance">
+<h3>Option 2: Desktop Version (Best Performance)<a class="headerlink" href="#option-2-desktop-version-best-performance" title="Link to this heading">#</a></h3>
+<p><strong>Full installation with Python environment:</strong></p>
+<section id="step-1-clone-or-download-repository">
+<h4>Step 1: Clone or Download Repository<a class="headerlink" href="#step-1-clone-or-download-repository" title="Link to this heading">#</a></h4>
+<p>If using git:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">://</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="p">/</span><span class="n">DannyLuna17</span><span class="p">/</span><span class="n">ElectroSim</span><span class="p">.</span><span class="n">git</span>
+<span class="nb">cd </span><span class="n">ElectroSim</span>
+</pre></div>
+</div>
+<p>Or download and extract the ZIP file, then navigate to the directory.</p>
+</section>
+<section id="step-2-create-virtual-environment">
+<h4>Step 2: Create Virtual Environment<a class="headerlink" href="#step-2-create-virtual-environment" title="Link to this heading">#</a></h4>
+<p><strong>Windows (PowerShell):</strong></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">venv</span> <span class="p">.</span><span class="n">venv</span>
+<span class="p">.</span><span class="n">venv</span><span class="p">\</span><span class="n">Scripts</span><span class="p">\</span><span class="n">Activate</span><span class="p">.</span><span class="n">ps1</span>
+</pre></div>
+</div>
+<p><strong>Linux/macOS (bash/zsh):</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+</pre></div>
+</div>
+<p><strong>Note</strong>: If PowerShell execution policy prevents activation:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">Set-ExecutionPolicy</span> <span class="n">-ExecutionPolicy</span> <span class="n">RemoteSigned</span> <span class="n">-Scope</span> <span class="n">CurrentUser</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-install-dependencies">
+<h4>Step 3: Install Dependencies<a class="headerlink" href="#step-3-install-dependencies" title="Link to this heading">#</a></h4>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>This installs:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pygame&gt;=2.6.1</span></code> - Graphics and windowing</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numpy&gt;=2.0.0</span></code> - Numerical arrays and linear algebra</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scipy</span></code> - Scientific computing (special functions)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">numba&gt;=0.59</span></code> - JIT compilation for physics kernels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">intel-cmplr-lib-rt</span></code> - Intel compiler runtime (optional optimization)</p></li>
+</ul>
+<p><strong>Troubleshooting installation:</strong></p>
+<p>If pip fails to install, try:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="p">-</span><span class="n">-upgrade</span> <span class="n">pip</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>If Numba fails on your platform:</p>
+<ul class="simple">
+<li><p>ElectroSim will fall back to pure NumPy (slower but functional)</p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">numba</span></code> from <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> if installation is problematic</p></li>
+</ul>
+</section>
+<section id="step-4-run-electrosim">
+<h4>Step 4: Run ElectroSim<a class="headerlink" href="#step-4-run-electrosim" title="Link to this heading">#</a></h4>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">main</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>A window should open with the simulation. You’ll see:</p>
+<ul class="simple">
+<li><p>Dark background</p></li>
+<li><p>One particle in the center</p></li>
+<li><p>FPS counter and energy display in top-left corner</p></li>
+</ul>
+<p><strong>First run tips:</strong></p>
+<ul class="simple">
+<li><p>Use mouse to place particles (click and drag)</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">E</span></code> to toggle electric field visualization</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">P</span></code> to pause/resume</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">F</span></code> to show force vectors</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">V</span></code> to show velocity vectors</p></li>
+<li><p>See controls below for full list</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="platform-specific-notes">
+<h2>Platform-Specific Notes<a class="headerlink" href="#platform-specific-notes" title="Link to this heading">#</a></h2>
+<section id="windows">
+<h3>Windows<a class="headerlink" href="#windows" title="Link to this heading">#</a></h3>
+<p>ElectroSim was developed primarily on Windows. Everything should work out of the box.</p>
+<p><strong>If you encounter DLL errors:</strong></p>
+<ul class="simple">
+<li><p>Install <a class="reference external" href="https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist">Visual C++ Redistributable</a></p></li>
+<li><p>Update graphics drivers</p></li>
+</ul>
+</section>
+<section id="linux">
+<h3>Linux<a class="headerlink" href="#linux" title="Link to this heading">#</a></h3>
+<p>Python 3.x is usually available via package manager:</p>
+<p><strong>Ubuntu/Debian:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>apt<span class="w"> </span>update
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>python3-venv
+</pre></div>
+</div>
+<p><strong>Fedora:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip
+</pre></div>
+</div>
+<p>Then follow standard installation steps.</p>
+<p><strong>Note on Numba</strong>: Linux usually has excellent Numba support via LLVM.</p>
+</section>
+<section id="macos">
+<h3>macOS<a class="headerlink" href="#macos" title="Link to this heading">#</a></h3>
+<p>Use Homebrew to install Python:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>brew<span class="w"> </span>install<span class="w"> </span>python@3.11
+</pre></div>
+</div>
+<p>Then follow standard installation steps.</p>
+<p><strong>Apple Silicon (M1/M2/M3/M4)</strong>: Numba may have limited support on ARM architecture. If installation fails, remove <code class="docutils literal notranslate"><span class="pre">numba</span></code> and <code class="docutils literal notranslate"><span class="pre">intel-cmplr-lib-rt</span></code> from requirements and run without JIT acceleration (slightly slower but fully functional).</p>
+</section>
+</section>
+<section id="running-electrosim-locally-web-version">
+<h2>Running ElectroSim Locally (Web Version)<a class="headerlink" href="#running-electrosim-locally-web-version" title="Link to this heading">#</a></h2>
+<p>You can run the web version on localhost for development or offline use:</p>
+<section id="step-1-navigate-to-web-directory">
+<h3>Step 1: Navigate to Web Directory<a class="headerlink" href="#step-1-navigate-to-web-directory" title="Link to this heading">#</a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd </span><span class="n">web</span>
+</pre></div>
+</div>
+</section>
+<section id="step-2-start-development-server">
+<h3>Step 2: Start Development Server<a class="headerlink" href="#step-2-start-development-server" title="Link to this heading">#</a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">server</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>You should see:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ElectroSim</span> <span class="n">Web</span> <span class="n">Server</span>
+<span class="n">Serving</span> <span class="n">at</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8000</span>
+<span class="n">Directory</span><span class="p">:</span> <span class="n">C</span><span class="p">:</span>\<span class="n">path</span>\<span class="n">to</span>\<span class="n">ElectroSim</span>\<span class="n">web</span>
+<span class="n">Open</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span><span class="mi">8000</span>
+<span class="n">Press</span> <span class="n">Ctrl</span><span class="o">+</span><span class="n">C</span> <span class="n">to</span> <span class="n">stop</span>
+</pre></div>
+</div>
+</section>
+<section id="step-3-open-in-browser">
+<h3>Step 3: Open in Browser<a class="headerlink" href="#step-3-open-in-browser" title="Link to this heading">#</a></h3>
+<p>Navigate to <code class="docutils literal notranslate"><span class="pre">http://localhost:8000</span></code> in your browser.</p>
+<p><strong>First load:</strong></p>
+<ul class="simple">
+<li><p>Status messages show package download progress</p></li>
+<li><p>Pyodide (~7 MB)</p></li>
+<li><p>NumPy (~15 MB)</p></li>
+<li><p>SciPy (~25 MB)</p></li>
+<li><p>pygame-ce (~5 MB)</p></li>
+<li><p>Total time: 30-60 seconds depending on connection</p></li>
+</ul>
+<p><strong>After first load:</strong></p>
+<ul class="simple">
+<li><p>Browser caches all packages</p></li>
+<li><p>Subsequent loads are fast (2-5 seconds)</p></li>
+</ul>
+</section>
+<section id="step-4-start-simulation">
+<h3>Step 4: Start Simulation<a class="headerlink" href="#step-4-start-simulation" title="Link to this heading">#</a></h3>
+<p>Click “Start Simulation” button when it becomes active.</p>
+</section>
+<section id="stopping-the-server">
+<h3>Stopping the Server<a class="headerlink" href="#stopping-the-server" title="Link to this heading">#</a></h3>
+<p>Press <code class="docutils literal notranslate"><span class="pre">Ctrl+C</span></code> in the terminal where <code class="docutils literal notranslate"><span class="pre">server.py</span></code> is running.</p>
+</section>
+</section>
+<section id="verifying-installation">
+<h2>Verifying Installation<a class="headerlink" href="#verifying-installation" title="Link to this heading">#</a></h2>
+<section id="id1">
+<h3>Desktop Version<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
+<p>After <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">main.py</span></code>, you should see:</p>
+<ol class="arabic simple">
+<li><p><strong>Window opens</strong> (1280×800 pixels)</p></li>
+<li><p><strong>Default scene loads</strong> with a few particles</p></li>
+<li><p><strong>FPS display</strong> in top-left corner (should be ~60 FPS)</p></li>
+<li><p><strong>Particle interactions</strong> visible (particles orbiting, attracting, repelling)</p></li>
+</ol>
+<p><strong>Test basic functionality:</strong></p>
+<ul class="simple">
+<li><p>Click to place a particle → New particle appears at click position</p></li>
+<li><p>Shift+Click → Blue (negative) particle appears</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">E</span></code> → Electric field grid appears</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">P</span></code> → Simulation pauses</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">R</span></code> → Scene resets to default</p></li>
+</ul>
+<p>If all these work, installation is successful.</p>
+</section>
+<section id="id2">
+<h3>Web Version<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
+<p>After clicking “Start Simulation”, you should see:</p>
+<ol class="arabic simple">
+<li><p><strong>Canvas activates</strong> with simulation rendering</p></li>
+<li><p><strong>Default particles</strong> visible and moving</p></li>
+<li><p><strong>FPS display</strong> in overlay (may be lower than desktop, 30-60 FPS typical)</p></li>
+<li><p><strong>Responsive controls</strong> (click, keyboard)</p></li>
+</ol>
+<p><strong>Test basic functionality:</strong></p>
+<ul class="simple">
+<li><p>Click canvas to place particle</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">E</span></code> to toggle field (may be slow with many particles)</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">P</span></code> to pause</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">R</span></code> to reset</p></li>
+</ul>
+<p>If controls work and particles interact, web version is functional.</p>
+</section>
+</section>
+<section id="building-documentation-optional">
+<h2>Building Documentation (Optional)<a class="headerlink" href="#building-documentation-optional" title="Link to this heading">#</a></h2>
+<p>Full documentation is pre-built in <code class="docutils literal notranslate"><span class="pre">docs/_build/html/</span></code>. To rebuild from source:</p>
+<section id="step-1-install-documentation-dependencies">
+<h3>Step 1: Install Documentation Dependencies<a class="headerlink" href="#step-1-install-documentation-dependencies" title="Link to this heading">#</a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">docs</span><span class="p">/</span><span class="n">requirements-docs</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>This installs:</p>
+<ul class="simple">
+<li><p>Sphinx - Documentation generator</p></li>
+<li><p>MyST-Parser - Markdown support in Sphinx</p></li>
+<li><p>Furo theme - Clean modern Sphinx theme</p></li>
+<li><p>Various Sphinx extensions</p></li>
+</ul>
+</section>
+<section id="step-2-build-html-documentation">
+<h3>Step 2: Build HTML Documentation<a class="headerlink" href="#step-2-build-html-documentation" title="Link to this heading">#</a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">sphinx</span> <span class="n">-b</span> <span class="n">html</span> <span class="n">docs</span> <span class="n">docs</span><span class="p">/</span><span class="n">_build</span><span class="p">/</span><span class="n">html</span>
+</pre></div>
+</div>
+<p>Build output will be in <code class="docutils literal notranslate"><span class="pre">docs/_build/html/</span></code>.</p>
+</section>
+<section id="step-3-open-documentation">
+<h3>Step 3: Open Documentation<a class="headerlink" href="#step-3-open-documentation" title="Link to this heading">#</a></h3>
+<p><strong>Windows:</strong></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">start </span><span class="n">docs</span><span class="p">/</span><span class="n">_build</span><span class="p">/</span><span class="n">html</span><span class="p">/</span><span class="n">index</span><span class="p">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<p><strong>Linux:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>xdg-open<span class="w"> </span>docs/_build/html/index.html
+</pre></div>
+</div>
+<p><strong>macOS:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>open<span class="w"> </span>docs/_build/html/index.html
+</pre></div>
+</div>
+<p>Or manually navigate to <code class="docutils literal notranslate"><span class="pre">docs/_build/html/index.html</span></code> in your file browser.</p>
+</section>
+<section id="cleaning-documentation-build">
+<h3>Cleaning Documentation Build<a class="headerlink" href="#cleaning-documentation-build" title="Link to this heading">#</a></h3>
+<p>To rebuild from scratch:</p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">-m</span> <span class="n">sphinx</span> <span class="n">-M</span> <span class="n">clean</span> <span class="n">docs</span> <span class="n">docs</span><span class="p">/</span><span class="n">_build</span>
+<span class="n">python</span> <span class="n">-m</span> <span class="n">sphinx</span> <span class="n">-b</span> <span class="n">html</span> <span class="n">docs</span> <span class="n">docs</span><span class="p">/</span><span class="n">_build</span><span class="p">/</span><span class="n">html</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="updating-the-web-deployment">
+<h2>Updating the Web Deployment<a class="headerlink" href="#updating-the-web-deployment" title="Link to this heading">#</a></h2>
+<p>If you modify the desktop code and want to update the web version:</p>
+<section id="step-1-run-deployment-script">
+<h3>Step 1: Run Deployment Script<a class="headerlink" href="#step-1-run-deployment-script" title="Link to this heading">#</a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">deploy_web</span><span class="p">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>This copies the latest <code class="docutils literal notranslate"><span class="pre">electrosim/</span></code> package to <code class="docutils literal notranslate"><span class="pre">web/electrosim/</span></code>.</p>
+</section>
+<section id="step-2-test-locally">
+<h3>Step 2: Test Locally<a class="headerlink" href="#step-2-test-locally" title="Link to this heading">#</a></h3>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd </span><span class="n">web</span>
+<span class="n">python</span> <span class="n">server</span><span class="p">.</span><span class="n">py</span>
+<span class="c"># Open http://localhost:8000 and test</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="common-issues-and-solutions">
+<h2>Common Issues and Solutions<a class="headerlink" href="#common-issues-and-solutions" title="Link to this heading">#</a></h2>
+<section id="desktop-issues">
+<h3>Desktop Issues<a class="headerlink" href="#desktop-issues" title="Link to this heading">#</a></h3>
+<p><strong>“No module named pygame/numpy/numba”</strong></p>
+<div class="highlight-powershell notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">-r</span> <span class="n">requirements</span><span class="p">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Make sure virtual environment is activated.</p>
+<p><strong>Window opens but is black/frozen</strong></p>
+<ul class="simple">
+<li><p>Update graphics drivers</p></li>
+<li><p>Try disabling hardware acceleration</p></li>
+<li><p>Check console for error messages</p></li>
+</ul>
+<p><strong>“ImportError: DLL load failed”</strong> (Windows)</p>
+<ul class="simple">
+<li><p>Install Visual C++ Redistributable</p></li>
+<li><p>Reinstall Python with “pip” and “tcl/tk” options enabled</p></li>
+</ul>
+<p><strong>Numba installation fails</strong></p>
+<ul class="simple">
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">numba</span></code> and <code class="docutils literal notranslate"><span class="pre">intel-cmplr-lib-rt</span></code> from <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code></p></li>
+<li><p>Install remaining packages: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pygame</span> <span class="pre">numpy</span> <span class="pre">scipy</span></code></p></li>
+<li><p>ElectroSim will detect missing Numba and fall back automatically</p></li>
+</ul>
+<p><strong>Simulation is very slow (&lt; 30 FPS with few particles)</strong></p>
+<ul class="simple">
+<li><p>Enable <code class="docutils literal notranslate"><span class="pre">FIELD_SAMPLER_ENABLED</span> <span class="pre">=</span> <span class="pre">True</span></code> in <code class="docutils literal notranslate"><span class="pre">electrosim/config.py</span></code></p></li>
+<li><p>Enable <code class="docutils literal notranslate"><span class="pre">NUMBA_PARALLEL_ACCEL</span> <span class="pre">=</span> <span class="pre">True</span></code> if Numba is installed</p></li>
+<li><p>Disable field visualization (press <code class="docutils literal notranslate"><span class="pre">E</span></code>) for testing</p></li>
+<li><p>Check Task Manager - close other CPU-intensive programs</p></li>
+</ul>
+</section>
+<section id="web-issues">
+<h3>Web Issues<a class="headerlink" href="#web-issues" title="Link to this heading">#</a></h3>
+<p><strong>“Failed to load Pyodide”</strong></p>
+<ul class="simple">
+<li><p>Check internet connection</p></li>
+<li><p>Try different browser</p></li>
+<li><p>Clear browser cache and retry</p></li>
+<li><p>Check browser console (F12) for specific error</p></li>
+</ul>
+<p><strong>Very slow loading</strong></p>
+<ul class="simple">
+<li><p>First load downloads ~50-60 MB</p></li>
+<li><p>Check network speed</p></li>
+<li><p>Subsequent loads use cache (much faster)</p></li>
+<li><p>Consider using desktop version if network is unreliable</p></li>
+</ul>
+<p><strong>Keyboard doesn’t work</strong></p>
+<ul class="simple">
+<li><p>Click the canvas to focus it (white border appears)</p></li>
+<li><p>Some browsers capture certain keys (F1, F11, Ctrl+W, etc.)</p></li>
+<li><p>Check browser console for “KeyboardEvent” errors</p></li>
+</ul>
+<p><strong>Simulation crashes/freezes</strong></p>
+<ul class="simple">
+<li><p>Reduce particle count (&lt; 20 recommended for web)</p></li>
+<li><p>Close other browser tabs to free memory</p></li>
+<li><p>Refresh page to reset</p></li>
+<li><p>Try desktop version for better performance</p></li>
+</ul>
+</section>
+<section id="both-platforms">
+<h3>Both Platforms<a class="headerlink" href="#both-platforms" title="Link to this heading">#</a></h3>
+<p><strong>Particles behaving strangely</strong></p>
+<ul class="simple">
+<li><p>Physics is deterministic; strange behavior is usually correct</p></li>
+<li><p>Periodic boundaries cause wrapping (particles reappear on opposite side)</p></li>
+<li><p>Press <code class="docutils literal notranslate"><span class="pre">R</span></code> to reset to known-good default scene</p></li>
+<li><p>Check that you haven’t accidentally created overlapping particles</p></li>
+</ul>
+<p><strong>Energy not conserving</strong></p>
+<ul class="simple">
+<li><p>Small energy drift is normal (numerical error accumulation)</p></li>
+<li><p>Large energy changes indicate collisions or merging</p></li>
+<li><p>Opposite charges merge on contact (energy changes)</p></li>
+<li><p>Check overlay: E_tot should be relatively stable over time</p></li>
+</ul>
+</section>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading">#</a></h2>
+<p>Now that ElectroSim is running:</p>
+<ol class="arabic simple">
+<li><p><strong>Learn the controls</strong>: See <a class="reference internal" href="user_guide/controls.html"><span class="std std-doc">User Guide → Controls</span></a></p></li>
+<li><p><strong>Understand visualization</strong>: See <a class="reference internal" href="user_guide/visualization.html"><span class="std std-doc">User Guide → Visualization</span></a></p></li>
+<li><p><strong>Configure settings</strong>: See <a class="reference internal" href="user_guide/configuration.html"><span class="std std-doc">User Guide → Configuration</span></a></p></li>
+<li><p><strong>Explore the physics</strong>: See <a class="reference internal" href="developer_guide/physics_overview.html"><span class="std std-doc">Developer Guide → Physics Overview</span></a></p></li>
+<li><p><strong>Read the math</strong>: See <a class="reference internal" href="math/coulomb_periodic.html"><span class="std std-doc">Mathematical Foundations</span></a></p></li>
+</ol>
+</section>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading">#</a></h2>
+<p><strong>Documentation:</strong></p>
+<ul class="simple">
+<li><p>This guide and other docs in <code class="docutils literal notranslate"><span class="pre">docs/</span></code></p></li>
+<li><p>README files in project root and <code class="docutils literal notranslate"><span class="pre">web/</span></code></p></li>
+<li><p>Code comments and docstrings</p></li>
+</ul>
+<p><strong>Debugging:</strong></p>
+<ul class="simple">
+<li><p>Check console output for error messages</p></li>
+<li><p>Enable <code class="docutils literal notranslate"><span class="pre">PROFILE_OVERLAY_ENABLED</span> <span class="pre">=</span> <span class="pre">True</span></code> to see performance metrics</p></li>
+<li><p>Read <a class="reference internal" href="developer_guide/validation.html"><span class="std std-doc">Developer Guide → Validation</span></a> for testing approaches</p></li>
+</ul>
+<p><strong>Performance tuning:</strong></p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="developer_guide/performance.html"><span class="std std-doc">Developer Guide → Performance</span></a></p></li>
+<li><p>Adjust settings in <code class="docutils literal notranslate"><span class="pre">electrosim/config.py</span></code></p></li>
+<li><p>Web version: see <code class="docutils literal notranslate"><span class="pre">web/config_web.py</span></code> overrides</p></li>
+</ul>
+<p>Happy simulating!</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="index.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">ElectroSim</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="user_guide/running.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Running the Simulation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-requirements">System Requirements</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desktop-version">Desktop Version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-version">Web Version</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-start-choose-your-platform">Quick Start (Choose Your Platform)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-1-web-version-easiest-no-installation">Option 1: Web Version (Easiest - No Installation)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#option-2-desktop-version-best-performance">Option 2: Desktop Version (Best Performance)</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-clone-or-download-repository">Step 1: Clone or Download Repository</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-create-virtual-environment">Step 2: Create Virtual Environment</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-install-dependencies">Step 3: Install Dependencies</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-run-electrosim">Step 4: Run ElectroSim</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-specific-notes">Platform-Specific Notes</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#windows">Windows</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linux">Linux</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#macos">macOS</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#running-electrosim-locally-web-version">Running ElectroSim Locally (Web Version)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-navigate-to-web-directory">Step 1: Navigate to Web Directory</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-start-development-server">Step 2: Start Development Server</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-open-in-browser">Step 3: Open in Browser</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-4-start-simulation">Step 4: Start Simulation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stopping-the-server">Stopping the Server</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#verifying-installation">Verifying Installation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Desktop Version</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Web Version</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#building-documentation-optional">Building Documentation (Optional)</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-install-documentation-dependencies">Step 1: Install Documentation Dependencies</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-build-html-documentation">Step 2: Build HTML Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-3-open-documentation">Step 3: Open Documentation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cleaning-documentation-build">Cleaning Documentation Build</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#updating-the-web-deployment">Updating the Web Deployment</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-1-run-deployment-script">Step 1: Run Deployment Script</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#step-2-test-locally">Step 2: Test Locally</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#common-issues-and-solutions">Common Issues and Solutions</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desktop-issues">Desktop Issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-issues">Web Issues</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#both-platforms">Both Platforms</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#next-steps">Next Steps</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#getting-help">Getting Help</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/getting_started.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Danny Luna.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

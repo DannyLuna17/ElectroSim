@@ -1,0 +1,1525 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>electrosim.simulation.physics &#8212; ElectroSim Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/electrosim/simulation/physics';</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ElectroSim Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer_guide/validation.html">
+    <no title>
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../../../annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer_guide/validation.html">
+    <no title>
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">electrosim.simulation.physics</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for electrosim.simulation.physics</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="k">try</span><span class="p">:</span>
+	<span class="kn">from</span><span class="w"> </span><span class="nn">numba</span><span class="w"> </span><span class="kn">import</span> <span class="n">njit</span><span class="p">,</span> <span class="n">prange</span><span class="p">,</span> <span class="n">set_num_threads</span>
+	<span class="n">_NUMBA_AVAILABLE</span> <span class="o">=</span> <span class="kc">True</span>
+	<span class="k">try</span><span class="p">:</span>
+		<span class="n">set_num_threads</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">))</span>
+	<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+		<span class="k">pass</span>
+<span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+	<span class="n">_NUMBA_AVAILABLE</span> <span class="o">=</span> <span class="kc">False</span>
+ 
+<span class="kn">from</span><span class="w"> </span><span class="nn">electrosim.config</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+	<span class="n">K_COULOMB</span><span class="p">,</span>
+	<span class="n">COLOR_POSITIVE</span><span class="p">,</span>
+	<span class="n">COLOR_NEGATIVE</span><span class="p">,</span>
+	<span class="n">COLOR_NEUTRAL</span><span class="p">,</span>
+	<span class="n">NEUTRAL_CHARGE_EPS</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">electrosim</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span> <span class="k">as</span> <span class="n">_cfg</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+	<span class="c1"># Only for type checking, avoids runtime circular imports</span>
+	<span class="kn">from</span><span class="w"> </span><span class="nn">electrosim.simulation.engine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Particle</span>
+
+
+<div class="viewcode-block" id="minimum_image_displacement">
+<a class="viewcode-back" href="../../../api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.minimum_image_displacement">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">minimum_image_displacement</span><span class="p">(</span><span class="n">p_i</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">p_j</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">world_size_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;Compute displacement from i to j using the minimum distance convention in a 2D torus.</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	p_i, p_j : numpy.ndarray shape (2,)</span>
+<span class="sd">		Positions in meters.</span>
+<span class="sd">	world_size_m : numpy.ndarray shape (2,)</span>
+<span class="sd">		World size in meters (width, height).</span>
+
+<span class="sd">	Returns</span>
+<span class="sd">	-------</span>
+<span class="sd">	numpy.ndarray shape (2,)</span>
+<span class="sd">		Displacement vector from i to j under minimum-image on the torus.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">delta</span> <span class="o">=</span> <span class="n">p_j</span> <span class="o">-</span> <span class="n">p_i</span>
+	<span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+		<span class="n">L</span> <span class="o">=</span> <span class="n">world_size_m</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span>
+		<span class="k">if</span> <span class="n">delta</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">L</span><span class="p">:</span>
+			<span class="n">delta</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">-=</span> <span class="n">L</span>
+		<span class="k">elif</span> <span class="n">delta</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">L</span><span class="p">:</span>
+			<span class="n">delta</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">+=</span> <span class="n">L</span>
+	<span class="k">return</span> <span class="n">delta</span></div>
+
+
+
+<div class="viewcode-block" id="wrap_position_in_place">
+<a class="viewcode-back" href="../../../api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.wrap_position_in_place">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">wrap_position_in_place</span><span class="p">(</span><span class="n">pos_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">world_size_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;Wrap a position into the periodic domain in-place.</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	pos_m : numpy.ndarray shape (2,)</span>
+<span class="sd">		Position in meters to be wrapped. Modified in-place.</span>
+<span class="sd">	world_size_m : numpy.ndarray shape (2,)</span>
+<span class="sd">		World size in meters (width, height).</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">):</span>
+		<span class="n">L</span> <span class="o">=</span> <span class="n">world_size_m</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span>
+		<span class="n">pos_m</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">=</span> <span class="n">pos_m</span><span class="p">[</span><span class="n">axis</span><span class="p">]</span> <span class="o">%</span> <span class="n">L</span></div>
+
+
+
+<div class="viewcode-block" id="electric_force_pair">
+<a class="viewcode-back" href="../../../api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.electric_force_pair">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">electric_force_pair</span><span class="p">(</span>
+	<span class="n">p_i</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+	<span class="n">q_i</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+	<span class="n">r_i</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+	<span class="n">p_j</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+	<span class="n">q_j</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+	<span class="n">r_j</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+	<span class="n">world_size_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+	<span class="n">softening_fraction</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;Compute softened Coulomb force on particle i due to j.</span>
+
+<span class="sd">	Uses minimum-image displacement on a 2D torus and Plummer-like softening with</span>
+<span class="sd">	``epsilon = softening_fraction * (r_i + r_j)``.</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	p_i, p_j : numpy.ndarray shape (2,)</span>
+<span class="sd">		Positions (m) of particles i and j.</span>
+<span class="sd">	q_i, q_j : float</span>
+<span class="sd">		Charges (C).</span>
+<span class="sd">	r_i, r_j : float</span>
+<span class="sd">		Contact radii (m).</span>
+<span class="sd">	world_size_m : numpy.ndarray</span>
+<span class="sd">		World size (m) as (Lx, Ly).</span>
+<span class="sd">	softening_fraction : float</span>
+<span class="sd">		Softening fraction applied to contact radius.</span>
+
+<span class="sd">	Returns</span>
+<span class="sd">	-------</span>
+<span class="sd">	numpy.ndarray shape (2,)</span>
+<span class="sd">		Force vector on i due to j (N).</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">r_vec</span> <span class="o">=</span> <span class="n">minimum_image_displacement</span><span class="p">(</span><span class="n">p_j</span><span class="p">,</span> <span class="n">p_i</span><span class="p">,</span> <span class="n">world_size_m</span><span class="p">)</span>
+	<span class="n">r2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span> <span class="n">r_vec</span><span class="p">))</span>
+	<span class="n">contact</span> <span class="o">=</span> <span class="n">r_i</span> <span class="o">+</span> <span class="n">r_j</span>
+	<span class="n">epsilon</span> <span class="o">=</span> <span class="n">softening_fraction</span> <span class="o">*</span> <span class="n">contact</span>
+	<span class="c1"># Denominator uses (r^2 + ε^2)^(3/2): since r^3 = (r^2)^(3/2), force is proportional r_vec / r^3</span>
+	<span class="n">den</span> <span class="o">=</span> <span class="p">(</span><span class="n">r2</span> <span class="o">+</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="n">epsilon</span><span class="p">)</span> <span class="o">**</span> <span class="mf">1.5</span>
+	<span class="k">if</span> <span class="n">den</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+	<span class="n">coef</span> <span class="o">=</span> <span class="n">K_COULOMB</span> <span class="o">*</span> <span class="n">q_i</span> <span class="o">*</span> <span class="n">q_j</span> <span class="o">/</span> <span class="n">den</span>
+	<span class="k">return</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">r_vec</span></div>
+
+
+
+<span class="c1"># Numba-accelerated</span>
+<span class="k">if</span> <span class="n">_NUMBA_AVAILABLE</span><span class="p">:</span>
+
+	<span class="nd">@njit</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">_compute_accelerations_numba_serial</span><span class="p">(</span>
+		<span class="n">pos</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">charge</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">radius</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">mass</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">fixed_mask</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">world_size</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">soft_frac</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+		<span class="n">k_coulomb</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+		<span class="n">uniform_active_i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+		<span class="n">uniform_Ex</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+		<span class="n">uniform_Ey</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+		<span class="c1"># Particles quantity</span>
+		<span class="n">N</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="c1"># Accelerations array</span>
+		<span class="n">acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+		<span class="c1"># World size</span>
+		<span class="n">Lx</span> <span class="o">=</span> <span class="n">world_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="n">Ly</span> <span class="o">=</span> <span class="n">world_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+		<span class="c1"># Compute accelerations for each particle</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+			<span class="c1"># Skip fixed, massless or neutral particles</span>
+			<span class="k">if</span> <span class="n">fixed_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">or</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="n">charge</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+				<span class="k">continue</span>
+			<span class="n">xi</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+			<span class="n">yi</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+			<span class="n">qi</span> <span class="o">=</span> <span class="n">charge</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+			<span class="n">ri</span> <span class="o">=</span> <span class="n">radius</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+			<span class="n">fx</span> <span class="o">=</span> <span class="mf">0.0</span>
+			<span class="n">fy</span> <span class="o">=</span> <span class="mf">0.0</span>
+			<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+				<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+					<span class="k">continue</span>
+				<span class="n">qj</span> <span class="o">=</span> <span class="n">charge</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+				<span class="k">if</span> <span class="n">qj</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+					<span class="k">continue</span>
+				<span class="n">dx</span> <span class="o">=</span> <span class="n">xi</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+				<span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Lx</span><span class="p">:</span>
+					<span class="n">dx</span> <span class="o">-=</span> <span class="n">Lx</span>
+				<span class="k">elif</span> <span class="n">dx</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">Lx</span><span class="p">:</span>
+					<span class="n">dx</span> <span class="o">+=</span> <span class="n">Lx</span>
+				<span class="n">dy</span> <span class="o">=</span> <span class="n">yi</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+				<span class="k">if</span> <span class="n">dy</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Ly</span><span class="p">:</span>
+					<span class="n">dy</span> <span class="o">-=</span> <span class="n">Ly</span>
+				<span class="k">elif</span> <span class="n">dy</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">Ly</span><span class="p">:</span>
+					<span class="n">dy</span> <span class="o">+=</span> <span class="n">Ly</span>
+				<span class="n">r2</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">*</span> <span class="n">dy</span>
+				<span class="n">contact</span> <span class="o">=</span> <span class="n">ri</span> <span class="o">+</span> <span class="n">radius</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+				<span class="n">eps</span> <span class="o">=</span> <span class="n">soft_frac</span> <span class="o">*</span> <span class="n">contact</span>
+				<span class="c1"># Denominator (r^2 + ε^2)^(3/2): r^3 = (r^2)^(3/2)</span>
+				<span class="n">den</span> <span class="o">=</span> <span class="p">(</span><span class="n">r2</span> <span class="o">+</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">eps</span><span class="p">)</span> <span class="o">**</span> <span class="mf">1.5</span>
+				<span class="k">if</span> <span class="n">den</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+					<span class="k">continue</span>
+				<span class="n">coef</span> <span class="o">=</span> <span class="n">k_coulomb</span> <span class="o">*</span> <span class="n">qi</span> <span class="o">*</span> <span class="n">qj</span> <span class="o">/</span> <span class="n">den</span>
+				<span class="n">fx</span> <span class="o">+=</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">dx</span>
+				<span class="n">fy</span> <span class="o">+=</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">dy</span>
+			<span class="c1"># Uniform field force contribution F = q E</span>
+			<span class="k">if</span> <span class="n">uniform_active_i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+				<span class="n">fx</span> <span class="o">+=</span> <span class="n">qi</span> <span class="o">*</span> <span class="n">uniform_Ex</span>
+				<span class="n">fy</span> <span class="o">+=</span> <span class="n">qi</span> <span class="o">*</span> <span class="n">uniform_Ey</span>
+			<span class="n">inv_m</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+			<span class="n">acc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">fx</span> <span class="o">*</span> <span class="n">inv_m</span>
+			<span class="n">acc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">fy</span> <span class="o">*</span> <span class="n">inv_m</span>
+		<span class="k">return</span> <span class="n">acc</span>
+
+	<span class="nd">@njit</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">_compute_accelerations_numba_parallel</span><span class="p">(</span>
+		<span class="n">pos</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">charge</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">radius</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">mass</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">fixed_mask</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">world_size</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">soft_frac</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+		<span class="n">k_coulomb</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+		<span class="n">uniform_active_i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+		<span class="n">uniform_Ex</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+		<span class="n">uniform_Ey</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+		<span class="n">N</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="n">acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+		<span class="n">Lx</span> <span class="o">=</span> <span class="n">world_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="n">Ly</span> <span class="o">=</span> <span class="n">world_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+		<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+			<span class="k">if</span> <span class="n">fixed_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="ow">or</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="n">charge</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+				<span class="k">continue</span>
+			<span class="n">xi</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+			<span class="n">yi</span> <span class="o">=</span> <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+			<span class="n">qi</span> <span class="o">=</span> <span class="n">charge</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+			<span class="n">ri</span> <span class="o">=</span> <span class="n">radius</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+			<span class="n">fx</span> <span class="o">=</span> <span class="mf">0.0</span>
+			<span class="n">fy</span> <span class="o">=</span> <span class="mf">0.0</span>
+			<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+				<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+					<span class="k">continue</span>
+				<span class="n">qj</span> <span class="o">=</span> <span class="n">charge</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+				<span class="k">if</span> <span class="n">qj</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+					<span class="k">continue</span>
+				<span class="n">dx</span> <span class="o">=</span> <span class="n">xi</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+				<span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Lx</span><span class="p">:</span>
+					<span class="n">dx</span> <span class="o">-=</span> <span class="n">Lx</span>
+				<span class="k">elif</span> <span class="n">dx</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">Lx</span><span class="p">:</span>
+					<span class="n">dx</span> <span class="o">+=</span> <span class="n">Lx</span>
+				<span class="n">dy</span> <span class="o">=</span> <span class="n">yi</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="n">j</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+				<span class="k">if</span> <span class="n">dy</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Ly</span><span class="p">:</span>
+					<span class="n">dy</span> <span class="o">-=</span> <span class="n">Ly</span>
+				<span class="k">elif</span> <span class="n">dy</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">Ly</span><span class="p">:</span>
+					<span class="n">dy</span> <span class="o">+=</span> <span class="n">Ly</span>
+				<span class="n">r2</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">*</span> <span class="n">dy</span>
+				<span class="n">contact</span> <span class="o">=</span> <span class="n">ri</span> <span class="o">+</span> <span class="n">radius</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+				<span class="n">eps</span> <span class="o">=</span> <span class="n">soft_frac</span> <span class="o">*</span> <span class="n">contact</span>
+				<span class="n">den</span> <span class="o">=</span> <span class="p">(</span><span class="n">r2</span> <span class="o">+</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">eps</span><span class="p">)</span> <span class="o">**</span> <span class="mf">1.5</span>
+				<span class="k">if</span> <span class="n">den</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+					<span class="k">continue</span>
+				<span class="n">coef</span> <span class="o">=</span> <span class="n">k_coulomb</span> <span class="o">*</span> <span class="n">qi</span> <span class="o">*</span> <span class="n">qj</span> <span class="o">/</span> <span class="n">den</span>
+				<span class="n">fx</span> <span class="o">+=</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">dx</span>
+				<span class="n">fy</span> <span class="o">+=</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">dy</span>
+			<span class="c1"># Uniform field force contribution F = q E</span>
+			<span class="k">if</span> <span class="n">uniform_active_i</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+				<span class="n">fx</span> <span class="o">+=</span> <span class="n">qi</span> <span class="o">*</span> <span class="n">uniform_Ex</span>
+				<span class="n">fy</span> <span class="o">+=</span> <span class="n">qi</span> <span class="o">*</span> <span class="n">uniform_Ey</span>
+			<span class="n">inv_m</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+			<span class="n">acc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">fx</span> <span class="o">*</span> <span class="n">inv_m</span>
+			<span class="n">acc</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">fy</span> <span class="o">*</span> <span class="n">inv_m</span>
+		<span class="k">return</span> <span class="n">acc</span>
+
+	<span class="nd">@njit</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">_compute_field_grid_numba</span><span class="p">(</span>
+		<span class="n">centers_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">pos</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">charge</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">radius</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">world_size</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+		<span class="n">soft_frac</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+		<span class="n">k_coulomb</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+	<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+		<span class="n">M</span> <span class="o">=</span> <span class="n">centers_m</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="n">N</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">M</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+		<span class="n">Lx</span> <span class="o">=</span> <span class="n">world_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="n">Ly</span> <span class="o">=</span> <span class="n">world_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+		<span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">prange</span><span class="p">(</span><span class="n">M</span><span class="p">):</span>
+			<span class="n">px</span> <span class="o">=</span> <span class="n">centers_m</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+			<span class="n">py</span> <span class="o">=</span> <span class="n">centers_m</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+			<span class="n">Ex</span> <span class="o">=</span> <span class="mf">0.0</span>
+			<span class="n">Ey</span> <span class="o">=</span> <span class="mf">0.0</span>
+			<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+				<span class="n">q</span> <span class="o">=</span> <span class="n">charge</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+				<span class="k">if</span> <span class="n">q</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+					<span class="k">continue</span>
+				<span class="n">dx</span> <span class="o">=</span> <span class="n">px</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+				<span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Lx</span><span class="p">:</span>
+					<span class="n">dx</span> <span class="o">-=</span> <span class="n">Lx</span>
+				<span class="k">elif</span> <span class="n">dx</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">Lx</span><span class="p">:</span>
+					<span class="n">dx</span> <span class="o">+=</span> <span class="n">Lx</span>
+				<span class="n">dy</span> <span class="o">=</span> <span class="n">py</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+				<span class="k">if</span> <span class="n">dy</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Ly</span><span class="p">:</span>
+					<span class="n">dy</span> <span class="o">-=</span> <span class="n">Ly</span>
+				<span class="k">elif</span> <span class="n">dy</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">Ly</span><span class="p">:</span>
+					<span class="n">dy</span> <span class="o">+=</span> <span class="n">Ly</span>
+				<span class="n">r2</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">*</span> <span class="n">dy</span>
+				<span class="n">eps</span> <span class="o">=</span> <span class="n">soft_frac</span> <span class="o">*</span> <span class="n">radius</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+				<span class="n">den</span> <span class="o">=</span> <span class="p">(</span><span class="n">r2</span> <span class="o">+</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">eps</span><span class="p">)</span> <span class="o">**</span> <span class="mf">1.5</span>
+				<span class="k">if</span> <span class="n">den</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+					<span class="k">continue</span>
+				<span class="n">coef</span> <span class="o">=</span> <span class="n">k_coulomb</span> <span class="o">*</span> <span class="n">q</span> <span class="o">/</span> <span class="n">den</span>
+				<span class="n">Ex</span> <span class="o">+=</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">dx</span>
+				<span class="n">Ey</span> <span class="o">+=</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">dy</span>
+			<span class="n">out</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ex</span>
+			<span class="n">out</span><span class="p">[</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Ey</span>
+		<span class="k">return</span> <span class="n">out</span>
+
+	<span class="nd">@njit</span><span class="p">(</span><span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fastmath</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+	<span class="k">def</span><span class="w"> </span><span class="nf">_electric_field_at_point_numba</span><span class="p">(</span><span class="n">point</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pos</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">charge</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">radius</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">world_size</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">soft_frac</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">k_coulomb</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+		<span class="n">Ex</span> <span class="o">=</span> <span class="mf">0.0</span>
+		<span class="n">Ey</span> <span class="o">=</span> <span class="mf">0.0</span>
+		<span class="n">Lx</span> <span class="o">=</span> <span class="n">world_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="n">Ly</span> <span class="o">=</span> <span class="n">world_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+		<span class="n">px</span> <span class="o">=</span> <span class="n">point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="n">py</span> <span class="o">=</span> <span class="n">point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+		<span class="n">N</span> <span class="o">=</span> <span class="n">pos</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+		<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+			<span class="n">q</span> <span class="o">=</span> <span class="n">charge</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+			<span class="k">if</span> <span class="n">q</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+				<span class="k">continue</span>
+			<span class="n">dx</span> <span class="o">=</span> <span class="n">px</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+			<span class="k">if</span> <span class="n">dx</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Lx</span><span class="p">:</span>
+				<span class="n">dx</span> <span class="o">-=</span> <span class="n">Lx</span>
+			<span class="k">elif</span> <span class="n">dx</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">Lx</span><span class="p">:</span>
+				<span class="n">dx</span> <span class="o">+=</span> <span class="n">Lx</span>
+			<span class="n">dy</span> <span class="o">=</span> <span class="n">py</span> <span class="o">-</span> <span class="n">pos</span><span class="p">[</span><span class="n">idx</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+			<span class="k">if</span> <span class="n">dy</span> <span class="o">&gt;</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">Ly</span><span class="p">:</span>
+				<span class="n">dy</span> <span class="o">-=</span> <span class="n">Ly</span>
+			<span class="k">elif</span> <span class="n">dy</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">Ly</span><span class="p">:</span>
+				<span class="n">dy</span> <span class="o">+=</span> <span class="n">Ly</span>
+			<span class="n">r2</span> <span class="o">=</span> <span class="n">dx</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">*</span> <span class="n">dy</span>
+			<span class="n">eps</span> <span class="o">=</span> <span class="n">soft_frac</span> <span class="o">*</span> <span class="n">radius</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+			<span class="c1"># Same (r^2 + ε^2)^(3/2)</span>
+			<span class="n">den</span> <span class="o">=</span> <span class="p">(</span><span class="n">r2</span> <span class="o">+</span> <span class="n">eps</span> <span class="o">*</span> <span class="n">eps</span><span class="p">)</span> <span class="o">**</span> <span class="mf">1.5</span>
+			<span class="k">if</span> <span class="n">den</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+				<span class="k">continue</span>
+			<span class="n">coef</span> <span class="o">=</span> <span class="n">k_coulomb</span> <span class="o">*</span> <span class="n">q</span> <span class="o">/</span> <span class="n">den</span>
+			<span class="n">Ex</span> <span class="o">+=</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">dx</span>
+			<span class="n">Ey</span> <span class="o">+=</span> <span class="n">coef</span> <span class="o">*</span> <span class="n">dy</span>
+		<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">Ex</span><span class="p">,</span> <span class="n">Ey</span><span class="p">])</span>
+
+
+<div class="viewcode-block" id="compute_accelerations">
+<a class="viewcode-back" href="../../../api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.compute_accelerations">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">compute_accelerations</span><span class="p">(</span><span class="n">particles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;Particle&quot;</span><span class="p">],</span> <span class="n">world_size_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">softening_fraction</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;Compute accelerations for all particles from Coulomb forces.</span>
+
+<span class="sd">	Fixed, massless or neutral particles get zero acceleration. Uses Numba when</span>
+<span class="sd">	available; falls back to pure Python otherwise.</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	particles : list[Particle]</span>
+<span class="sd">		Particle list with positions (m), velocities (m/s), masses (kg), charges (C), radii (m).</span>
+<span class="sd">	world_size_m : numpy.ndarray shape (2,)</span>
+<span class="sd">		World size (m) as (Lx, Ly).</span>
+<span class="sd">	softening_fraction : float</span>
+<span class="sd">		Softening fraction applied to contact radius in pairwise force.</span>
+
+<span class="sd">	Returns</span>
+<span class="sd">	-------</span>
+<span class="sd">	numpy.ndarray shape (N, 2)</span>
+<span class="sd">		Accelerations (m/s^2) for each particle.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">particles</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">_NUMBA_AVAILABLE</span><span class="p">:</span>
+		<span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+		<span class="n">charge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">N</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+		<span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">N</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+		<span class="n">mass</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">N</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+		<span class="n">fixed_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">N</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">bool_</span><span class="p">)</span>
+		<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">particles</span><span class="p">):</span>
+			<span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pos_m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+			<span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pos_m</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+			<span class="n">charge</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">charge_c</span><span class="p">)</span>
+			<span class="n">radius</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">radius_m</span><span class="p">)</span>
+			<span class="n">mass</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">mass_kg</span><span class="p">)</span>
+			<span class="n">fixed_mask</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">fixed</span><span class="p">)</span>
+		<span class="n">world_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">world_size_m</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">world_size_m</span><span class="p">[</span><span class="mi">1</span><span class="p">])],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+		<span class="c1"># Uniform field controls</span>
+		<span class="n">uniform_active_i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">_cfg</span><span class="o">.</span><span class="n">UNIFORM_FIELD_ACTIVE</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span>
+		<span class="n">uniform_Ex</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_cfg</span><span class="o">.</span><span class="n">UNIFORM_FIELD_VECTOR_NC</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">uniform_active_i</span> <span class="k">else</span> <span class="mf">0.0</span>
+		<span class="n">uniform_Ey</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">_cfg</span><span class="o">.</span><span class="n">UNIFORM_FIELD_VECTOR_NC</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">if</span> <span class="n">uniform_active_i</span> <span class="k">else</span> <span class="mf">0.0</span>
+		<span class="k">if</span> <span class="n">_cfg</span><span class="o">.</span><span class="n">NUMBA_PARALLEL_ACCEL</span><span class="p">:</span>
+			<span class="n">acc</span> <span class="o">=</span> <span class="n">_compute_accelerations_numba_parallel</span><span class="p">(</span>
+				<span class="n">pos</span><span class="p">,</span> <span class="n">charge</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">mass</span><span class="p">,</span> <span class="n">fixed_mask</span><span class="p">,</span> <span class="n">world_size</span><span class="p">,</span>
+				<span class="nb">float</span><span class="p">(</span><span class="n">softening_fraction</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">K_COULOMB</span><span class="p">),</span>
+				<span class="nb">int</span><span class="p">(</span><span class="n">uniform_active_i</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">uniform_Ex</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">uniform_Ey</span><span class="p">)</span>
+			<span class="p">)</span>
+		<span class="k">else</span><span class="p">:</span>
+			<span class="n">acc</span> <span class="o">=</span> <span class="n">_compute_accelerations_numba_serial</span><span class="p">(</span>
+				<span class="n">pos</span><span class="p">,</span> <span class="n">charge</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">mass</span><span class="p">,</span> <span class="n">fixed_mask</span><span class="p">,</span> <span class="n">world_size</span><span class="p">,</span>
+				<span class="nb">float</span><span class="p">(</span><span class="n">softening_fraction</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">K_COULOMB</span><span class="p">),</span>
+				<span class="nb">int</span><span class="p">(</span><span class="n">uniform_active_i</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">uniform_Ex</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">uniform_Ey</span><span class="p">)</span>
+			<span class="p">)</span>
+		<span class="k">return</span> <span class="n">acc</span>
+	
+	<span class="c1"># Fallback, just python interpreter</span>
+	<span class="n">acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+		<span class="n">pi</span> <span class="o">=</span> <span class="n">particles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+		<span class="k">if</span> <span class="n">pi</span><span class="o">.</span><span class="n">fixed</span> <span class="ow">or</span> <span class="n">pi</span><span class="o">.</span><span class="n">mass_kg</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="ow">or</span> <span class="n">pi</span><span class="o">.</span><span class="n">charge_c</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+			<span class="k">continue</span>
+		<span class="n">f_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+			<span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="n">j</span><span class="p">:</span>
+				<span class="k">continue</span>
+			<span class="n">pj</span> <span class="o">=</span> <span class="n">particles</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+			<span class="k">if</span> <span class="n">pj</span><span class="o">.</span><span class="n">charge_c</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+				<span class="k">continue</span>
+			<span class="n">f_i</span> <span class="o">+=</span> <span class="n">electric_force_pair</span><span class="p">(</span>
+				<span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span><span class="p">,</span> <span class="n">pi</span><span class="o">.</span><span class="n">charge_c</span><span class="p">,</span> <span class="n">pi</span><span class="o">.</span><span class="n">radius_m</span><span class="p">,</span>
+				<span class="n">pj</span><span class="o">.</span><span class="n">pos_m</span><span class="p">,</span> <span class="n">pj</span><span class="o">.</span><span class="n">charge_c</span><span class="p">,</span> <span class="n">pj</span><span class="o">.</span><span class="n">radius_m</span><span class="p">,</span>
+				<span class="n">world_size_m</span><span class="p">,</span> <span class="n">softening_fraction</span><span class="p">,</span>
+			<span class="p">)</span>
+		<span class="c1"># Uniform field force contribution: F = q E</span>
+		<span class="k">if</span> <span class="nb">bool</span><span class="p">(</span><span class="n">_cfg</span><span class="o">.</span><span class="n">UNIFORM_FIELD_ACTIVE</span><span class="p">):</span>
+			<span class="n">f_i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">charge_c</span><span class="p">)</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">_cfg</span><span class="o">.</span><span class="n">UNIFORM_FIELD_VECTOR_NC</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+			<span class="n">f_i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">charge_c</span><span class="p">)</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">_cfg</span><span class="o">.</span><span class="n">UNIFORM_FIELD_VECTOR_NC</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+		<span class="n">acc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_i</span> <span class="o">/</span> <span class="n">pi</span><span class="o">.</span><span class="n">mass_kg</span>
+	<span class="k">return</span> <span class="n">acc</span></div>
+
+
+
+<div class="viewcode-block" id="total_kinetic_energy">
+<a class="viewcode-back" href="../../../api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.total_kinetic_energy">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">total_kinetic_energy</span><span class="p">(</span><span class="n">particles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;Particle&quot;</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;Compute total kinetic energy for mobile particles.</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	particles : list[Particle]</span>
+<span class="sd">		Particles.</span>
+
+<span class="sd">	Returns</span>
+<span class="sd">	-------</span>
+<span class="sd">	float</span>
+<span class="sd">		Total kinetic energy (J) excluding fixed particles.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">E</span> <span class="o">=</span> <span class="mf">0.0</span>
+	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">particles</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">fixed</span><span class="p">:</span>
+			<span class="k">continue</span>
+		<span class="n">E</span> <span class="o">+=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">mass_kg</span> <span class="o">*</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">vel_mps</span><span class="p">,</span> <span class="n">p</span><span class="o">.</span><span class="n">vel_mps</span><span class="p">))</span>
+	<span class="k">return</span> <span class="n">E</span></div>
+
+
+
+<div class="viewcode-block" id="total_potential_energy">
+<a class="viewcode-back" href="../../../api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.total_potential_energy">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">total_potential_energy</span><span class="p">(</span><span class="n">particles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;Particle&quot;</span><span class="p">],</span> <span class="n">world_size_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;Compute pairwise Coulomb potential with minimum-image and singularity guard.</span>
+
+<span class="sd">	Note: No softening is applied to the potential; instead, a small-distance</span>
+<span class="sd">	clamp `max(r, 1e-6)` is used. See documentation for rationale.</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	particles : list[Particle]</span>
+<span class="sd">		Particles.</span>
+<span class="sd">	world_size_m : numpy.ndarray shape (2,)</span>
+<span class="sd">		World size (m).</span>
+
+<span class="sd">	Returns</span>
+<span class="sd">	-------</span>
+<span class="sd">	float</span>
+<span class="sd">		Total potential energy (J).</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">E</span> <span class="o">=</span> <span class="mf">0.0</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">particles</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+		<span class="n">pi</span> <span class="o">=</span> <span class="n">particles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+			<span class="n">pj</span> <span class="o">=</span> <span class="n">particles</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+			<span class="n">r_vec</span> <span class="o">=</span> <span class="n">minimum_image_displacement</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span><span class="p">,</span> <span class="n">pj</span><span class="o">.</span><span class="n">pos_m</span><span class="p">,</span> <span class="n">world_size_m</span><span class="p">)</span>
+			<span class="n">r</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="n">r_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+			<span class="c1"># Avoid singularity at extremely small r</span>
+			<span class="n">r_eff</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="mf">1e-6</span><span class="p">)</span>
+			<span class="k">if</span> <span class="n">r_eff</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+				<span class="k">continue</span>
+			<span class="n">E</span> <span class="o">+=</span> <span class="n">K_COULOMB</span> <span class="o">*</span> <span class="n">pi</span><span class="o">.</span><span class="n">charge_c</span> <span class="o">*</span> <span class="n">pj</span><span class="o">.</span><span class="n">charge_c</span> <span class="o">/</span> <span class="n">r_eff</span>
+	<span class="k">return</span> <span class="n">E</span></div>
+
+
+
+<div class="viewcode-block" id="electric_field_at_point">
+<a class="viewcode-back" href="../../../api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.electric_field_at_point">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">electric_field_at_point</span><span class="p">(</span><span class="n">point_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">particles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;Particle&quot;</span><span class="p">],</span> <span class="n">world_size_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">softening_fraction</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;Compute electric field vector at a world point from all particles.</span>
+
+<span class="sd">	Softened per-source radius using ``epsilon_j = softening_fraction * r_j``.</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	point_m : numpy.ndarray shape (2,)</span>
+<span class="sd">		Observation point (m).</span>
+<span class="sd">	particles : list[Particle]</span>
+<span class="sd">		Particles.</span>
+<span class="sd">	world_size_m : numpy.ndarray shape (2,)</span>
+<span class="sd">		World size (m).</span>
+<span class="sd">	softening_fraction : float</span>
+<span class="sd">		Softening fraction per source radius.</span>
+
+<span class="sd">	Returns</span>
+<span class="sd">	-------</span>
+<span class="sd">	numpy.ndarray shape (2,)</span>
+<span class="sd">		Electric field (N/C) at the observation point.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">if</span> <span class="n">_NUMBA_AVAILABLE</span><span class="p">:</span>
+		<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">particles</span><span class="p">)</span>
+		<span class="k">if</span> <span class="n">N</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+			<span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+		<span class="n">pos</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">N</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+		<span class="n">charge</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">N</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+		<span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">N</span><span class="p">,),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+		<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">particles</span><span class="p">):</span>
+			<span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pos_m</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+			<span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pos_m</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+			<span class="n">charge</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">charge_c</span><span class="p">)</span>
+			<span class="n">radius</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">radius_m</span><span class="p">)</span>
+		<span class="n">world_size</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">world_size_m</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">world_size_m</span><span class="p">[</span><span class="mi">1</span><span class="p">])],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+		<span class="n">point</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">float</span><span class="p">(</span><span class="n">point_m</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">point_m</span><span class="p">[</span><span class="mi">1</span><span class="p">])],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">_electric_field_at_point_numba</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">charge</span><span class="p">,</span> <span class="n">radius</span><span class="p">,</span> <span class="n">world_size</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">softening_fraction</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">K_COULOMB</span><span class="p">))</span>
+	
+	<span class="c1"># Fallback to python interpreter</span>
+	<span class="n">E</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+	<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">particles</span><span class="p">:</span>
+		<span class="k">if</span> <span class="n">p</span><span class="o">.</span><span class="n">charge_c</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+			<span class="k">continue</span>
+		<span class="c1"># Vector from source charge to observation point</span>
+		<span class="n">r_vec</span> <span class="o">=</span> <span class="n">minimum_image_displacement</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">pos_m</span><span class="p">,</span> <span class="n">point_m</span><span class="p">,</span> <span class="n">world_size_m</span><span class="p">)</span>
+		<span class="n">r2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">r_vec</span><span class="p">,</span> <span class="n">r_vec</span><span class="p">))</span>
+		<span class="n">epsilon</span> <span class="o">=</span> <span class="n">softening_fraction</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">radius_m</span>
+		
+		<span class="c1"># (r^2 + ε^2)^(3/2) = r^3 with softening</span>
+		<span class="n">den</span> <span class="o">=</span> <span class="p">(</span><span class="n">r2</span> <span class="o">+</span> <span class="n">epsilon</span> <span class="o">*</span> <span class="n">epsilon</span><span class="p">)</span> <span class="o">**</span> <span class="mf">1.5</span>
+		<span class="k">if</span> <span class="n">den</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+			<span class="k">continue</span>
+		<span class="n">E</span> <span class="o">+=</span> <span class="n">K_COULOMB</span> <span class="o">*</span> <span class="n">p</span><span class="o">.</span><span class="n">charge_c</span> <span class="o">*</span> <span class="n">r_vec</span> <span class="o">/</span> <span class="n">den</span>
+	<span class="k">return</span> <span class="n">E</span></div>
+
+
+
+<div class="viewcode-block" id="rk4_integrate">
+<a class="viewcode-back" href="../../../api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.rk4_integrate">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rk4_integrate</span><span class="p">(</span><span class="n">particles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;Particle&quot;</span><span class="p">],</span> <span class="n">world_size_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">dt_s</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">softening_fraction</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;Advance non-fixed particles using classical RK4.</span>
+
+<span class="sd">	Accelerations derive from current positions at each stage; state is</span>
+<span class="sd">	temporarily updated during stage evaluations and restored before final write.</span>
+<span class="sd">	Only non-fixed particles are updated.</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	particles : list[Particle]</span>
+<span class="sd">		Particles to integrate.</span>
+<span class="sd">	world_size_m : numpy.ndarray shape (2,)</span>
+<span class="sd">		World size (m).</span>
+<span class="sd">	dt_s : float</span>
+<span class="sd">		Time step per substep (s).</span>
+<span class="sd">	softening_fraction : float</span>
+<span class="sd">		Softening fraction passed to acceleration computation.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">particles</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+		<span class="k">return</span>
+
+	<span class="c1"># Pack positions and velocities</span>
+	<span class="n">pos0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">pos_m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">particles</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># (N,2)</span>
+	<span class="n">vel0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">vel_mps</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">particles</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># (N,2)</span>
+	<span class="n">fixed_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">p</span><span class="o">.</span><span class="n">fixed</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">particles</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="nf">set_positions_and_velocities_meters</span><span class="p">(</span><span class="n">positions</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">velocities</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+		<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">particles</span><span class="p">):</span>
+			<span class="n">p</span><span class="o">.</span><span class="n">pos_m</span> <span class="o">=</span> <span class="n">positions</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+			<span class="n">p</span><span class="o">.</span><span class="n">vel_mps</span> <span class="o">=</span> <span class="n">velocities</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+
+	<span class="k">def</span><span class="w"> </span><span class="nf">accelerations_for_positions</span><span class="p">(</span><span class="n">positions</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">velocities</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+		<span class="c1"># Set temporary state, compute accelerations, return</span>
+		<span class="n">set_positions_and_velocities_meters</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span> <span class="n">velocities</span><span class="p">)</span>
+		<span class="k">return</span> <span class="n">compute_accelerations</span><span class="p">(</span><span class="n">particles</span><span class="p">,</span> <span class="n">world_size_m</span><span class="p">,</span> <span class="n">softening_fraction</span><span class="p">)</span>
+
+	<span class="c1"># k1</span>
+	<span class="n">a1</span> <span class="o">=</span> <span class="n">accelerations_for_positions</span><span class="p">(</span><span class="n">pos0</span><span class="p">,</span> <span class="n">vel0</span><span class="p">)</span>
+	<span class="n">k1_v</span> <span class="o">=</span> <span class="n">a1</span>
+	<span class="n">k1_x</span> <span class="o">=</span> <span class="n">vel0</span>
+	<span class="c1"># k2</span>
+	<span class="n">pos_k2</span> <span class="o">=</span> <span class="n">pos0</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt_s</span> <span class="o">*</span> <span class="n">k1_x</span>
+	<span class="n">vel_k2</span> <span class="o">=</span> <span class="n">vel0</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt_s</span> <span class="o">*</span> <span class="n">k1_v</span>
+	<span class="n">a2</span> <span class="o">=</span> <span class="n">accelerations_for_positions</span><span class="p">(</span><span class="n">pos_k2</span><span class="p">,</span> <span class="n">vel_k2</span><span class="p">)</span>
+	<span class="n">k2_v</span> <span class="o">=</span> <span class="n">a2</span>
+	<span class="n">k2_x</span> <span class="o">=</span> <span class="n">vel_k2</span>
+	<span class="c1"># k3</span>
+	<span class="n">pos_k3</span> <span class="o">=</span> <span class="n">pos0</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt_s</span> <span class="o">*</span> <span class="n">k2_x</span>
+	<span class="n">vel_k3</span> <span class="o">=</span> <span class="n">vel0</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">dt_s</span> <span class="o">*</span> <span class="n">k2_v</span>
+	<span class="n">a3</span> <span class="o">=</span> <span class="n">accelerations_for_positions</span><span class="p">(</span><span class="n">pos_k3</span><span class="p">,</span> <span class="n">vel_k3</span><span class="p">)</span>
+	<span class="n">k3_v</span> <span class="o">=</span> <span class="n">a3</span>
+	<span class="n">k3_x</span> <span class="o">=</span> <span class="n">vel_k3</span>
+	<span class="c1"># k4</span>
+	<span class="n">pos_k4</span> <span class="o">=</span> <span class="n">pos0</span> <span class="o">+</span> <span class="n">dt_s</span> <span class="o">*</span> <span class="n">k3_x</span>
+	<span class="n">vel_k4</span> <span class="o">=</span> <span class="n">vel0</span> <span class="o">+</span> <span class="n">dt_s</span> <span class="o">*</span> <span class="n">k3_v</span>
+	<span class="n">a4</span> <span class="o">=</span> <span class="n">accelerations_for_positions</span><span class="p">(</span><span class="n">pos_k4</span><span class="p">,</span> <span class="n">vel_k4</span><span class="p">)</span>
+	<span class="n">k4_v</span> <span class="o">=</span> <span class="n">a4</span>
+	<span class="n">k4_x</span> <span class="o">=</span> <span class="n">vel_k4</span>
+
+	<span class="c1"># Combine</span>
+	<span class="n">pos_new</span> <span class="o">=</span> <span class="n">pos0</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt_s</span> <span class="o">/</span> <span class="mf">6.0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">k1_x</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">k2_x</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">k3_x</span> <span class="o">+</span> <span class="n">k4_x</span><span class="p">)</span>
+	<span class="n">vel_new</span> <span class="o">=</span> <span class="n">vel0</span> <span class="o">+</span> <span class="p">(</span><span class="n">dt_s</span> <span class="o">/</span> <span class="mf">6.0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">k1_v</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">k2_v</span> <span class="o">+</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">k3_v</span> <span class="o">+</span> <span class="n">k4_v</span><span class="p">)</span>
+
+	<span class="c1"># Restore original state before writing back</span>
+	<span class="n">set_positions_and_velocities_meters</span><span class="p">(</span><span class="n">pos0</span><span class="p">,</span> <span class="n">vel0</span><span class="p">)</span>
+
+	<span class="c1"># Write back only for non-fixed particles</span>
+	<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">particles</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">fixed_mask</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
+			<span class="k">continue</span>
+		<span class="n">p</span><span class="o">.</span><span class="n">pos_m</span> <span class="o">=</span> <span class="n">pos_new</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+		<span class="n">p</span><span class="o">.</span><span class="n">vel_mps</span> <span class="o">=</span> <span class="n">vel_new</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="resolve_collisions">
+<a class="viewcode-back" href="../../../api/_autosummary/electrosim.simulation.physics.html#electrosim.simulation.physics.resolve_collisions">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">resolve_collisions</span><span class="p">(</span><span class="n">particles</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">&quot;Particle&quot;</span><span class="p">],</span> <span class="n">world_size_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">	</span><span class="sd">&quot;&quot;&quot;Resolve merges (opposite charges) and elastic collisions.</span>
+
+<span class="sd">	Two-phase handling:</span>
+<span class="sd">	1) Merge phase for overlapping opposite-charge pairs: conserve mass, charge,</span>
+<span class="sd">	   and momentum (if not fixed); area-equivalent radius; history merge; id reassign.</span>
+<span class="sd">	2) Elastic phase for remaining overlaps: positional correction along normal,</span>
+<span class="sd">	   then 1D normal impulse with restitution e=1. Fixed treated as infinite mass.</span>
+
+<span class="sd">	Parameters</span>
+<span class="sd">	----------</span>
+<span class="sd">	particles : list[Particle]</span>
+<span class="sd">		Mutable particle list.</span>
+<span class="sd">	world_size_m : numpy.ndarray shape (2,)</span>
+<span class="sd">		World size (m) for displacement and wrapping.</span>
+<span class="sd">	&quot;&quot;&quot;</span>
+	<span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">particles</span><span class="p">)</span>
+	<span class="k">if</span> <span class="n">N</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+		<span class="k">return</span>
+	<span class="n">removed</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+	<span class="n">to_delete</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+	<span class="c1"># Handle sticky merges for opposite charges</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+		<span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">removed</span><span class="p">:</span>
+			<span class="k">continue</span>
+		<span class="n">pi</span> <span class="o">=</span> <span class="n">particles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+			<span class="k">if</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">removed</span><span class="p">:</span>
+				<span class="k">continue</span>
+			<span class="n">pj</span> <span class="o">=</span> <span class="n">particles</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+			<span class="n">r_vec</span> <span class="o">=</span> <span class="n">minimum_image_displacement</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span><span class="p">,</span> <span class="n">pj</span><span class="o">.</span><span class="n">pos_m</span><span class="p">,</span> <span class="n">world_size_m</span><span class="p">)</span>
+			<span class="n">dist</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="n">r_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+			<span class="n">r_contact</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">radius_m</span> <span class="o">+</span> <span class="n">pj</span><span class="o">.</span><span class="n">radius_m</span>
+			<span class="k">if</span> <span class="n">dist</span> <span class="o">&gt;=</span> <span class="n">r_contact</span> <span class="ow">or</span> <span class="n">dist</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+				<span class="k">continue</span>
+			<span class="c1"># Opposite charges stick</span>
+			<span class="k">if</span> <span class="n">pi</span><span class="o">.</span><span class="n">charge_c</span> <span class="o">*</span> <span class="n">pj</span><span class="o">.</span><span class="n">charge_c</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
+				<span class="n">m1</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">mass_kg</span>
+				<span class="n">m2</span> <span class="o">=</span> <span class="n">pj</span><span class="o">.</span><span class="n">mass_kg</span>
+				<span class="n">total_m</span> <span class="o">=</span> <span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span>
+				<span class="n">q_new</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">charge_c</span> <span class="o">+</span> <span class="n">pj</span><span class="o">.</span><span class="n">charge_c</span>
+				<span class="n">r_new</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">radius_m</span> <span class="o">*</span> <span class="n">pi</span><span class="o">.</span><span class="n">radius_m</span> <span class="o">+</span> <span class="n">pj</span><span class="o">.</span><span class="n">radius_m</span> <span class="o">*</span> <span class="n">pj</span><span class="o">.</span><span class="n">radius_m</span><span class="p">))</span>
+				<span class="n">fixed_new</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">fixed</span> <span class="ow">or</span> <span class="n">pj</span><span class="o">.</span><span class="n">fixed</span>
+				<span class="k">if</span> <span class="n">fixed_new</span><span class="p">:</span>
+					<span class="c1"># Stick to the fixed particle position, velocity zero</span>
+					<span class="n">pos_new</span> <span class="o">=</span> <span class="n">pj</span><span class="o">.</span><span class="n">pos_m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="k">if</span> <span class="n">pj</span><span class="o">.</span><span class="n">fixed</span> <span class="k">else</span> <span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+					<span class="n">vel_new</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+				<span class="k">else</span><span class="p">:</span>
+					<span class="n">pos_new</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span> <span class="o">+</span> <span class="n">r_vec</span> <span class="o">*</span> <span class="p">(</span><span class="n">m2</span> <span class="o">/</span> <span class="n">total_m</span><span class="p">)</span>
+					<span class="n">vel_new</span> <span class="o">=</span> <span class="p">(</span><span class="n">m1</span> <span class="o">*</span> <span class="n">pi</span><span class="o">.</span><span class="n">vel_mps</span> <span class="o">+</span> <span class="n">m2</span> <span class="o">*</span> <span class="n">pj</span><span class="o">.</span><span class="n">vel_mps</span><span class="p">)</span> <span class="o">/</span> <span class="n">total_m</span>
+				
+				<span class="c1"># Write into i, mark j for deletion</span>
+				<span class="n">pi</span><span class="o">.</span><span class="n">mass_kg</span> <span class="o">=</span> <span class="n">total_m</span>
+				<span class="n">pi</span><span class="o">.</span><span class="n">charge_c</span> <span class="o">=</span> <span class="n">q_new</span>
+				<span class="n">pi</span><span class="o">.</span><span class="n">radius_m</span> <span class="o">=</span> <span class="n">r_new</span>
+				<span class="n">pi</span><span class="o">.</span><span class="n">fixed</span> <span class="o">=</span> <span class="n">fixed_new</span>
+				<span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span> <span class="o">=</span> <span class="n">pos_new</span>
+				<span class="n">pi</span><span class="o">.</span><span class="n">vel_mps</span> <span class="o">=</span> <span class="n">vel_new</span>
+
+				<span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">q_new</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="n">NEUTRAL_CHARGE_EPS</span><span class="p">:</span>
+					<span class="n">pi</span><span class="o">.</span><span class="n">color_rgb</span> <span class="o">=</span> <span class="n">COLOR_NEUTRAL</span>
+				<span class="k">else</span><span class="p">:</span>
+					<span class="n">pi</span><span class="o">.</span><span class="n">color_rgb</span> <span class="o">=</span> <span class="n">COLOR_POSITIVE</span> <span class="k">if</span> <span class="n">q_new</span> <span class="o">&gt;</span> <span class="mf">0.0</span> <span class="k">else</span> <span class="n">COLOR_NEGATIVE</span>
+				
+				<span class="c1"># Merge histories</span>
+				<span class="n">keep_history</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">history</span>
+				<span class="k">if</span> <span class="n">m2</span> <span class="o">&gt;</span> <span class="n">m1</span> <span class="ow">or</span> <span class="p">(</span><span class="n">m2</span> <span class="o">==</span> <span class="n">m1</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">pj</span><span class="o">.</span><span class="n">history</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">history</span><span class="p">)):</span>
+					<span class="n">keep_history</span> <span class="o">=</span> <span class="n">pj</span><span class="o">.</span><span class="n">history</span>
+				<span class="n">pi</span><span class="o">.</span><span class="n">history</span> <span class="o">=</span> <span class="n">keep_history</span>
+
+				<span class="n">last_t</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">history</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">pi</span><span class="o">.</span><span class="n">history</span> <span class="k">else</span> <span class="mf">0.0</span>
+				<span class="n">pi</span><span class="o">.</span><span class="n">history</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">last_t</span><span class="p">,</span> <span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span><span class="p">[</span><span class="mi">1</span><span class="p">]))))</span>
+				<span class="n">wrap_position_in_place</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span><span class="p">,</span> <span class="n">world_size_m</span><span class="p">)</span>
+				<span class="n">removed</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+				<span class="n">to_delete</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
+				<span class="k">continue</span>
+
+	<span class="c1"># Delete merged particles</span>
+	<span class="k">if</span> <span class="n">to_delete</span><span class="p">:</span>
+		<span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">to_delete</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+			<span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">idx</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">particles</span><span class="p">):</span>
+				<span class="k">del</span> <span class="n">particles</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+		<span class="c1"># Reassign ids</span>
+		<span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">particles</span><span class="p">):</span>
+			<span class="n">p</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="n">idx</span>
+
+	<span class="c1"># Resolve elastic collisions for remaining pairs</span>
+	<span class="n">N2</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">particles</span><span class="p">)</span>
+	<span class="n">processed</span><span class="p">:</span> <span class="nb">set</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+	<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">N2</span><span class="p">):</span>
+		<span class="n">pi</span> <span class="o">=</span> <span class="n">particles</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+		<span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N2</span><span class="p">):</span>
+			<span class="k">if</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="n">processed</span><span class="p">:</span>
+				<span class="k">continue</span>
+			<span class="n">pj</span> <span class="o">=</span> <span class="n">particles</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+			<span class="n">r_vec</span> <span class="o">=</span> <span class="n">minimum_image_displacement</span><span class="p">(</span><span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span><span class="p">,</span> <span class="n">pj</span><span class="o">.</span><span class="n">pos_m</span><span class="p">,</span> <span class="n">world_size_m</span><span class="p">)</span>
+			<span class="n">dist</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">hypot</span><span class="p">(</span><span class="n">r_vec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">r_vec</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+			<span class="n">r_contact</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">radius_m</span> <span class="o">+</span> <span class="n">pj</span><span class="o">.</span><span class="n">radius_m</span>
+			<span class="k">if</span> <span class="n">dist</span> <span class="o">&gt;=</span> <span class="n">r_contact</span> <span class="ow">or</span> <span class="n">dist</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+				<span class="k">continue</span>
+			
+			<span class="c1"># Normal unit vector from i to j</span>
+			<span class="n">n</span> <span class="o">=</span> <span class="n">r_vec</span> <span class="o">/</span> <span class="n">dist</span>
+
+			<span class="c1"># Positional correction to separate overlap</span>
+			<span class="n">penetration</span> <span class="o">=</span> <span class="n">r_contact</span> <span class="o">-</span> <span class="n">dist</span>
+			<span class="k">if</span> <span class="n">pi</span><span class="o">.</span><span class="n">fixed</span> <span class="ow">and</span> <span class="n">pj</span><span class="o">.</span><span class="n">fixed</span><span class="p">:</span>
+				<span class="k">pass</span>
+			<span class="k">elif</span> <span class="n">pi</span><span class="o">.</span><span class="n">fixed</span><span class="p">:</span>
+				<span class="n">pj</span><span class="o">.</span><span class="n">pos_m</span> <span class="o">+=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">penetration</span>
+			<span class="k">elif</span> <span class="n">pj</span><span class="o">.</span><span class="n">fixed</span><span class="p">:</span>
+				<span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span> <span class="o">-=</span> <span class="n">n</span> <span class="o">*</span> <span class="n">penetration</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">m1</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">mass_kg</span>
+				<span class="n">m2</span> <span class="o">=</span> <span class="n">pj</span><span class="o">.</span><span class="n">mass_kg</span>
+				<span class="n">total</span> <span class="o">=</span> <span class="n">m1</span> <span class="o">+</span> <span class="n">m2</span>
+				<span class="k">if</span> <span class="n">total</span> <span class="o">&gt;</span> <span class="mf">0.0</span><span class="p">:</span>
+					<span class="n">pi</span><span class="o">.</span><span class="n">pos_m</span> <span class="o">-=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">penetration</span> <span class="o">*</span> <span class="p">(</span><span class="n">m2</span> <span class="o">/</span> <span class="n">total</span><span class="p">))</span>
+					<span class="n">pj</span><span class="o">.</span><span class="n">pos_m</span> <span class="o">+=</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">penetration</span> <span class="o">*</span> <span class="p">(</span><span class="n">m1</span> <span class="o">/</span> <span class="n">total</span><span class="p">))</span>
+
+			<span class="n">v_rel</span> <span class="o">=</span> <span class="n">pj</span><span class="o">.</span><span class="n">vel_mps</span> <span class="o">-</span> <span class="n">pi</span><span class="o">.</span><span class="n">vel_mps</span>
+			<span class="n">v_rel_n</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">v_rel</span><span class="p">,</span> <span class="n">n</span><span class="p">))</span>
+			<span class="k">if</span> <span class="n">v_rel_n</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+				<span class="n">processed</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+				<span class="k">continue</span>
+
+			<span class="n">restitution</span> <span class="o">=</span> <span class="mf">1.0</span>
+			<span class="k">if</span> <span class="n">pi</span><span class="o">.</span><span class="n">fixed</span> <span class="ow">and</span> <span class="n">pj</span><span class="o">.</span><span class="n">fixed</span><span class="p">:</span>
+				<span class="n">processed</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span>
+				<span class="k">continue</span>
+			<span class="k">elif</span> <span class="n">pi</span><span class="o">.</span><span class="n">fixed</span><span class="p">:</span>
+				<span class="n">m1</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+				<span class="n">m2</span> <span class="o">=</span> <span class="n">pj</span><span class="o">.</span><span class="n">mass_kg</span>
+			<span class="k">elif</span> <span class="n">pj</span><span class="o">.</span><span class="n">fixed</span><span class="p">:</span>
+				<span class="n">m1</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">mass_kg</span>
+				<span class="n">m2</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)</span>
+			<span class="k">else</span><span class="p">:</span>
+				<span class="n">m1</span> <span class="o">=</span> <span class="n">pi</span><span class="o">.</span><span class="n">mass_kg</span>
+				<span class="n">m2</span> <span class="o">=</span> <span class="n">pj</span><span class="o">.</span><span class="n">mass_kg</span>
+
+			<span class="n">inv_m1</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">m1</span><span class="p">)</span> <span class="k">else</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">m1</span>
+			<span class="n">inv_m2</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">m2</span><span class="p">)</span> <span class="k">else</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">m2</span>
+			<span class="n">j_impulse</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">restitution</span><span class="p">)</span> <span class="o">*</span> <span class="n">v_rel_n</span> <span class="o">/</span> <span class="p">(</span><span class="n">inv_m1</span> <span class="o">+</span> <span class="n">inv_m2</span><span class="p">)</span>
+			<span class="n">impulse_vec</span> <span class="o">=</span> <span class="n">j_impulse</span> <span class="o">*</span> <span class="n">n</span>
+			<span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">m1</span><span class="p">):</span>
+				<span class="n">pi</span><span class="o">.</span><span class="n">vel_mps</span> <span class="o">-=</span> <span class="n">impulse_vec</span> <span class="o">*</span> <span class="n">inv_m1</span>
+			<span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="n">m2</span><span class="p">):</span>
+				<span class="n">pj</span><span class="o">.</span><span class="n">vel_mps</span> <span class="o">+=</span> <span class="n">impulse_vec</span> <span class="o">*</span> <span class="n">inv_m2</span>
+			<span class="n">processed</span><span class="o">.</span><span class="n">add</span><span class="p">((</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">))</span></div>
+
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Danny Luna.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

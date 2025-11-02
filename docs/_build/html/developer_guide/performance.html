@@ -1,0 +1,929 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Performance Notes &#8212; ElectroSim Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer_guide/performance';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Validation" href="validation.html" />
+    <link rel="prev" title="Physics Overview" href="physics_overview.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ElectroSim Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Performance Notes</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="performance-notes">
+<h1>Performance Notes<a class="headerlink" href="#performance-notes" title="Link to this heading">#</a></h1>
+<p>ElectroSim targets smooth real-time feedback while solving an <span class="math notranslate nohighlight">\(\mathcal{O}(N^2)\)</span>
+pairwise problem. This page explains where CPU time goes, how to profile it, and
+which configuration knobs provide the biggest wins.</p>
+<section id="built-in-profiling">
+<h2>Built-in Profiling<a class="headerlink" href="#built-in-profiling" title="Link to this heading">#</a></h2>
+<p>The desktop build instruments the main loop in <code class="docutils literal notranslate"><span class="pre">main.py</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">physics_ms</span></code>: Time spent in <a class="reference internal" href="../api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation.step_frame" title="electrosim.simulation.engine.Simulation.step_frame"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.simulation.engine.Simulation.step_frame</span></code></a>
+covering RK4 substeps, force evaluation, collision handling, and trajectory
+bookkeeping.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">field_ms</span></code>: Time to rasterise the electric field grid inside
+<a class="reference internal" href="../api/_autosummary/electrosim.rendering.draw.html#electrosim.rendering.draw.draw_field_grid" title="electrosim.rendering.draw.draw_field_grid"><code class="xref py py-func docutils literal notranslate"><span class="pre">electrosim.rendering.draw.draw_field_grid()</span></code></a>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">draw_ms</span></code>: Remaining render cost (particles, glow, trails, vectors, overlays).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total_ms</span></code>: End-to-end frame duration.</p></li>
+</ul>
+<p>Enable the overlay with <code class="docutils literal notranslate"><span class="pre">PROFILE_OVERLAY_ENABLED</span> <span class="pre">=</span> <span class="pre">True</span></code> in
+<code class="docutils literal notranslate"><span class="pre">electrosim/config.py</span></code>. Toggle visibility during runtime with the <code class="docutils literal notranslate"><span class="pre">O</span></code> key.
+Values are averaged per frame, so transient spikes are easy to spot.</p>
+<p>For deeper inspection run ElectroSim under an external profiler (e.g. <code class="docutils literal notranslate"><span class="pre">py-spy</span></code>)
+and filter for modules under <code class="docutils literal notranslate"><span class="pre">electrosim.simulation</span></code> and <code class="docutils literal notranslate"><span class="pre">electrosim.rendering</span></code>.</p>
+</section>
+<section id="cost-drivers">
+<h2>Cost Drivers<a class="headerlink" href="#cost-drivers" title="Link to this heading">#</a></h2>
+<section id="physics">
+<h3>Physics<a class="headerlink" href="#physics" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Pairwise accelerations scale as <span class="math notranslate nohighlight">\(\mathcal{O}(N^2)\)</span> per substep. Kernels live in
+<a class="reference internal" href="../api/_autosummary/electrosim.simulation.physics.html#module-electrosim.simulation.physics" title="electrosim.simulation.physics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.simulation.physics</span></code></a> and are JIT-compiled with Numba when
+available.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NUMBA_PARALLEL_ACCEL</span> <span class="pre">=</span> <span class="pre">True</span></code> activates <code class="docutils literal notranslate"><span class="pre">prange</span></code> parallel loops, giving near
+linear speed-up on multi-core CPUs. Disable if you observe oversubscription or
+when debugging.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NUMBA_FASTMATH</span> <span class="pre">=</span> <span class="pre">True</span></code> permits aggressive floating-point simplifications.
+Use only when tiny energy drift is acceptable.</p></li>
+<li><p>Neutral, fixed, or massless particles are skipped to avoid unnecessary work.</p></li>
+</ul>
+</section>
+<section id="field-grid">
+<h3>Field Grid<a class="headerlink" href="#field-grid" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Complexity is <span class="math notranslate nohighlight">\(\mathcal{O}(MN)\)</span> where <span class="math notranslate nohighlight">\(M\)</span> is the number of grid samples.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FIELD_GRID_STEP_PX</span></code> controls <span class="math notranslate nohighlight">\(M\)</span>. Doubling the spacing roughly quarters the
+cost at the expense of spatial resolution.</p></li>
+<li><p>With <code class="docutils literal notranslate"><span class="pre">FIELD_SAMPLER_ENABLED</span> <span class="pre">=</span> <span class="pre">True</span></code>, the grid is cache-computed once per frame
+(see <a class="reference internal" href="../api/_autosummary/electrosim.rendering.field_sampler.html#module-electrosim.rendering.field_sampler" title="electrosim.rendering.field_sampler"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.rendering.field_sampler</span></code></a>). Disable for debugging to force
+per-pixel evaluation.</p></li>
+<li><p>In Pyodide builds Numba is unavailable; everything runs through the pure
+Python path, so consider coarser grids for browser deployments.</p></li>
+</ul>
+</section>
+<section id="rendering">
+<h3>Rendering<a class="headerlink" href="#rendering" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>Glow</strong>: Alpha blended surfaces cached inside
+<a class="reference internal" href="../api/_autosummary/electrosim.rendering.primitives.html#electrosim.rendering.primitives.draw_glow_at_screen_pos" title="electrosim.rendering.primitives.draw_glow_at_screen_pos"><code class="xref py py-func docutils literal notranslate"><span class="pre">electrosim.rendering.primitives.draw_glow_at_screen_pos()</span></code></a>. The cache
+(<code class="docutils literal notranslate"><span class="pre">_GLOW_CACHE</span></code>) size is capped by <code class="docutils literal notranslate"><span class="pre">GLOW_CACHE_MAX_SURFACES</span></code>; lower it if
+memory is tight.</p></li>
+<li><p><strong>Trails</strong>: <a class="reference internal" href="../api/_autosummary/electrosim.rendering.trails.html#module-electrosim.rendering.trails" title="electrosim.rendering.trails"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.rendering.trails</span></code></a> keeps a dedicated surface. Cost
+scales with sample frequency (<code class="docutils literal notranslate"><span class="pre">FPS_TARGET</span></code>) and history length
+(<code class="docutils literal notranslate"><span class="pre">TRAJECTORY_HISTORY_SECONDS</span></code>).</p></li>
+<li><p><strong>Vectors</strong>: Force/velocity arrows are cheap individually but multiply by
+particle count. Clamp with <code class="docutils literal notranslate"><span class="pre">VECTOR_MAX_LENGTH_PX</span></code> to avoid overstretching that
+stresses the rasteriser.</p></li>
+</ul>
+</section>
+</section>
+<section id="tuning-workflow">
+<h2>Tuning Workflow<a class="headerlink" href="#tuning-workflow" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Characterise the baseline</strong>: Start with a realistic particle count, enable
+the profiling overlay, and note <code class="docutils literal notranslate"><span class="pre">physics_ms</span></code>, <code class="docutils literal notranslate"><span class="pre">field_ms</span></code>, and <code class="docutils literal notranslate"><span class="pre">draw_ms</span></code>.</p></li>
+<li><p><strong>Manage particle count</strong>: Keep <code class="docutils literal notranslate"><span class="pre">MAX_PARTICLES</span></code> modest for interactive use.
+Consider scenario-specific limits if you build scripted demos.</p></li>
+<li><p><strong>Balance timestep vs accuracy</strong>: Lower <code class="docutils literal notranslate"><span class="pre">SUBSTEPS_BASE_PER_FRAME</span></code> or <code class="docutils literal notranslate"><span class="pre">FPS_TARGET</span></code>
+to trade precision for speed. Validation mode (<code class="docutils literal notranslate"><span class="pre">U</span></code> key) is helpful to make
+sure the integrator still behaves.</p></li>
+<li><p><strong>Optimise the field</strong>: Increase <code class="docutils literal notranslate"><span class="pre">FIELD_GRID_STEP_PX</span></code>, stick with brightness
+mode (fixed-length arrows), or disable the field entirely while debugging.</p></li>
+<li><p><strong>Trim visuals</strong>: Toggle glow (<code class="docutils literal notranslate"><span class="pre">B</span></code>), trails (<code class="docutils literal notranslate"><span class="pre">T</span></code>), force (<code class="docutils literal notranslate"><span class="pre">F</span></code>) and velocity (<code class="docutils literal notranslate"><span class="pre">V</span></code>)
+vectors as needed. If glow is required, try reducing <code class="docutils literal notranslate"><span class="pre">GLOW_RADIUS_SCALE</span></code> for
+smaller blended quads.</p></li>
+</ol>
+</section>
+<section id="batch-experiments">
+<h2>Batch Experiments<a class="headerlink" href="#batch-experiments" title="Link to this heading">#</a></h2>
+<p>The simulation orchestrator exposes all necessary hooks for scripted sweeps.
+Use <a class="reference internal" href="../api/_autosummary/electrosim.simulation.engine.html#electrosim.simulation.engine.Simulation" title="electrosim.simulation.engine.Simulation"><code class="xref py py-class docutils literal notranslate"><span class="pre">electrosim.simulation.engine.Simulation</span></code></a> from a Python shell or test
+to:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">electrosim.simulation.engine</span><span class="w"> </span><span class="kn">import</span> <span class="n">Simulation</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">Simulation</span><span class="p">()</span>
+<span class="n">sim</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="c1"># populate custom scenario here</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">600</span><span class="p">):</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">step_frame</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">energy_tot</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Combine this with adjustments to <code class="docutils literal notranslate"><span class="pre">config</span></code> to benchmark multiple parameter sets
+without rendering overhead. This is especially useful when validating new force
+approximations or experimenting with alternative timestep controllers.</p>
+</section>
+<section id="browser-considerations">
+<h2>Browser Considerations<a class="headerlink" href="#browser-considerations" title="Link to this heading">#</a></h2>
+<p>The Pyodide build is typically 2–5× slower than the native desktop version:</p>
+<ul class="simple">
+<li><p>No Numba acceleration; only the pure Python kernels execute.</p></li>
+<li><p>WebGL canvas uploads add latency for each frame.</p></li>
+<li><p>Heavy trail histories and dense field grids quickly saturate the UI thread.</p></li>
+</ul>
+<p>Keep <code class="docutils literal notranslate"><span class="pre">FIELD_GRID_STEP_PX</span></code> large (40–60), disable glow by default, and limit the
+particle count to fewer than ~20 for smooth behaviour. These overrides are
+captured in <code class="docutils literal notranslate"><span class="pre">web/config_web.py</span></code>.</p>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="physics_overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Physics Overview</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="validation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Validation</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#built-in-profiling">Built-in Profiling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cost-drivers">Cost Drivers</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#physics">Physics</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#field-grid">Field Grid</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rendering">Rendering</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#tuning-workflow">Tuning Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#batch-experiments">Batch Experiments</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#browser-considerations">Browser Considerations</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/developer_guide/performance.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Danny Luna.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1444 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Architecture &#8212; ElectroSim Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs"></script>
+    <script type="module">import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs";import elkLayouts from "https://cdn.jsdelivr.net/npm/@mermaid-js/layout-elk@0.1.4/dist/mermaid-layout-elk.esm.min.mjs";mermaid.registerLayoutLoaders(elkLayouts);mermaid.initialize({startOnLoad:false});</script>
+    <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+    <script type="module">
+import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10.9.0/dist/mermaid.esm.min.mjs";
+window.addEventListener("load", () => mermaid.run());
+</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'developer_guide/architecture';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Physics Overview" href="physics_overview.html" />
+    <link rel="prev" title="Running ElectroSim on the Web" href="../user_guide/web.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ElectroSim Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class=" current active">
+  <a class="nav-link dropdown-item nav-internal" href="#">
+    Architecture
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/visualization.html">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/configuration.html">
+    Configuration
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../user_guide/web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Architecture
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Architecture</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="architecture">
+<h1>Architecture<a class="headerlink" href="#architecture" title="Link to this heading">#</a></h1>
+<p>This page describes the high-level architecture of ElectroSim: modules, responsibilities, data flow, and key implementation details.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
+<p>ElectroSim follows a modular architecture separating concerns into:</p>
+<ul class="simple">
+<li><p><strong>Configuration</strong>: Centralized constants</p></li>
+<li><p><strong>Simulation</strong>: Physics state and time stepping</p></li>
+<li><p><strong>Rendering</strong>: Visualization of particles, fields, and UI</p></li>
+<li><p><strong>Controls</strong>: User input handling</p></li>
+<li><p><strong>Main Loop</strong>: Integration of all subsystems</p></li>
+</ul>
+</section>
+<section id="modules-and-responsibilities">
+<h2>Modules and responsibilities<a class="headerlink" href="#modules-and-responsibilities" title="Link to this heading">#</a></h2>
+<section id="electrosim-config">
+<h3><code class="docutils literal notranslate"><span class="pre">electrosim.config</span></code><a class="headerlink" href="#electrosim-config" title="Link to this heading">#</a></h3>
+<p>Global configuration constants for all subsystems:</p>
+<ul class="simple">
+<li><p><strong>Window settings</strong>: Resolution, FPS target, pixels-per-meter conversion</p></li>
+<li><p><strong>Physics parameters</strong>: Coulomb constant, timestep, softening, particle limits</p></li>
+<li><p><strong>Visualization options</strong>: Colors, field modes, glow settings, trail configuration</p></li>
+<li><p><strong>Performance flags</strong>: Numba acceleration, field sampler caching, profiling</p></li>
+</ul>
+<p><strong>Key features</strong>:</p>
+<ul class="simple">
+<li><p>Single source of truth for all tunable parameters</p></li>
+<li><p>Type-annotated constants for IDE support</p></li>
+<li><p>Imported by all modules; changes require restart</p></li>
+</ul>
+</section>
+<section id="electrosim-simulation-engine">
+<h3><code class="docutils literal notranslate"><span class="pre">electrosim.simulation.engine</span></code><a class="headerlink" href="#electrosim-simulation-engine" title="Link to this heading">#</a></h3>
+<p>Core simulation state management and orchestration:</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Particle</span></code> dataclass</strong>:</p>
+<ul class="simple">
+<li><p>Fields: <code class="docutils literal notranslate"><span class="pre">pos_m</span></code> (position), <code class="docutils literal notranslate"><span class="pre">vel_mps</span></code> (velocity), <code class="docutils literal notranslate"><span class="pre">charge_c</span></code>, <code class="docutils literal notranslate"><span class="pre">mass_kg</span></code>, <code class="docutils literal notranslate"><span class="pre">radius_m</span></code>, <code class="docutils literal notranslate"><span class="pre">fixed</span></code> (boolean)</p></li>
+<li><p>Additional: <code class="docutils literal notranslate"><span class="pre">id</span></code>, <code class="docutils literal notranslate"><span class="pre">color</span></code>, <code class="docutils literal notranslate"><span class="pre">merge_history</span></code> for tracking combined particles</p></li>
+<li><p>Uses NumPy arrays for positions/velocities (vectorization-ready)</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">Simulation</span></code> class</strong>:</p>
+<ul class="simple">
+<li><p><strong>State</strong>: List of <code class="docutils literal notranslate"><span class="pre">Particle</span></code> objects, simulation time <code class="docutils literal notranslate"><span class="pre">t_sim</span></code>, speed multiplier</p></li>
+<li><p><strong>Methods</strong>:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">step_frame()</span></code>: Advance simulation by one frame (multiple substeps)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_particle()</span></code>: Create new particle with validation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove_particle()</span></code>: Delete by index</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reset_to_default_scene()</span></code>: Load initial configuration</p></li>
+<li><p>Validation mode: <code class="docutils literal notranslate"><span class="pre">start_validation_uniform_field()</span></code>, <code class="docutils literal notranslate"><span class="pre">end_validation()</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Responsibilities</strong>:</p>
+<ul>
+<li><p>Delegate physics to <code class="docutils literal notranslate"><span class="pre">physics</span></code> module</p></li>
+<li><p>Manage particle lifecycle (creation, deletion, merging)</p></li>
+<li><p>Track trails and energy history</p></li>
+<li><p>Coordinate validation scenarios</p></li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="electrosim-simulation-physics">
+<h3><code class="docutils literal notranslate"><span class="pre">electrosim.simulation.physics</span></code><a class="headerlink" href="#electrosim-simulation-physics" title="Link to this heading">#</a></h3>
+<p>Physics kernels and numerical methods:</p>
+<p><strong>Force computation</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">minimum_image_displacement()</span></code>: Periodic boundary wraparound</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">electric_force_pair()</span></code>: Coulomb force with softening between two particles</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">compute_accelerations()</span></code>: N² loop over all particle pairs</p>
+<ul>
+<li><p>Numba JIT-compiled variants: serial and parallel (<code class="docutils literal notranslate"><span class="pre">prange</span></code>)</p></li>
+<li><p>Fallback: Pure NumPy/Python when Numba unavailable</p></li>
+<li><p>Skips: Fixed, massless, and neutral particles</p></li>
+<li><p>Returns acceleration array for integration</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Time integration</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">rk4_integrate()</span></code>: Fourth-order Runge-Kutta stepper</p>
+<ul>
+<li><p>Four-stage method: k1, k2, k3, k4</p></li>
+<li><p>Temporary state management for intermediate evaluations</p></li>
+<li><p>Writes back only to non-fixed particles</p></li>
+<li><p>Respects periodic boundaries at each stage</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Collision handling</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">resolve_collisions()</span></code>: Two-pass collision resolution</p>
+<ul>
+<li><p><strong>Pass 1</strong>: Inelastic merging for opposite-charge overlaps</p>
+<ul>
+<li><p>Conserves mass, charge, momentum (if mobile)</p></li>
+<li><p>Radius: area-preserving <span class="math notranslate nohighlight">\(r_{new} = \sqrt{r_1^2 + r_2^2}\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>Pass 2</strong>: Elastic collisions for same-sign overlaps</p>
+<ul>
+<li><p>Restitution coefficient e=1 (perfectly elastic)</p></li>
+<li><p>Impulse-based velocity updates</p></li>
+<li><p>Penetration correction along contact normal</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>Energy computation</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">total_kinetic_energy()</span></code>: Sum over mobile particles only</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total_potential_energy()</span></code>: Pairwise Coulomb potential with singularity guard</p></li>
+<li><p>Used for monitoring conservation and debugging</p></li>
+</ul>
+<p><strong>Field evaluation</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">electric_field_at_point()</span></code>: Superposition of all particle contributions</p></li>
+<li><p>Used by field sampler and validation mode</p></li>
+<li><p>Applies per-source softening for stability</p></li>
+</ul>
+</section>
+<section id="electrosim-rendering">
+<h3><code class="docutils literal notranslate"><span class="pre">electrosim.rendering.*</span></code><a class="headerlink" href="#electrosim-rendering" title="Link to this heading">#</a></h3>
+<p>Visualization subsystem organized by concern:</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">rendering.primitives</span></code></strong>:</p>
+<ul class="simple">
+<li><p>Low-level drawing utilities: circles, arrows, lines with anti-aliasing</p></li>
+<li><p>Coordinate conversions: world ↔ screen (meters ↔ pixels)</p></li>
+<li><p>Reusable geometric primitives for all rendering modules</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">rendering.particles</span></code></strong>:</p>
+<ul class="simple">
+<li><p>Particle rendering with color coding by charge</p></li>
+<li><p>Glow effect: Cached radial gradient surfaces</p>
+<ul>
+<li><p>Cache key: (size, color, intensity)</p></li>
+<li><p>LRU eviction when cache exceeds limit</p></li>
+</ul>
+</li>
+<li><p>Border overlays: Selection (white) and fixed (gold) indicators</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">rendering.field</span></code></strong>:</p>
+<ul class="simple">
+<li><p>Electric field grid visualization</p></li>
+<li><p>Two display modes:</p>
+<ul>
+<li><p><strong>Brightness</strong>: Fixed arrow length, alpha scales with |E|</p></li>
+<li><p><strong>Length</strong>: Arrow length proportional to |E|, constant alpha</p></li>
+</ul>
+</li>
+<li><p>Grid sampling: Regular lattice at <code class="docutils literal notranslate"><span class="pre">FIELD_GRID_STEP_PX</span></code> spacing</p></li>
+<li><p>Alpha surface compositing for smooth blending</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">rendering.field_sampler</span></code></strong>:</p>
+<ul class="simple">
+<li><p>Performance optimization: Pre-compute entire field grid per frame</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ElectricFieldSampler</span></code> class:</p>
+<ul>
+<li><p>Builds grid of field vectors once</p></li>
+<li><p>Reused by field visualization and queries</p></li>
+<li><p>Falls back to on-demand evaluation if disabled</p></li>
+</ul>
+</li>
+<li><p>Numba-accelerated grid computation when available</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">rendering.trails</span></code></strong>:</p>
+<ul class="simple">
+<li><p>Trajectory history visualization</p></li>
+<li><p>Per-particle trail buffer with timestamps</p></li>
+<li><p>Fading: Linear alpha interpolation from max to min</p></li>
+<li><p>Anti-aliasing: Double-pass rendering (core + edge)</p></li>
+<li><p>Separate trail surface to avoid z-ordering issues</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">rendering.overlay</span></code></strong>:</p>
+<ul class="simple">
+<li><p>HUD information display: FPS, particle count, energy, speed</p></li>
+<li><p>Profiling overlay: Per-subsystem timing (physics, field, render)</p></li>
+<li><p>Text rendering with drop shadow for readability</p></li>
+<li><p>Position: Top-left corner, non-overlapping with simulation</p></li>
+</ul>
+<p><strong><code class="docutils literal notranslate"><span class="pre">rendering.draw</span></code></strong>:</p>
+<ul class="simple">
+<li><p>High-level draw coordinator</p></li>
+<li><p>Re-exports drawing functions for convenient imports</p></li>
+<li><p>No internal state; pure functional API</p></li>
+</ul>
+</section>
+<section id="electrosim-ui-controls">
+<h3><code class="docutils literal notranslate"><span class="pre">electrosim.ui.controls</span></code><a class="headerlink" href="#electrosim-ui-controls" title="Link to this heading">#</a></h3>
+<p>User input handling and interactive UI elements:</p>
+<p><strong><code class="docutils literal notranslate"><span class="pre">InputState</span></code> class</strong>:</p>
+<ul class="simple">
+<li><p>Tracks mouse state: position, buttons, modifiers (Shift, Alt, Ctrl)</p></li>
+<li><p>Drag tracking: start position, current position, drag vector</p></li>
+<li><p>Selected particle index</p></li>
+<li><p>Transient UI state: hover target, placement preview</p></li>
+</ul>
+<p><strong>Event handling</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">handle_events()</span></code>: Main event dispatcher</p>
+<ul>
+<li><p>Mouse clicks: Particle placement with charge/fixed modifiers</p></li>
+<li><p>Drag: Set initial velocity proportional to drag distance</p></li>
+<li><p>Selection: Click existing particle to select</p></li>
+<li><p>Keyboard: Global controls (pause, reset, speed, visualization toggles)</p></li>
+<li><p>Particle editing: Adjust charge/mass/radius of selected particle</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Interactive overlays</strong>:</p>
+<ul class="simple">
+<li><p>Placement preview: Arrow showing initial velocity during drag</p></li>
+<li><p>Hover tooltip: Displays world position, local E field, nearest particle info</p></li>
+<li><p>Coordinate-aware: Uses world-space for physics, screen-space for rendering</p></li>
+</ul>
+</section>
+<section id="main-py">
+<h3><code class="docutils literal notranslate"><span class="pre">main.py</span></code><a class="headerlink" href="#main-py" title="Link to this heading">#</a></h3>
+<p>Application entry point and main loop:</p>
+<p><strong>Initialization</strong>:</p>
+<ul class="simple">
+<li><p>Pygame setup: Window, clock, font</p></li>
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">Simulation</span></code> instance</p></li>
+<li><p>Create <code class="docutils literal notranslate"><span class="pre">InputState</span></code> instance</p></li>
+<li><p>Load default scene</p></li>
+</ul>
+<p><strong>Frame loop structure</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">running</span><span class="p">:</span>
+    <span class="c1"># 1. Input phase</span>
+    <span class="n">handle_events</span><span class="p">(</span><span class="n">sim</span><span class="p">,</span> <span class="n">input_state</span><span class="p">)</span>
+    
+    <span class="c1"># 2. Physics phase (timed)</span>
+    <span class="n">sim</span><span class="o">.</span><span class="n">step_frame</span><span class="p">()</span>  <span class="c1"># Multiple RK4 substeps</span>
+    
+    <span class="c1"># 3. Rendering phase</span>
+    <span class="n">clear_background</span><span class="p">()</span>
+    <span class="n">draw_grid</span><span class="p">()</span>
+    <span class="n">draw_field_grid</span><span class="p">()</span>  <span class="c1"># If enabled</span>
+    <span class="n">draw_particle_glows</span><span class="p">()</span>
+    <span class="n">draw_trails</span><span class="p">()</span>  <span class="c1"># If enabled</span>
+    <span class="n">draw_particles</span><span class="p">()</span>
+    <span class="n">draw_vectors</span><span class="p">()</span>  <span class="c1"># Force/velocity if enabled</span>
+    <span class="n">draw_placement_preview</span><span class="p">()</span>
+    <span class="n">draw_hover_tooltip</span><span class="p">()</span>
+    
+    <span class="c1"># 4. Overlay phase</span>
+    <span class="n">draw_overlay</span><span class="p">(</span><span class="n">fps</span><span class="p">,</span> <span class="n">energies</span><span class="p">,</span> <span class="n">profiling</span><span class="p">)</span>
+    
+    <span class="c1"># 5. Present and throttle</span>
+    <span class="n">pygame</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">flip</span><span class="p">()</span>
+    <span class="n">clock</span><span class="o">.</span><span class="n">tick</span><span class="p">(</span><span class="n">FPS_TARGET</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>Web version</strong> (<code class="docutils literal notranslate"><span class="pre">web/main_web.py</span></code>):</p>
+<ul class="simple">
+<li><p>Async main loop for browser compatibility</p></li>
+<li><p>Pyodide/WASM adaptations: No timers, async event handling</p></li>
+<li><p>Canvas focus management for keyboard input</p></li>
+<li><p>Otherwise identical structure to desktop version</p></li>
+</ul>
+</section>
+</section>
+<section id="dependency-diagram">
+<h2>Dependency diagram<a class="headerlink" href="#dependency-diagram" title="Link to this heading">#</a></h2>
+<p>NOTE: Use white theme for mermaid diagrams.</p>
+<pre  class="mermaid">
+        flowchart LR
+    subgraph Simulation
+      ENG[simulation.engine]
+      PHY[simulation.physics]
+    end
+    subgraph Rendering
+      PRIM[rendering.primitives]
+      PART[rendering.particles]
+      FIELD[rendering.field]
+      FS[rendering.field_sampler]
+      TRAIL[rendering.trails]
+      OVER[rendering.overlay]
+      DRAW[rendering.draw]
+    end
+    subgraph UI
+      CTRL[ui.controls]
+    end
+    CFG[config]
+    MAIN[(main.py)]
+
+    MAIN --&gt; CTRL
+    MAIN --&gt; ENG
+    MAIN --&gt; DRAW
+
+    ENG &lt;--&gt; PHY
+    ENG --&gt; PRIM
+    ENG --&gt; PART
+    ENG --&gt; FIELD
+    ENG --&gt; TRAIL
+    ENG --&gt; OVER
+
+    FIELD --&gt; FS
+    FIELD --&gt; PRIM
+
+    PART --&gt; PRIM
+
+    CTRL --&gt; ENG
+    CTRL --&gt; PRIM
+
+    CFG --&gt; ENG
+    CFG --&gt; PHY
+    CFG --&gt; PRIM
+    CFG --&gt; PART
+    CFG --&gt; FIELD
+    CFG --&gt; FS
+    CFG --&gt; TRAIL
+    CFG --&gt; OVER
+    </pre></section>
+<section id="data-flow">
+<h2>Data Flow<a class="headerlink" href="#data-flow" title="Link to this heading">#</a></h2>
+<section id="frame-loop-sequence">
+<h3>Frame Loop Sequence<a class="headerlink" href="#frame-loop-sequence" title="Link to this heading">#</a></h3>
+<pre  class="mermaid">
+        sequenceDiagram
+  participant Pygame
+  participant UI as UI Controls
+  participant Sim as Simulation
+  participant Phys as Physics
+  participant Draw as Rendering
+
+  Pygame-&gt;&gt;UI: poll events
+  UI-&gt;&gt;Sim: toggle flags / edit particles / placement
+  Sim-&gt;&gt;Phys: rk4_integrate (substeps)
+  Phys--&gt;&gt;Sim: updated positions/velocities
+  Sim-&gt;&gt;Phys: resolve_collisions
+  Sim-&gt;&gt;Sim: wrap positions, recompute energies, trails
+  Sim-&gt;&gt;Draw: pass particles, forces, flags
+  Draw--&gt;&gt;Pygame: paint frame
+    </pre></section>
+<section id="data-structures">
+<h3>Data Structures<a class="headerlink" href="#data-structures" title="Link to this heading">#</a></h3>
+<p><strong>Particle representation</strong>:</p>
+<ul class="simple">
+<li><p>Python: <code class="docutils literal notranslate"><span class="pre">Particle</span></code> dataclass with NumPy arrays</p></li>
+<li><p>Numba kernels: Structure-of-arrays (SoA) packing</p>
+<ul>
+<li><p>Separate arrays: <code class="docutils literal notranslate"><span class="pre">pos_x</span></code>, <code class="docutils literal notranslate"><span class="pre">pos_y</span></code>, <code class="docutils literal notranslate"><span class="pre">vel_x</span></code>, <code class="docutils literal notranslate"><span class="pre">vel_y</span></code>, <code class="docutils literal notranslate"><span class="pre">charge</span></code>, <code class="docutils literal notranslate"><span class="pre">mass</span></code>, <code class="docutils literal notranslate"><span class="pre">radius</span></code>, <code class="docutils literal notranslate"><span class="pre">fixed</span></code></p></li>
+<li><p>Enables SIMD vectorization and cache-friendly access patterns</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>State ownership</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Simulation.particles</span></code>: List of <code class="docutils literal notranslate"><span class="pre">Particle</span></code> objects (authoritative source)</p></li>
+<li><p>Rendering subsystems: Read-only access to particle list</p></li>
+<li><p>Physics kernels: Temporary copies for computation, write back to particles</p></li>
+</ul>
+<p><strong>Trail management</strong>:</p>
+<ul class="simple">
+<li><p>Per-particle circular buffer: Fixed capacity (based on <code class="docutils literal notranslate"><span class="pre">TRAJECTORY_HISTORY_SECONDS</span></code>)</p></li>
+<li><p>Automatic pruning: Old positions removed when exceeding duration</p></li>
+<li><p>Stored in <code class="docutils literal notranslate"><span class="pre">Simulation.particle_trails</span></code> dictionary keyed by particle ID</p></li>
+</ul>
+</section>
+<section id="performance-characteristics">
+<h3>Performance Characteristics<a class="headerlink" href="#performance-characteristics" title="Link to this heading">#</a></h3>
+<p><strong>Time complexity per frame</strong>:</p>
+<ul class="simple">
+<li><p>Force computation: O(N²) where N = particle count</p></li>
+<li><p>RK4 integration: O(N × substeps) × 4 stages = O(N)</p></li>
+<li><p>Collision detection: O(N²) naive pairwise (no spatial partitioning)</p></li>
+<li><p>Field grid: O(M × N) where M = grid points (~400 for default settings)</p></li>
+<li><p>Rendering particles: O(N)</p></li>
+<li><p>Rendering trails: O(N × history_length)</p></li>
+</ul>
+<p><strong>Bottlenecks</strong>:</p>
+<ol class="arabic simple">
+<li><p><strong>Physics</strong>: Dominates when N &gt; 20, scales quadratically</p></li>
+<li><p><strong>Field visualization</strong>: Expensive with many particles, disabled by default for performance</p></li>
+<li><p><strong>Glow rendering</strong>: Alpha blending overhead, cached surfaces help</p></li>
+</ol>
+<p><strong>Optimization strategies</strong>:</p>
+<ul class="simple">
+<li><p>Numba JIT compilation for physics kernels (5-10× speedup)</p></li>
+<li><p>Parallel acceleration with <code class="docutils literal notranslate"><span class="pre">prange</span></code> (additional 2-4× on multi-core)</p></li>
+<li><p>Field sampler caching (compute once, reuse for rendering)</p></li>
+<li><p>Glow surface cache (avoid regenerating radial gradients)</p></li>
+<li><p>Early exits: Skip neutral/fixed/massless particles in tight loops</p></li>
+</ul>
+</section>
+</section>
+<section id="design-patterns">
+<h2>Design Patterns<a class="headerlink" href="#design-patterns" title="Link to this heading">#</a></h2>
+<section id="configuration-as-constants">
+<h3>Configuration as Constants<a class="headerlink" href="#configuration-as-constants" title="Link to this heading">#</a></h3>
+<p>All tunable parameters are module-level constants in <code class="docutils literal notranslate"><span class="pre">config.py</span></code>:</p>
+<ul class="simple">
+<li><p><strong>Pro</strong>: Simple, fast access, no runtime overhead</p></li>
+<li><p><strong>Con</strong>: Requires restart to change; no per-simulation settings</p></li>
+<li><p><strong>Rationale</strong>: Prioritizes performance; configuration rarely changes during use</p></li>
+</ul>
+</section>
+<section id="dataclass-for-particles">
+<h3>Dataclass for Particles<a class="headerlink" href="#dataclass-for-particles" title="Link to this heading">#</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">Particle</span></code> uses Python 3.7+ dataclass:</p>
+<ul class="simple">
+<li><p><strong>Advantages</strong>: Automatic <code class="docutils literal notranslate"><span class="pre">__init__</span></code>, <code class="docutils literal notranslate"><span class="pre">__repr__</span></code>, type hints</p></li>
+<li><p><strong>Fields</strong>: Mutable (positions/velocities updated in-place for efficiency)</p></li>
+<li><p><strong>NumPy integration</strong>: Position/velocity as <code class="docutils literal notranslate"><span class="pre">np.ndarray</span></code> for vectorization</p></li>
+</ul>
+</section>
+<section id="separation-of-concerns">
+<h3>Separation of Concerns<a class="headerlink" href="#separation-of-concerns" title="Link to this heading">#</a></h3>
+<p>Clear module boundaries:</p>
+<ul class="simple">
+<li><p><strong>Physics</strong>: No rendering code, pure numerical computation</p></li>
+<li><p><strong>Rendering</strong>: No physics logic, only visualization</p></li>
+<li><p><strong>Controls</strong>: Translates user input to simulation commands</p></li>
+<li><p><strong>Main</strong>: Orchestrates but delegates all work</p></li>
+</ul>
+</section>
+<section id="graceful-degradation">
+<h3>Graceful Degradation<a class="headerlink" href="#graceful-degradation" title="Link to this heading">#</a></h3>
+<p>Multiple fallback paths:</p>
+<ul class="simple">
+<li><p><strong>Numba unavailable</strong>: Fall back to pure NumPy/Python (slower but functional)</p></li>
+<li><p><strong>Field sampler disabled</strong>: Compute field on-demand per arrow</p></li>
+<li><p><strong>Low performance</strong>: Disable expensive features (glow, field, trails)</p></li>
+</ul>
+</section>
+<section id="immutable-constants">
+<h3>Immutable Constants<a class="headerlink" href="#immutable-constants" title="Link to this heading">#</a></h3>
+<p>Configuration module uses uppercase naming and type hints:</p>
+<ul class="simple">
+<li><p>Signals “read-only” intent (not enforced, but convention)</p></li>
+<li><p>Type annotations enable static checking and IDE autocomplete</p></li>
+</ul>
+</section>
+</section>
+<section id="extension-points">
+<h2>Extension Points<a class="headerlink" href="#extension-points" title="Link to this heading">#</a></h2>
+<section id="adding-a-new-force">
+<h3>Adding a New Force<a class="headerlink" href="#adding-a-new-force" title="Link to this heading">#</a></h3>
+<p>To implement additional forces (e.g., gravity, magnetic):</p>
+<ol class="arabic">
+<li><p><strong>Add force function</strong> to <code class="docutils literal notranslate"><span class="pre">electrosim.simulation.physics</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">magnetic_force_pair</span><span class="p">(</span><span class="n">p_i</span><span class="p">,</span> <span class="n">v_i</span><span class="p">,</span> <span class="n">q_i</span><span class="p">,</span> <span class="n">p_j</span><span class="p">,</span> <span class="n">v_j</span><span class="p">,</span> <span class="n">q_j</span><span class="p">,</span> <span class="n">B_field</span><span class="p">):</span>
+    <span class="c1"># Lorentz force: F = q(v × B)</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Integrate in acceleration kernel</strong>:</p>
+<ul class="simple">
+<li><p>Modify <code class="docutils literal notranslate"><span class="pre">compute_accelerations()</span></code> to include new force</p></li>
+<li><p>Update Numba kernels (serial and parallel variants)</p></li>
+</ul>
+</li>
+<li><p><strong>Add configuration</strong> to <code class="docutils literal notranslate"><span class="pre">electrosim.config</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">MAGNETIC_FIELD_TESLA</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># B_z field</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Test</strong>: Validate with known analytical solution (e.g., cyclotron motion)</p></li>
+</ol>
+</section>
+<section id="adding-visualization-modes">
+<h3>Adding Visualization Modes<a class="headerlink" href="#adding-visualization-modes" title="Link to this heading">#</a></h3>
+<p>To add new visualization overlays:</p>
+<ol class="arabic">
+<li><p><strong>Create rendering function</strong> in new or existing <code class="docutils literal notranslate"><span class="pre">rendering.*</span></code> module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_energy_contours</span><span class="p">(</span><span class="n">screen</span><span class="p">,</span> <span class="n">particles</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="c1"># Draw equipotential lines</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Add toggle in controls</strong>: Update <code class="docutils literal notranslate"><span class="pre">handle_events()</span></code> for keyboard shortcut</p></li>
+<li><p><strong>Integrate in main loop</strong>: Call drawing function when enabled</p></li>
+<li><p><strong>Add configuration</strong>: Colors, line widths, sampling resolution</p></li>
+</ol>
+</section>
+<section id="custom-integrators">
+<h3>Custom Integrators<a class="headerlink" href="#custom-integrators" title="Link to this heading">#</a></h3>
+<p>To experiment with different time integrators:</p>
+<ol class="arabic">
+<li><p><strong>Implement in physics module</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verlet_integrate</span><span class="p">(</span><span class="n">particles</span><span class="p">,</span> <span class="n">dt</span><span class="p">,</span> <span class="n">substeps</span><span class="p">,</span> <span class="n">world_size</span><span class="p">):</span>
+    <span class="c1"># Velocity Verlet algorithm</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>Swap in Simulation</strong>: Replace <code class="docutils literal notranslate"><span class="pre">rk4_integrate()</span></code> call in <code class="docutils literal notranslate"><span class="pre">step_frame()</span></code></p></li>
+<li><p><strong>Compare</strong>: Energy conservation, performance, accuracy</p></li>
+</ol>
+</section>
+</section>
+<section id="error-handling">
+<h2>Error Handling<a class="headerlink" href="#error-handling" title="Link to this heading">#</a></h2>
+<p><strong>Particle limits</strong>:</p>
+<ul class="simple">
+<li><p>Maximum count enforced: <code class="docutils literal notranslate"><span class="pre">MAX_PARTICLES</span></code> (default 100)</p></li>
+<li><p>Prevents memory exhaustion and UI freeze</p></li>
+</ul>
+<p><strong>Charge/mass/radius bounds</strong>:</p>
+<ul class="simple">
+<li><p>Clamped to <code class="docutils literal notranslate"><span class="pre">[MIN_*,</span> <span class="pre">MAX_*]</span></code> ranges in configuration</p></li>
+<li><p>Prevents numerical instabilities and visual artifacts</p></li>
+</ul>
+<p><strong>Collision singularities</strong>:</p>
+<ul class="simple">
+<li><p>Softening prevents infinite forces at r=0</p></li>
+<li><p>Penetration correction ensures particles separate</p></li>
+</ul>
+<p><strong>Periodic boundary wrapping</strong>:</p>
+<ul class="simple">
+<li><p>Positions clamped to <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">WORLD_*_M)</span></code> after each step</p></li>
+<li><p>Minimum-image displacement for forces across boundaries</p></li>
+</ul>
+<p><strong>Energy monitoring</strong>:</p>
+<ul class="simple">
+<li><p>Displayed in overlay for sanity checking</p></li>
+<li><p>Large jumps indicate bugs (collision, force, or integrator errors)</p></li>
+</ul>
+</section>
+<section id="platform-specific-adaptations">
+<h2>Platform-Specific Adaptations<a class="headerlink" href="#platform-specific-adaptations" title="Link to this heading">#</a></h2>
+<section id="desktop-windows-linux-macos">
+<h3>Desktop (Windows/Linux/macOS)<a class="headerlink" href="#desktop-windows-linux-macos" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Native Pygame window with hardware acceleration</p></li>
+<li><p>Numba JIT compilation available (LLVM backend)</p></li>
+<li><p>Blocking event loop with vsync timing</p></li>
+</ul>
+</section>
+<section id="web-pyodide-wasm">
+<h3>Web (Pyodide/WASM)<a class="headerlink" href="#web-pyodide-wasm" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>Pygame-CE rendering to HTML5 Canvas</p></li>
+<li><p>No Numba (fallback to NumPy/Python)</p></li>
+<li><p>Async event loop (<code class="docutils literal notranslate"><span class="pre">asyncio</span></code> compatible)</p></li>
+<li><p>Manual keyboard bridging via JavaScript</p></li>
+<li><p>Performance: 2-5× slower than desktop</p></li>
+</ul>
+</section>
+<section id="configuration-overrides">
+<h3>Configuration overrides<a class="headerlink" href="#configuration-overrides" title="Link to this heading">#</a></h3>
+<p>Web version uses <code class="docutils literal notranslate"><span class="pre">web/config_web.py</span></code> to adjust defaults:</p>
+<ul class="simple">
+<li><p>Lower FPS target (reduce CPU load)</p></li>
+<li><p>Simpler visualization defaults</p></li>
+<li><p>Disabled profiling overlay (clutter on small screens)</p></li>
+</ul>
+</section>
+</section>
+<section id="testing-strategy">
+<h2>Testing Strategy<a class="headerlink" href="#testing-strategy" title="Link to this heading">#</a></h2>
+<p><strong>Unit tests</strong> (recommended, not currently implemented):</p>
+<ul class="simple">
+<li><p>Physics functions: <code class="docutils literal notranslate"><span class="pre">minimum_image_displacement</span></code>, <code class="docutils literal notranslate"><span class="pre">electric_force_pair</span></code></p></li>
+<li><p>Collision resolution: momentum/energy conservation</p></li>
+<li><p>Coordinate conversions: world ↔ screen consistency</p></li>
+</ul>
+<p><strong>Integration tests</strong>:</p>
+<ul class="simple">
+<li><p>Validation mode: Uniform field trajectory accuracy</p></li>
+<li><p>Energy conservation: Long-run stability</p></li>
+<li><p>Collision sequences: Multi-particle interactions</p></li>
+</ul>
+<p><strong>Visual regression</strong>:</p>
+<ul class="simple">
+<li><p>Screenshot comparison for rendering correctness</p></li>
+<li><p>Field visualization patterns</p></li>
+<li><p>Particle appearance (color, glow, borders)</p></li>
+</ul>
+<p><strong>Performance regression</strong>:</p>
+<ul class="simple">
+<li><p>Benchmarking: FPS vs. particle count</p></li>
+<li><p>Profiling: Physics, field, rendering times</p></li>
+<li><p>Memory usage: Trail buffers, glow cache</p></li>
+</ul>
+<p>See <a class="reference internal" href="validation.html"><span class="std std-doc">Validation</span></a> for detailed testing documentation.</p>
+</section>
+<section id="related-documentation">
+<h2>Related Documentation<a class="headerlink" href="#related-documentation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="physics_overview.html"><span class="std std-doc">Physics Overview</span></a> — Physical models and equations</p></li>
+<li><p><a class="reference internal" href="performance.html"><span class="std std-doc">Performance Notes</span></a> — Optimization techniques and bottlenecks</p></li>
+<li><p><a class="reference internal" href="web_integration.html"><span class="std std-doc">Web Integration</span></a> — Browser-specific adaptations</p></li>
+<li><p><a class="reference internal" href="../api/_autosummary/electrosim.simulation.engine.html#module-electrosim.simulation.engine" title="electrosim.simulation.engine"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.simulation.engine</span></code></a> — Simulation orchestrator</p></li>
+<li><p><a class="reference internal" href="../api/_autosummary/electrosim.simulation.physics.html#module-electrosim.simulation.physics" title="electrosim.simulation.physics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.simulation.physics</span></code></a> — Physics kernels</p></li>
+<li><p><a class="reference internal" href="../api/_autosummary/main.html#module-main" title="main"><code class="xref py py-mod docutils literal notranslate"><span class="pre">main</span></code></a> — Desktop entry point</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../user_guide/web.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Running ElectroSim on the Web</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="physics_overview.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Physics Overview</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overview">Overview</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modules-and-responsibilities">Modules and responsibilities</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrosim-config"><code class="docutils literal notranslate"><span class="pre">electrosim.config</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrosim-simulation-engine"><code class="docutils literal notranslate"><span class="pre">electrosim.simulation.engine</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrosim-simulation-physics"><code class="docutils literal notranslate"><span class="pre">electrosim.simulation.physics</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrosim-rendering"><code class="docutils literal notranslate"><span class="pre">electrosim.rendering.*</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#electrosim-ui-controls"><code class="docutils literal notranslate"><span class="pre">electrosim.ui.controls</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#main-py"><code class="docutils literal notranslate"><span class="pre">main.py</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dependency-diagram">Dependency diagram</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#data-flow">Data Flow</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame-loop-sequence">Frame Loop Sequence</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#data-structures">Data Structures</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-characteristics">Performance Characteristics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-patterns">Design Patterns</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-as-constants">Configuration as Constants</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dataclass-for-particles">Dataclass for Particles</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#separation-of-concerns">Separation of Concerns</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#graceful-degradation">Graceful Degradation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#immutable-constants">Immutable Constants</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#extension-points">Extension Points</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-new-force">Adding a New Force</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-visualization-modes">Adding Visualization Modes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#custom-integrators">Custom Integrators</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#error-handling">Error Handling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#platform-specific-adaptations">Platform-Specific Adaptations</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#desktop-windows-linux-macos">Desktop (Windows/Linux/macOS)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#web-pyodide-wasm">Web (Pyodide/WASM)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration-overrides">Configuration overrides</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#testing-strategy">Testing Strategy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#related-documentation">Related Documentation</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/developer_guide/architecture.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Danny Luna.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

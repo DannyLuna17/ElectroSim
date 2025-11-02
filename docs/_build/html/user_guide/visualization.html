@@ -1,0 +1,1094 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Visualization &#8212; ElectroSim Documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=8d563738"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'user_guide/visualization';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Configuration" href="configuration.html" />
+    <link rel="prev" title="Controls" href="controls.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="1.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">ElectroSim Documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="configuration.html">
+    Configuration
+  </a>
+</li>
+
+            <li class="nav-item dropdown">
+                <button class="btn dropdown-toggle nav-item" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false"
+                aria-controls="pst-nav-more-links">
+                    More
+                </button>
+                <ul id="pst-nav-more-links" class="dropdown-menu">
+                    
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer_guide/validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class=" ">
+  <a class="nav-link dropdown-item nav-internal" href="../annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+                </ul>
+            </li>
+            
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../getting_started.html">
+    Getting Started
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="running.html">
+    Running the Simulation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="controls.html">
+    Controls
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="#">
+    Visualization
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="configuration.html">
+    Configuration
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="web.html">
+    Running ElectroSim on the Web
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/architecture.html">
+    Architecture
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/physics_overview.html">
+    Physics Overview
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/performance.html">
+    Performance Notes
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/validation.html">
+    Validation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../developer_guide/web_integration.html">
+    Web Integration (Pyodide + pygame-ce)
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../api/index.html">
+    API Reference
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/coulomb_periodic.html">
+    Coulomb Force with Periodic Boundary Conditions
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/plummer_softening.html">
+    Plummer-like Softening
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/rk4_derivation.html">
+    RK4 Derivation
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/elastic_collision_impulse.html">
+    Elastic Collision Impulse
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/potential_energy_modeling.html">
+    Potential Energy Modeling
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../math/field_visualization_mapping.html">
+    Field Visualization Mapping
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/simulation_physics.html">
+    Annotated: electrosim.simulation.physics
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/simulation_engine.html">
+    Annotated: electrosim.simulation.engine
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_primitives.html">
+    Annotated: electrosim.rendering.primitives
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_field.html">
+    Annotated: electrosim.rendering.field
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_field_sampler.html">
+    Annotated: electrosim.rendering.field_sampler
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_particles.html">
+    Annotated: electrosim.rendering.particles
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_trails.html">
+    Annotated: electrosim.rendering.trails
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/rendering_overlay.html">
+    Annotated: electrosim.rendering.overlay
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/ui_controls.html">
+    Annotated: electrosim.ui.controls
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../annotated/main.html">
+    Annotated: main.py
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"></div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Visualization</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visualization">
+<h1>Visualization<a class="headerlink" href="#visualization" title="Link to this heading">#</a></h1>
+<p>ElectroSim provides rich real-time visualization. This page describes the available visualization modes and customization options.</p>
+<section id="particle-rendering">
+<h2>Particle Rendering<a class="headerlink" href="#particle-rendering" title="Link to this heading">#</a></h2>
+<section id="color-coding">
+<h3>Color Coding<a class="headerlink" href="#color-coding" title="Link to this heading">#</a></h3>
+<p>Particles are color-coded by charge:</p>
+<ul class="simple">
+<li><p><strong>Red</strong>: Positive charge (q &gt; 0)</p></li>
+<li><p><strong>Blue</strong>: Negative charge (q &lt; 0)</p></li>
+<li><p><strong>White</strong>: Neutral (|q| &lt; 10⁻¹² C, effectively zero)</p></li>
+</ul>
+<p>Colors are defined in <code class="docutils literal notranslate"><span class="pre">electrosim/config.py</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">COLOR_POSITIVE</span></code>: RGB for positive particles (default: red)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COLOR_NEGATIVE</span></code>: RGB for negative particles (default: blue)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COLOR_NEUTRAL</span></code>: RGB for neutral particles (default: white)</p></li>
+</ul>
+</section>
+<section id="particle-glow-effect">
+<h3>Particle Glow Effect<a class="headerlink" href="#particle-glow-effect" title="Link to this heading">#</a></h3>
+<p>Particles can display a soft glow that scales with charge magnitude. Toggle with <code class="docutils literal notranslate"><span class="pre">B</span></code> key.</p>
+<p><strong>Configuration</strong> (<code class="docutils literal notranslate"><span class="pre">electrosim/config.py</span></code>):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GLOW_ENABLED</span></code>: Enable/disable glow (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GLOW_ALPHA_AT_MAX</span></code>: Alpha value when |q| = MAX_CHARGE_C (default: 255)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GLOW_RADIUS_SCALE</span></code>: Glow radius multiplier (default: 100.0)</p></li>
+</ul>
+<p>The glow uses cached surfaces for performance. Cache settings:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">GLOW_CACHE_INTENSITY_STEPS</span></code>: Quantization steps for intensity</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GLOW_CACHE_MAX_SURFACES</span></code>: Maximum cached glow surfaces</p></li>
+</ul>
+</section>
+<section id="particle-borders">
+<h3>Particle Borders<a class="headerlink" href="#particle-borders" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><strong>White border</strong>: Selected particle</p></li>
+<li><p><strong>Gold border</strong>: Fixed (immobile) particle</p></li>
+<li><p>Both borders can appear simultaneously for a selected fixed particle</p></li>
+</ul>
+<p>Border colors in config:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">COLOR_SELECTED_BORDER</span></code>: Selection highlight (white)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">COLOR_FIXED_BORDER</span></code>: Fixed particle indicator (gold)</p></li>
+</ul>
+</section>
+</section>
+<section id="electric-field-visualization">
+<h2>Electric Field Visualization<a class="headerlink" href="#electric-field-visualization" title="Link to this heading">#</a></h2>
+<p>Press <code class="docutils literal notranslate"><span class="pre">E</span></code> to toggle electric field visualization. The field is sampled on a grid and rendered as vector arrows.</p>
+<section id="display-modes">
+<h3>Display Modes<a class="headerlink" href="#display-modes" title="Link to this heading">#</a></h3>
+<p>Press <code class="docutils literal notranslate"><span class="pre">M</span></code> to cycle between two field visualization modes:</p>
+<section id="brightness-mode">
+<h4>Brightness Mode<a class="headerlink" href="#brightness-mode" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Arrow length</strong>: Fixed (<code class="docutils literal notranslate"><span class="pre">FIELD_FIXED_ARROW_LENGTH_PX</span></code>, default: 16 px)</p></li>
+<li><p><strong>Arrow opacity/brightness</strong>: Varies with field magnitude |E|</p></li>
+<li><p><strong>Color blending</strong>: Arrows blend toward white at high field strength</p></li>
+<li><p><strong>Best for</strong>: Showing field structure without clutter</p></li>
+</ul>
+<p>Scaling parameter:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FIELD_BRIGHTNESS_SCALE</span></code>: Multiplier for brightness mapping (default: 2.0)</p></li>
+</ul>
+</section>
+<section id="length-mode">
+<h4>Length Mode<a class="headerlink" href="#length-mode" title="Link to this heading">#</a></h4>
+<ul class="simple">
+<li><p><strong>Arrow length</strong>: Proportional to |E|, clamped to max</p></li>
+<li><p><strong>Arrow opacity</strong>: Constant</p></li>
+<li><p><strong>Best for</strong>: Direct magnitude comparison</p></li>
+</ul>
+<p>Scaling parameters:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FIELD_VECTOR_SCALE</span></code>: Conversion from field strength to pixels (default: 2e-3)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FIELD_VECTOR_MAX_LENGTH_PX</span></code>: Maximum arrow length (default: 50.0 px)</p></li>
+</ul>
+</section>
+</section>
+<section id="field-grid-configuration">
+<h3>Field Grid Configuration<a class="headerlink" href="#field-grid-configuration" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FIELD_GRID_STEP_PX</span></code>: Spacing between field sample points (default: 30 px)</p>
+<ul>
+<li><p>Smaller values: Higher resolution, more computation</p></li>
+<li><p>Larger values: Coarser grid, faster rendering</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FIELD_ALPHA_MIN_DRAW</span></code>: Minimum alpha to draw (default: 2, suppresses very weak fields)</p></li>
+</ul>
+</section>
+<section id="field-sampler">
+<h3>Field Sampler<a class="headerlink" href="#field-sampler" title="Link to this heading">#</a></h3>
+<p>For performance with many particles, enable the field sampler:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">FIELD_SAMPLER_ENABLED</span></code>: Cache field grid per frame (default: <code class="docutils literal notranslate"><span class="pre">True</span></code>)</p></li>
+</ul>
+<p>When enabled, the entire field grid is computed once per frame and reused for rendering. Disable if you prefer on-demand field evaluation.</p>
+<p><strong>Implementation</strong>: <a class="reference internal" href="../api/_autosummary/electrosim.rendering.field_sampler.html#electrosim.rendering.field_sampler.ElectricFieldSampler" title="electrosim.rendering.field_sampler.ElectricFieldSampler"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.rendering.field_sampler.ElectricFieldSampler</span></code></a></p>
+</section>
+</section>
+<section id="force-vectors">
+<h2>Force Vectors<a class="headerlink" href="#force-vectors" title="Link to this heading">#</a></h2>
+<p>Press <code class="docutils literal notranslate"><span class="pre">F</span></code> to show force vectors on each particle.</p>
+<ul class="simple">
+<li><p><strong>Color</strong>: Yellow (configurable via <code class="docutils literal notranslate"><span class="pre">COLOR_FORCE_VECTOR</span></code>)</p></li>
+<li><p><strong>Length</strong>: Proportional to force magnitude</p></li>
+<li><p><strong>Scaling</strong>: <code class="docutils literal notranslate"><span class="pre">FORCE_VECTOR_SCALE</span></code> (default: 100.0 px per Newton)</p></li>
+<li><p><strong>Max length</strong>: <code class="docutils literal notranslate"><span class="pre">VECTOR_MAX_LENGTH_PX</span></code> (default: 80.0 px)</p></li>
+</ul>
+<p>Force vectors originate at the particle center and point in the direction of net electromagnetic force.</p>
+</section>
+<section id="velocity-vectors">
+<h2>Velocity Vectors<a class="headerlink" href="#velocity-vectors" title="Link to this heading">#</a></h2>
+<p>Press <code class="docutils literal notranslate"><span class="pre">V</span></code> to show velocity vectors on each particle.</p>
+<ul class="simple">
+<li><p><strong>Color</strong>: Green (configurable via <code class="docutils literal notranslate"><span class="pre">COLOR_VELOCITY_VECTOR</span></code>)</p></li>
+<li><p><strong>Length</strong>: Proportional to speed</p></li>
+<li><p><strong>Scaling</strong>: <code class="docutils literal notranslate"><span class="pre">VELOCITY_VECTOR_SCALE</span></code> (default: 10.0 px per m/s)</p></li>
+<li><p><strong>Max length</strong>: <code class="docutils literal notranslate"><span class="pre">VECTOR_MAX_LENGTH_PX</span></code> (default: 80.0 px)</p></li>
+</ul>
+<p>Velocity vectors originate at the particle center and point in the direction of motion.</p>
+</section>
+<section id="particle-trajectories">
+<h2>Particle Trajectories<a class="headerlink" href="#particle-trajectories" title="Link to this heading">#</a></h2>
+<p>Press <code class="docutils literal notranslate"><span class="pre">T</span></code> to toggle trajectory trails.</p>
+<section id="trail-appearance">
+<h3>Trail Appearance<a class="headerlink" href="#trail-appearance" title="Link to this heading">#</a></h3>
+<p>Trails are polylines that fade from recent to old positions:</p>
+<ul class="simple">
+<li><p><strong>Color</strong>:</p>
+<ul>
+<li><p>Positive particles: <code class="docutils literal notranslate"><span class="pre">COLOR_TRAIL_POS</span></code> (light red)</p></li>
+<li><p>Negative particles: <code class="docutils literal notranslate"><span class="pre">COLOR_TRAIL_NEG</span></code> (light blue)</p></li>
+</ul>
+</li>
+<li><p><strong>Width</strong>: <code class="docutils literal notranslate"><span class="pre">TRAIL_WIDTH_PX</span></code> (default: 3 px)</p></li>
+<li><p><strong>Alpha</strong>: Fades from <code class="docutils literal notranslate"><span class="pre">TRAIL_ALPHA_MAX</span></code> to <code class="docutils literal notranslate"><span class="pre">TRAIL_MIN_ALPHA</span></code> over time</p></li>
+<li><p><strong>Duration</strong>: <code class="docutils literal notranslate"><span class="pre">TRAJECTORY_HISTORY_SECONDS</span></code> (default: 3.0 s)</p></li>
+</ul>
+</section>
+<section id="trail-configuration">
+<h3>Trail Configuration<a class="headerlink" href="#trail-configuration" title="Link to this heading">#</a></h3>
+<p>Parameters in <code class="docutils literal notranslate"><span class="pre">electrosim/config.py</span></code>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TRAIL_WIDTH_PX</span></code>: Line thickness</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TRAIL_ALPHA_MAX</span></code>: Maximum opacity for newest trail segment (default: 235)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TRAIL_MIN_ALPHA</span></code>: Minimum opacity for oldest visible segment (default: 5)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TRAIL_FADE_SECONDS</span></code>: Fade duration (default: same as history duration)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TRAIL_AA_EDGE_EXTEND_PX</span></code>: Anti-aliasing edge width (default: 1 px)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TRAIL_AA_EDGE_OPACITY_FACTOR</span></code>: Edge opacity multiplier (default: 0.35)</p></li>
+</ul>
+<p>Trails use a dedicated surface with alpha blending for smooth fading.</p>
+<p><strong>Implementation</strong>: <a class="reference internal" href="../api/_autosummary/electrosim.rendering.trails.html#module-electrosim.rendering.trails" title="electrosim.rendering.trails"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.rendering.trails</span></code></a></p>
+</section>
+</section>
+<section id="metric-grid">
+<h2>Metric Grid<a class="headerlink" href="#metric-grid" title="Link to this heading">#</a></h2>
+<p>Press <code class="docutils literal notranslate"><span class="pre">G</span></code> to toggle the metric grid overlay.</p>
+<p>Shows world-space coordinates in meters:</p>
+<ul class="simple">
+<li><p><strong>Minor lines</strong>: Every <code class="docutils literal notranslate"><span class="pre">GRID_METER_STEP</span></code> meters (default: 1.0 m)</p></li>
+<li><p><strong>Major lines</strong>: Every <code class="docutils literal notranslate"><span class="pre">GRID_MAJOR_EVERY</span></code> steps (default: 1)</p></li>
+<li><p><strong>Colors</strong>:</p>
+<ul>
+<li><p>Minor: <code class="docutils literal notranslate"><span class="pre">COLOR_GRID</span></code> (dark gray)</p></li>
+<li><p>Major: <code class="docutils literal notranslate"><span class="pre">COLOR_GRID_MAJOR</span></code> (lighter gray)</p></li>
+</ul>
+</li>
+<li><p><strong>Line widths</strong>:</p>
+<ul>
+<li><p>Minor: <code class="docutils literal notranslate"><span class="pre">GRID_LINE_WIDTH</span></code> (default: 1 px)</p></li>
+<li><p>Major: <code class="docutils literal notranslate"><span class="pre">GRID_MAJOR_LINE_WIDTH</span></code> (default: 2 px)</p></li>
+</ul>
+</li>
+</ul>
+<p>The grid helps visualize particle positions and distances in physical units.</p>
+</section>
+<section id="overlay-information">
+<h2>Overlay Information<a class="headerlink" href="#overlay-information" title="Link to this heading">#</a></h2>
+<p>The top-left overlay displays real-time statistics:</p>
+<ul class="simple">
+<li><p><strong>FPS</strong>: Current frame rate</p></li>
+<li><p><strong>N</strong>: Number of particles</p></li>
+<li><p><strong>Speed</strong>: Simulation speed multiplier (0.5×, 1×, 2×, 4×)</p></li>
+<li><p><strong>dt</strong>: Integration timestep (seconds)</p></li>
+<li><p><strong>Substeps</strong>: RK4 substeps per frame</p></li>
+<li><p><strong>E_kin</strong>: Total kinetic energy (Joules)</p></li>
+<li><p><strong>E_pot</strong>: Total potential energy (Joules)</p></li>
+<li><p><strong>E_tot</strong>: Total energy (Joules)</p></li>
+</ul>
+<section id="performance-profiling">
+<h3>Performance Profiling<a class="headerlink" href="#performance-profiling" title="Link to this heading">#</a></h3>
+<p>Enable detailed per-frame timing with <code class="docutils literal notranslate"><span class="pre">PROFILE_OVERLAY_ENABLED</span> <span class="pre">=</span> <span class="pre">True</span></code>:</p>
+<p>Additional overlay metrics:</p>
+<ul class="simple">
+<li><p><strong>Physics</strong>: Time spent computing forces and integration (ms)</p></li>
+<li><p><strong>Field</strong>: Time spent computing/rendering electric field (ms)</p></li>
+<li><p><strong>Render</strong>: Time spent drawing particles, trails, vectors (ms)</p></li>
+<li><p><strong>Total</strong>: Total frame time (ms)</p></li>
+</ul>
+<p><strong>Overlay configuration</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OVERLAY_TEXT_COLOR</span></code>: Text color (default: light gray)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OVERLAY_SHADOW_COLOR</span></code>: Shadow color (default: black)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OVERLAY_SHADOW_OFFSET</span></code>: Shadow offset in pixels (default: (1, 1))</p></li>
+</ul>
+<p><strong>Implementation</strong>: <a class="reference internal" href="../api/_autosummary/electrosim.rendering.overlay.html#module-electrosim.rendering.overlay" title="electrosim.rendering.overlay"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.rendering.overlay</span></code></a></p>
+</section>
+</section>
+<section id="background-and-theme">
+<h2>Background and Theme<a class="headerlink" href="#background-and-theme" title="Link to this heading">#</a></h2>
+<p>Background color is configurable:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">COLOR_BG</span></code>: Background RGB (default: dark gray, (18, 18, 22))</p></li>
+</ul>
+<p>ElectroSim uses a dark theme by default for better contrast with bright particles and field vectors.</p>
+</section>
+<section id="performance-considerations">
+<h2>Performance Considerations<a class="headerlink" href="#performance-considerations" title="Link to this heading">#</a></h2>
+<p>Visualization can be the performance bottleneck for large numbers of particles:</p>
+<ol class="arabic simple">
+<li><p><strong>Electric field</strong>: Most expensive, especially with many particles</p>
+<ul class="simple">
+<li><p>Reduce <code class="docutils literal notranslate"><span class="pre">FIELD_GRID_STEP_PX</span></code> for fewer sample points</p></li>
+<li><p>Enable <code class="docutils literal notranslate"><span class="pre">FIELD_SAMPLER_ENABLED</span></code> for caching</p></li>
+<li><p>Use brightness mode instead of length mode</p></li>
+</ul>
+</li>
+<li><p><strong>Particle glow</strong>: Moderate cost due to alpha blending</p>
+<ul class="simple">
+<li><p>Disable with <code class="docutils literal notranslate"><span class="pre">GLOW_ENABLED</span> <span class="pre">=</span> <span class="pre">False</span></code> or press <code class="docutils literal notranslate"><span class="pre">B</span></code></p></li>
+<li><p>Reduce <code class="docutils literal notranslate"><span class="pre">GLOW_RADIUS_SCALE</span></code> for smaller glows</p></li>
+</ul>
+</li>
+<li><p><strong>Trajectories</strong>: Moderate cost, scales with history length</p>
+<ul class="simple">
+<li><p>Reduce <code class="docutils literal notranslate"><span class="pre">TRAJECTORY_HISTORY_SECONDS</span></code> for shorter trails</p></li>
+<li><p>Disable with <code class="docutils literal notranslate"><span class="pre">T</span></code> key</p></li>
+</ul>
+</li>
+<li><p><strong>Vectors</strong>: Low cost unless many particles</p>
+<ul class="simple">
+<li><p>Disable force/velocity vectors (<code class="docutils literal notranslate"><span class="pre">F</span></code>, <code class="docutils literal notranslate"><span class="pre">V</span></code>) if not needed</p></li>
+</ul>
+</li>
+</ol>
+</section>
+<section id="related-documentation">
+<h2>Related Documentation<a class="headerlink" href="#related-documentation" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="controls.html"><span class="std std-doc">Controls</span></a> — Keyboard shortcuts for toggling visualizations</p></li>
+<li><p><a class="reference internal" href="configuration.html"><span class="std std-doc">Configuration</span></a> — All visualization config parameters</p></li>
+<li><p><a class="reference internal" href="../api/_autosummary/electrosim.rendering.field.html#module-electrosim.rendering.field" title="electrosim.rendering.field"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.rendering.field</span></code></a> — Electric field rendering</p></li>
+<li><p><a class="reference internal" href="../api/_autosummary/electrosim.rendering.particles.html#module-electrosim.rendering.particles" title="electrosim.rendering.particles"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.rendering.particles</span></code></a> — Particle rendering with glow</p></li>
+<li><p><a class="reference internal" href="../api/_autosummary/electrosim.rendering.trails.html#module-electrosim.rendering.trails" title="electrosim.rendering.trails"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.rendering.trails</span></code></a> — Trajectory trail system</p></li>
+<li><p><a class="reference internal" href="../api/_autosummary/electrosim.rendering.overlay.html#module-electrosim.rendering.overlay" title="electrosim.rendering.overlay"><code class="xref py py-mod docutils literal notranslate"><span class="pre">electrosim.rendering.overlay</span></code></a> — HUD and statistics display</p></li>
+</ul>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="controls.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Controls</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="configuration.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Configuration</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-rendering">Particle Rendering</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#color-coding">Color Coding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-glow-effect">Particle Glow Effect</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-borders">Particle Borders</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electric-field-visualization">Electric Field Visualization</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#display-modes">Display Modes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#brightness-mode">Brightness Mode</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#length-mode">Length Mode</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#field-grid-configuration">Field Grid Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#field-sampler">Field Sampler</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#force-vectors">Force Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#velocity-vectors">Velocity Vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#particle-trajectories">Particle Trajectories</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trail-appearance">Trail Appearance</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#trail-configuration">Trail Configuration</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metric-grid">Metric Grid</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#overlay-information">Overlay Information</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-profiling">Performance Profiling</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#background-and-theme">Background and Theme</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#performance-considerations">Performance Considerations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#related-documentation">Related Documentation</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/user_guide/visualization.md.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Danny Luna.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

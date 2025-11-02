@@ -1,0 +1,7 @@
+.VSCodeCounter/
+*.pyc
+*.pyo
+*.pyd
+*.pyw
+*.pyz
+**/__pycache__/
