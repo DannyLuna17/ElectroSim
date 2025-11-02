@@ -14,6 +14,10 @@ Interactive 2D charged particle simulator featuring real-time electromagnetic in
 
 - **Windows (x64)**: [Latest release build](https://github.com/DannyLuna17/ElectroSim/releases/latest)
 
+<p align="center">
+  <img src="assets/ss.png" alt="ElectroSim screenshot showing particles, field vectors, and trails" width="800">
+</p>
+
 ## Features
 
 - **Accurate Physics Simulation**: N-body electromagnetic interactions with Coulomb's law and superposition principle
