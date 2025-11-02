@@ -11,6 +11,10 @@ Interactive 2D charged particle simulator featuring real-time electromagnetic in
 
 > **Documentation**: https://electro-sim-docs.vercel.app/
 
+## Downloads
+
+- **Windows (x64)**: [Latest release build](https://github.com/DannyLuna17/ElectroSim/releases/latest)
+
 ## Features
 
 - **Accurate Physics Simulation**: N-body electromagnetic interactions with Coulomb's law and superposition principle
@@ -302,6 +306,18 @@ The `deploy_web.py` script copies the latest `electrosim/` package to `web/elect
 - No Numba JIT compilation (automatic fallback to pure Python)
 - Audio disabled (SDL dummy audio driver)
 - First load requires ~50MB download (Pyodide + scientific libraries)
+
+## Building a Windows Executable
+
+1. Ensure you have a 64-bit Python 3.x installed and available on `PATH`.
+2. From the project root, run:
+
+   ```powershell
+   powershell -ExecutionPolicy Bypass -File scripts/build_windows_exe.ps1
+   ```
+
+   The helper script creates an isolated virtual environment, installs dependencies plus PyInstaller, and bundles the app.
+3. The compiled binary will be created at `dist/ElectroSim/ElectroSim.exe`. 
 
 ## Troubleshooting
 

@@ -5,3 +5,6 @@
 *.pyw
 *.pyz
 **/__pycache__/
+build/
+dist/
+.venv-build/
