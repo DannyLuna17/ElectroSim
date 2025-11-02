@@ -6,9 +6,8 @@
 
 Interactive 2D charged particle simulator featuring real-time electromagnetic interactions under Coulomb's law with superposition, fixed-step RK4 integration, elastic collisions, and a periodic 2D domain. Visualize electric fields, forces, velocities, and particle trajectories in real time.
 
-
+> [!IMPORTANT]
 > **Live Demo**: https://electro-sim.vercel.app/
-
 > **Documentation**: https://electro-sim-docs.vercel.app/
 
 ## Downloads
