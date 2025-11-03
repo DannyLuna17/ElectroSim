@@ -2,8 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="google-site-verification" content="oaMZ4Q9RxdCMW_TgY7OFoh9YNegKHjmoQ6lUkx5NpF8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ElectroSim - Web Version</title>
+    <meta name="description" content="ElectroSim is an interactive web-based charged particle simulator that helps students, teachers and researchers visualise electric fields, forces and trajectories in real time.">
+    <meta name="keywords" content="ElectroSim, charged particle simulator, electric field simulation, physics education, Coulomb's law, electric forces, computational physics">
+    <meta name="author" content="Danny Luna">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://electro-sim.vercel.app/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ElectroSim - Charged Particle Simulation in the Browser">
+    <meta property="og:description" content="Experiment with electric fields, charges and vectors using ElectroSim's interactive 2D particle simulator built for physics learning and research.">
+    <meta property="og:url" content="https://electro-sim.vercel.app/">
+    <meta property="og:site_name" content="ElectroSim">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="ElectroSim - Charged Particle Simulation in the Browser">
+    <meta name="twitter:description" content="Experiment with electric fields, charges and vectors using ElectroSim's interactive 2D particle simulator built for physics learning and research.">
+    <title>ElectroSim - Interactive Charged Particle Simulator</title>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "ElectroSim",
+        "operatingSystem": "Web",
+        "applicationCategory": "EducationalApplication",
+        "description": "ElectroSim is an interactive 2D charged particle simulator that visualises electric fields, forces and trajectories directly in the browser.",
+        "url": "https://electro-sim.vercel.app/",
+        "author": {
+            "@type": "Person",
+            "name": "Danny Luna"
+        },
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD",
+            "availability": "https://schema.org/InStock"
+        },
+        "featureList": [
+            "Interactive charged particle placement and editing",
+            "Configurable electric field and vector visualisation",
+            "Real-time physics engine powered by Pyodide",
+            "Preset scenes for rapid experimentation"
+        ]
+    }
+    </script>
     <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
     <style>
         body {
@@ -41,6 +83,29 @@
             margin: 10px 0;
             color: #cccccc;
             font-size: 1.1em;
+        }
+        .site-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 12px;
+        }
+        .site-nav a {
+            color: #9ec9ff;
+            text-decoration: none;
+            font-size: 0.95em;
+            border: 1px solid rgba(74, 158, 255, 0.3);
+            border-radius: 20px;
+            padding: 6px 14px;
+            transition: background 0.2s ease, color 0.2s ease, border 0.2s ease;
+        }
+        .site-nav a:hover,
+        .site-nav a:focus {
+            background: rgba(74, 158, 255, 0.15);
+            color: #ffffff;
+            border-color: rgba(74, 158, 255, 0.8);
+            outline: none;
         }
         .header-card {
             background: #2a2a2a;
@@ -81,6 +146,124 @@
             .header-info { text-align: left; }
         }
         
+        .site-main {
+            display: grid;
+            gap: 32px;
+        }
+        .seo-content {
+            background: #232323;
+            border-radius: 10px;
+            border: 1px solid rgba(74, 158, 255, 0.15);
+            padding: 24px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.45);
+        }
+        .seo-content h2 {
+            margin-top: 0;
+            color: #64b5f6;
+            font-size: 1.9em;
+        }
+        .seo-content h3 {
+            color: #4a9eff;
+            margin-top: 24px;
+            font-size: 1.3em;
+        }
+        .seo-content p {
+            line-height: 1.6;
+            color: #d5d5d5;
+        }
+        .seo-grid {
+            display: grid;
+            gap: 14px;
+            margin: 18px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+        .seo-grid li {
+            background: rgba(74, 158, 255, 0.08);
+            border: 1px solid rgba(74, 158, 255, 0.2);
+            border-radius: 8px;
+            padding: 14px 16px;
+            color: #dfe8ff;
+        }
+        .seo-columns {
+            display: grid;
+            gap: 18px;
+            margin-top: 18px;
+        }
+        .seo-columns > div {
+            background: rgba(33,33,33,0.7);
+            border: 1px solid rgba(74, 158, 255, 0.12);
+            border-radius: 8px;
+            padding: 18px;
+        }
+        .seo-columns h3 {
+            margin-top: 0;
+            color: #64b5f6;
+        }
+        .faq-list {
+            display: grid;
+            gap: 16px;
+            margin-top: 18px;
+        }
+        .faq-list details {
+            background: rgba(33,33,33,0.7);
+            border: 1px solid rgba(74, 158, 255, 0.18);
+            border-radius: 8px;
+            padding: 14px 18px;
+        }
+        .faq-list summary {
+            cursor: pointer;
+            color: #9ec9ff;
+            font-weight: 600;
+            outline: none;
+        }
+        .faq-list summary:focus {
+            outline: 2px solid rgba(100, 181, 246, 0.5);
+            outline-offset: 4px;
+        }
+        .faq-list p {
+            margin: 12px 0 0;
+            color: #d5d5d5;
+        }
+        .app-shell {
+            background: #252525;
+            border-radius: 10px;
+            border: 1px solid rgba(74, 158, 255, 0.18);
+            padding: 20px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.45);
+        }
+        .app-shell h2 {
+            margin-top: 0;
+            color: #64b5f6;
+            font-size: 1.8em;
+        }
+        .app-shell p {
+            color: #d5d5d5;
+            line-height: 1.6;
+        }
+        .site-footer {
+            margin-top: 24px;
+            text-align: center;
+            color: #9e9e9e;
+            font-size: 0.9em;
+        }
+        .site-footer a {
+            color: #9ec9ff;
+            text-decoration: none;
+        }
+        .site-footer a:hover,
+        .site-footer a:focus {
+            text-decoration: underline;
+            outline: none;
+        }
+        @media (min-width: 600px) {
+            .seo-grid {
+                grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            }
+            .seo-columns {
+                grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            }
+        }
         .loading {
             text-align: center;
             padding: 40px;
@@ -250,10 +433,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <header class="header">
             <div class="header-info">
                 <h1>⚡ ElectroSim</h1>
                 <p>Interactive 2D Charged Particle Simulation</p>
+                <nav class="site-nav" aria-label="Primary">
+                    <a href="#overview">Overview</a>
+                    <a href="#key-features">Features</a>
+                    <a href="#use-cases">Use Cases</a>
+                    <a href="#faq">FAQ</a>
+                </nav>
             </div>
             <aside class="header-card">
                 <p>Source code available on GitHub.</p>
@@ -262,81 +451,158 @@
                     <span>View Repository</span>
                 </a>
             </aside>
-        </div>
-        
-        <div id="loading" class="loading">
-            <h3>Loading Python Environment...</h3>
-            <div class="loading-bar">
-                <div id="loading-progress" class="loading-progress"></div>
-            </div>
-            <p id="loading-status">Initializing Pyodide...</p>
-        </div>
-        
-        <div id="error" class="error" style="display: none;">
-            <h3>Error Loading Application</h3>
-            <p id="error-message"></p>
-        </div>
-        
-        <div id="game-container" class="game-container">
-            <button id="start-button" class="start-button">Start Simulation</button>
-            <canvas id="canvas" width="1280" height="800" tabindex="0" style="display: none;"></canvas>
-            
-            <div class="controls">
-                <div class="control-section">
-                    <h3>🖱️ Mouse Controls</h3>
-                    <ul>
-                        <li><strong>Left Click:</strong> Place particle (drag to set velocity)</li>
-                        <li><strong>Shift + Click:</strong> Place negative charge</li>
-                        <li><strong>Alt + Click:</strong> Place fixed particle</li>
-                        <li><strong>Click on particle:</strong> Select particle</li>
-                    </ul>
+        </header>
+
+        <main class="site-main" id="main-content">
+            <section class="app-shell" aria-labelledby="simulation-heading">
+                <h2 id="simulation-heading">Interactive Simulation</h2>
+                <p>Load the Python environment to begin exploring charged particle dynamics.</p>
+
+                <div id="loading" class="loading" role="status" aria-live="polite">
+                    <h3>Loading Python Environment...</h3>
+                    <div class="loading-bar">
+                        <div id="loading-progress" class="loading-progress"></div>
+                    </div>
+                    <p id="loading-status">Initializing Pyodide...</p>
                 </div>
-                
-                <div class="control-section">
-                    <h3>⌨️ Keyboard Controls</h3>
-                    <ul>
-                        <li><strong>P:</strong> Pause/Resume</li>
-                        <li><strong>R:</strong> Reset to default scene</li>
-                        <li><strong>C:</strong> Clear all particles</li>
-                        <li><strong>E:</strong> Toggle electric field</li>
-                        <li><strong>F:</strong> Toggle force vectors</li>
-                        <li><strong>V:</strong> Toggle velocity vectors</li>
-                        <li><strong>T:</strong> Toggle particle trails</li>
-                    </ul>
+
+                <div id="error" class="error" role="alert" style="display: none;">
+                    <h3>Error Loading Application</h3>
+                    <p id="error-message"></p>
                 </div>
-                
-                <div class="control-section">
-                    <h3>⚙️ Particle Editing</h3>
-                    <ul>
-                        <li><strong>Q/W:</strong> Decrease/Increase charge</li>
-                        <li><strong>A/S:</strong> Decrease/Increase mass</li>
-                        <li><strong>Z/X:</strong> Decrease/Increase radius</li>
-                        <li><strong>Space:</strong> Toggle fixed/mobile</li>
-                        <li><strong>Delete:</strong> Remove particle</li>
-                    </ul>
-                </div>
-                
-                <div class="control-section">
-                    <h3>🚀 Speed Control</h3>
-                    <ul>
-                        <li><strong>1:</strong> 0.5× speed</li>
-                        <li><strong>2:</strong> 1× speed (normal)</li>
-                        <li><strong>3:</strong> 2× speed</li>
-                        <li><strong>4:</strong> 4× speed</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div id="console-panel" class="console-panel">
-                <div class="console-header">
-                    <span class="console-title">Console</span>
-                    <div class="console-actions">
-                        <button id="console-clear" class="console-clear-btn">Clear</button>
+
+                <div id="game-container" class="game-container">
+                    <button id="start-button" class="start-button">Start Simulation</button>
+                    <canvas id="canvas" width="1280" height="800" tabindex="0" style="display: none;"></canvas>
+
+                    <div class="controls">
+                        <div class="control-section">
+                            <h3>🖱️ Mouse Controls</h3>
+                            <ul>
+                                <li><strong>Left Click:</strong> Place particle (drag to set velocity)</li>
+                                <li><strong>Shift + Click:</strong> Place negative charge</li>
+                                <li><strong>Alt + Click:</strong> Place fixed particle</li>
+                                <li><strong>Click on particle:</strong> Select particle</li>
+                            </ul>
+                        </div>
+
+                        <div class="control-section">
+                            <h3>⌨️ Keyboard Controls</h3>
+                            <ul>
+                                <li><strong>P:</strong> Pause/Resume</li>
+                                <li><strong>R:</strong> Reset to default scene</li>
+                                <li><strong>C:</strong> Clear all particles</li>
+                                <li><strong>E:</strong> Toggle electric field</li>
+                                <li><strong>F:</strong> Toggle force vectors</li>
+                                <li><strong>V:</strong> Toggle velocity vectors</li>
+                                <li><strong>T:</strong> Toggle particle trails</li>
+                            </ul>
+                        </div>
+
+                        <div class="control-section">
+                            <h3>⚙️ Particle Editing</h3>
+                            <ul>
+                                <li><strong>Q/W:</strong> Decrease/Increase charge</li>
+                                <li><strong>A/S:</strong> Decrease/Increase mass</li>
+                                <li><strong>Z/X:</strong> Decrease/Increase radius</li>
+                                <li><strong>Space:</strong> Toggle fixed/mobile</li>
+                                <li><strong>Delete:</strong> Remove particle</li>
+                            </ul>
+                        </div>
+
+                        <div class="control-section">
+                            <h3>🚀 Speed Control</h3>
+                            <ul>
+                                <li><strong>1:</strong> 0.5× speed</li>
+                                <li><strong>2:</strong> 1× speed (normal)</li>
+                                <li><strong>3:</strong> 2× speed</li>
+                                <li><strong>4:</strong> 4× speed</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="console-panel" class="console-panel">
+                        <div class="console-header">
+                            <span class="console-title">Console</span>
+                            <div class="console-actions">
+                                <button id="console-clear" class="console-clear-btn">Clear</button>
+                            </div>
+                        </div>
+                        <div id="console-body" class="console-body" aria-live="polite"></div>
                     </div>
                 </div>
-                <div id="console-body" class="console-body" aria-live="polite"></div>
-            </div>
-        </div>
+            </section>
+
+            <section class="seo-content" id="call-to-action" aria-labelledby="cta-heading">
+                <h2 id="cta-heading">Start Exploring Coulomb Dynamics Now</h2>
+                <p>Launch the simulator to set up charges, visualise field lines and experiment with particle interactions in real time. Pair ElectroSim with your lesson plans and share discoveries with the community.</p>
+            </section>
+            
+            <section class="seo-content" id="overview" aria-labelledby="overview-heading">
+                <h2 id="overview-heading">Explore Electric Fields Without Installing Software</h2>
+                <p>ElectroSim helps physics enthusiasts, teachers and researchers model charged particles from any device. The web version runs entirely in the browser using Pyodide and WebAssembly, so you can launch experiments instantly.</p>
+                <div class="seo-columns">
+                    <div>
+                        <h3>Why It Matters</h3>
+                        <p>Understand Coulomb interactions, superposition and field visualisation with immediate visual feedback. ElectroSim accelerates concept retention for classrooms and self-learners alike.</p>
+                    </div>
+                    <div>
+                        <h3>Who Uses ElectroSim</h3>
+                        <p>Physics students, STEM teachers, science communicators and makers who need a reliable way to demonstrate electric forces interactively.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seo-content" id="key-features" aria-labelledby="features-heading">
+                <h2 id="features-heading">Key Features</h2>
+                <p>Everything you need to simulate electric forces and trajectories accurately.</p>
+                <ul class="seo-grid">
+                    <li>Drag-and-drop particle placement with adjustable charge, mass and velocity vectors.</li>
+                    <li>Toggleable electric field, force and velocity visual overlays for deep analysis.</li>
+                    <li>High-performance physics engine compiled to WebAssembly through Pyodide.</li>
+                </ul>
+            </section>
+
+            <section class="seo-content" id="use-cases" aria-labelledby="use-cases-heading">
+                <h2 id="use-cases-heading">Popular Use Cases</h2>
+                <div class="seo-columns">
+                    <div>
+                        <h3>Physics Education</h3>
+                        <p>Use ElectroSim to illustrate Coulomb's law, vector decomposition and conservation principles during lectures or labs.</p>
+                    </div>
+                    <div>
+                        <h3>Research &amp; Prototyping</h3>
+                        <p>Rapidly prototype charged systems, validate hypotheses and export insights to guide further numerical modelling.</p>
+                    </div>
+                    <div>
+                        <h3>STEM Outreach</h3>
+                        <p>Create captivating, interactive experiences for science fairs and workshops without requiring installations.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="seo-content" id="faq" aria-labelledby="faq-heading">
+                <h2 id="faq-heading">Frequently Asked Questions</h2>
+                <div class="faq-list">
+                    <details>
+                        <summary>Does ElectroSim run on any device?</summary>
+                        <p>Yes. ElectroSim runs in modern browsers on desktop, Chromebook and tablet devices thanks to WebAssembly and Pyodide.</p>
+                    </details>
+                    <details>
+                        <summary>Is ElectroSim free to use?</summary>
+                        <p>ElectroSim is an open-source project released under a permissive licence. You can use it in classrooms or personal projects without cost.</p>
+                    </details>
+                    <details>
+                        <summary>Can I contribute new features?</summary>
+                        <p>Absolutely. Fork the project on GitHub, explore the contributor guide and submit pull requests with improvements or educational scenarios.</p>
+                    </details>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <p>ElectroSim is an open-source project focused on immersive physics education. Discover the latest updates and documentation on <a href="https://github.com/DannyLuna17/ElectroSim" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+        </footer>
     </div>
 
     <script>
