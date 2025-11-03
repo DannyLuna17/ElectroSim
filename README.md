@@ -14,7 +14,10 @@ Interactive 2D charged particle simulator featuring real-time electromagnetic in
 - **Windows (x64)**: [Latest release build](https://github.com/DannyLuna17/ElectroSim/releases/latest)
 
 <p align="center">
-  <img src="assets/ss.png" alt="ElectroSim screenshot showing particles, field vectors, and trails" width="800">
+  <video src="assets/EXVIDEO.mp4" controls width="600">
+    Your browser does not support the video tag. Download the clip from
+    <a href="assets/EXVIDEO.mp4">assets/EXVIDEO.mp4</a>.
+  </video>
 </p>
 
 ## Features
