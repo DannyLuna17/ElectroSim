@@ -11,6 +11,8 @@
     <link rel="canonical" href="https://electro-sim.vercel.app/">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <meta name="application-name" content="ElectroSim">
+    <meta name="apple-mobile-web-app-title" content="ElectroSim">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <meta property="og:type" content="website">
     <meta property="og:title" content="ElectroSim - Charged Particle Simulation in the Browser">
@@ -25,27 +27,47 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "ElectroSim",
-        "operatingSystem": "Web",
-        "applicationCategory": "EducationalApplication",
-        "description": "ElectroSim is an interactive 2D charged particle simulator that visualises electric fields, forces and trajectories directly in the browser.",
-        "url": "https://electro-sim.vercel.app/",
-        "author": {
-            "@type": "Person",
-            "name": "Danny Luna"
-        },
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "USD",
-            "availability": "https://schema.org/InStock"
-        },
-        "featureList": [
-            "Interactive charged particle placement and editing",
-            "Configurable electric field and vector visualisation",
-            "Real-time physics engine powered by Pyodide",
-            "Preset scenes for rapid experimentation"
+        "@graph": [
+            {
+                "@type": "WebSite",
+                "@id": "https://electro-sim.vercel.app/#website",
+                "url": "https://electro-sim.vercel.app/",
+                "name": "ElectroSim",
+                "alternateName": "ElectroSim Simulator",
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "ElectroSim"
+                }
+            },
+            {
+                "@type": "SoftwareApplication",
+                "@id": "https://electro-sim.vercel.app/#application",
+                "name": "ElectroSim",
+                "operatingSystem": "Web",
+                "applicationCategory": "EducationalApplication",
+                "description": "ElectroSim is an interactive 2D charged particle simulator that visualises electric fields, forces and trajectories directly in the browser.",
+                "url": "https://electro-sim.vercel.app/",
+                "author": {
+                    "@type": "Person",
+                    "name": "Danny Luna"
+                },
+                "publisher": {
+                    "@type": "Organization",
+                    "name": "ElectroSim"
+                },
+                "offers": {
+                    "@type": "Offer",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "availability": "https://schema.org/InStock"
+                },
+                "featureList": [
+                    "Interactive charged particle placement and editing",
+                    "Configurable electric field and vector visualisation",
+                    "Real-time physics engine powered by Pyodide",
+                    "Preset scenes for rapid experimentation"
+                ]
+            }
         ]
     }
     </script>
