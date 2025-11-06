@@ -11,6 +11,7 @@
     <link rel="canonical" href="https://electro-sim.vercel.app/">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <meta property="og:type" content="website">
     <meta property="og:title" content="ElectroSim - Charged Particle Simulation in the Browser">
     <meta property="og:description" content="Experiment with electric fields, charges and vectors using ElectroSim's interactive 2D particle simulator built for physics learning and research.">
@@ -48,7 +49,6 @@
         ]
     }
     </script>
-    <script src="https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js"></script>
     <style>
         body {
             margin: 0;
@@ -60,6 +60,14 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+        }
+        a {
+            color: #d7e7ff;
+            text-decoration: underline;
+        }
+        a:focus {
+            outline: 2px solid rgba(100, 181, 246, 0.6);
+            outline-offset: 2px;
         }
         
         .container {
@@ -94,7 +102,7 @@
             margin-top: 12px;
         }
         .site-nav a {
-            color: #9ec9ff;
+            color: #e2efff;
             text-decoration: none;
             font-size: 0.95em;
             border: 1px solid rgba(74, 158, 255, 0.3);
@@ -108,6 +116,18 @@
             color: #ffffff;
             border-color: rgba(74, 158, 255, 0.8);
             outline: none;
+        }
+        .start-panel {
+            background: #2a2a2a;
+            border: 1px solid rgba(74, 158, 255, 0.18);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        .start-panel p {
+            margin: 0 0 16px 0;
+            color: #d5d5d5;
         }
         .header-card {
             background: #2a2a2a;
@@ -124,14 +144,14 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: #4a9eff;
+            background: #1f4fd8;
             color: #fff;
             text-decoration: none;
             padding: 10px 14px;
             border-radius: 8px;
         }
         .repo-link:hover {
-            background: #357abd;
+            background: #163eb1;
         }
         .repo-link:focus {
             outline: 2px solid #64b5f6;
@@ -250,8 +270,7 @@
             font-size: 0.9em;
         }
         .site-footer a {
-            color: #9ec9ff;
-            text-decoration: none;
+            color: #d7e7ff;
         }
         .site-footer a:hover,
         .site-footer a:focus {
@@ -267,6 +286,7 @@
             }
         }
         .loading {
+            display: none;
             text-align: center;
             padding: 40px;
             background: #2a2a2a;
@@ -346,7 +366,7 @@
         }
         
         .start-button {
-            background: #4a9eff;
+            background: #1f4fd8;
             color: white;
             border: none;
             padding: 15px 30px;
@@ -358,7 +378,7 @@
         }
         
         .start-button:hover {
-            background: #357abd;
+            background: #163eb1;
         }
         
         .start-button:disabled {
@@ -390,7 +410,7 @@
             gap: 8px;
         }
         .console-clear-btn {
-            background: #4a9eff;
+            background: #1f4fd8;
             color: #fff;
             border: none;
             padding: 6px 12px;
@@ -401,7 +421,7 @@
             transition: background 0.2s ease;
         }
         .console-clear-btn:hover {
-            background: #357abd;
+            background: #163eb1;
         }
         .console-body {
             max-height: 240px;
@@ -458,7 +478,11 @@
         <main class="site-main" id="main-content">
             <section class="app-shell" aria-labelledby="simulation-heading">
                 <h2 id="simulation-heading">Interactive Simulation</h2>
-                <p>Load the Python environment to begin exploring charged particle dynamics.</p>
+                <p>Load the Python environment to begin exploring charged particle dynamics in your browser.</p>
+
+                <div id="start-panel" class="start-panel" aria-live="polite">
+                    <button id="start-button" class="start-button">Start Simulation</button>
+                </div>
 
                 <div id="loading" class="loading" role="status" aria-live="polite">
                     <h3>Loading Python Environment...</h3>
@@ -474,7 +498,6 @@
                 </div>
 
                 <div id="game-container" class="game-container">
-                    <button id="start-button" class="start-button">Start Simulation</button>
                     <canvas id="canvas" width="1280" height="800" tabindex="0" style="display: none;"></canvas>
 
                     <div class="controls">
@@ -672,55 +695,223 @@
         console.warn = function(...args) { try { appendLogToPanel('WARN', args); } catch {} return __originalConsole.warn(...args); };
         console.error = function(...args) { try { appendLogToPanel('ERROR', args); } catch {} return __originalConsole.error(...args); };
 
+        const startPanel = document.getElementById('start-panel');
+        const startButton = document.getElementById('start-button');
+        const loadingContainer = document.getElementById('loading');
+        const loadingStatusEl = document.getElementById('loading-status');
+        const loadingProgressEl = document.getElementById('loading-progress');
+        const errorContainer = document.getElementById('error');
+        const errorMessageEl = document.getElementById('error-message');
+        const gameContainer = document.getElementById('game-container');
+
         let pyodide = null;
-        let simulation = null;
-        
-        async function initializePyodide() {
-            try {
-                updateStatus("Loading Pyodide...", 10);
-                pyodide = await loadPyodide({
-                    indexURL: "https://cdn.jsdelivr.net/pyodide/v0.27.7/full/"
-                });
-                
-                updateStatus("Installing packages...", 30);
-                // Install required packages
-                try {
-                    await pyodide.loadPackage(["numpy", "scipy", "pygame-ce"]);
-                    console.log("NumPy, SciPy and pygame-ce loaded successfully");
-                } catch (packageError) {
-                    console.error("Failed to load packages:", packageError);
-                    throw packageError;
-                }
-                
-                updateStatus("Loading ElectroSim code...", 60);
-                // Load our Python files
-                await loadPythonFiles();
-                
-                updateStatus("Initializing simulation...", 90);
-                // Initialize the simulation
-                await initializeSimulation();
-                
-                updateStatus("Ready!", 100);
-                
-                // Show the game container
-                document.getElementById('loading').style.display = 'none';
-                document.getElementById('game-container').style.display = 'block';
-                
-            } catch (error) {
-                console.error('Error loading Pyodide:', error);
-                showError('Failed to load Python environment: ' + error.message);
+        let environmentPromise = null;
+        let pyodideScriptPromise = null;
+        let simulationStarted = false;
+
+        function updateStatus(message, progress) {
+            if (loadingStatusEl) {
+                loadingStatusEl.textContent = message;
+            }
+            if (loadingProgressEl) {
+                const clamped = Math.max(0, Math.min(progress, 100));
+                loadingProgressEl.style.width = clamped + '%';
             }
         }
-        
-        function updateStatus(message, progress) {
-            document.getElementById('loading-status').textContent = message;
-            document.getElementById('loading-progress').style.width = progress + '%';
-        }
-        
+
         function showError(message) {
-            document.getElementById('loading').style.display = 'none';
-            document.getElementById('error').style.display = 'block';
-            document.getElementById('error-message').textContent = message;
+            if (loadingContainer) {
+                loadingContainer.style.display = 'none';
+            }
+            if (errorContainer) {
+                errorContainer.style.display = 'block';
+            }
+            if (errorMessageEl) {
+                errorMessageEl.textContent = message;
+            }
+            if (startPanel) {
+                startPanel.style.display = 'block';
+            }
+            if (startButton) {
+                startButton.disabled = false;
+                startButton.textContent = 'Start Simulation';
+            }
+        }
+
+        async function loadPyodideScript() {
+            if (typeof loadPyodide === 'function') {
+                return;
+            }
+            if (pyodideScriptPromise) {
+                return pyodideScriptPromise;
+            }
+            updateStatus('Fetching Pyodide runtime...', 5);
+            pyodideScriptPromise = new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = 'https://cdn.jsdelivr.net/pyodide/v0.27.7/full/pyodide.js';
+                script.crossOrigin = 'anonymous';
+                script.onload = resolve;
+                script.onerror = () => {
+                    pyodideScriptPromise = null;
+                    reject(new Error('Failed to load Pyodide runtime'));
+                };
+                document.head.appendChild(script);
+            });
+            return pyodideScriptPromise;
+        }
+
+        async function initializePyodide() {
+            if (pyodide) {
+                updateStatus('Ready!', 100);
+                return pyodide;
+            }
+            try {
+                updateStatus('Loading Pyodide...', 15);
+                pyodide = await loadPyodide({
+                    indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.27.7/full/'
+                });
+
+                updateStatus('Installing packages...', 35);
+                try {
+                    await pyodide.loadPackage(['numpy', 'scipy', 'pygame-ce']);
+                    console.log('NumPy, SciPy and pygame-ce loaded successfully');
+                } catch (packageError) {
+                    console.error('Failed to load packages:', packageError);
+                    throw packageError;
+                }
+
+                updateStatus('Loading ElectroSim code...', 65);
+                await loadPythonFiles();
+
+                updateStatus('Initializing simulation...', 85);
+                await initializeSimulation();
+
+                updateStatus('Ready!', 100);
+                return pyodide;
+            } catch (error) {
+                console.error('Error loading Pyodide:', error);
+                throw error;
+            }
+        }
+
+        async function ensureEnvironmentReady() {
+            if (pyodide) {
+                return pyodide;
+            }
+            if (environmentPromise) {
+                return environmentPromise;
+            }
+            environmentPromise = (async () => {
+                await loadPyodideScript();
+                return await initializePyodide();
+            })();
+            try {
+                return await environmentPromise;
+            } catch (error) {
+                environmentPromise = null;
+                throw error;
+            }
+        }
+
+        async function launchSimulation() {
+            if (simulationStarted) {
+                return;
+            }
+            simulationStarted = true;
+            try {
+                if (loadingContainer) {
+                    loadingContainer.style.display = 'none';
+                }
+                if (errorContainer) {
+                    errorContainer.style.display = 'none';
+                }
+                if (startPanel) {
+                    startPanel.style.display = 'none';
+                }
+                if (gameContainer) {
+                    gameContainer.style.display = 'block';
+                }
+
+                const canvas = document.getElementById('canvas');
+                if (!canvas) {
+                    throw new Error('Canvas element not found');
+                }
+
+                canvas.style.display = 'block';
+                canvas.setAttribute('tabindex', '0');
+                canvas.focus();
+
+                pyodide.setStdout({ batched: (s) => console.log(s) });
+                pyodide.setStderr({ batched: (s) => console.error(s) });
+
+                if (typeof window.Module === 'undefined') {
+                    window.Module = {};
+                }
+                window.Module.canvas = canvas;
+                if (pyodide && pyodide._module) {
+                    try { pyodide._module.canvas = canvas; } catch (e) {}
+                }
+                if (typeof globalThis !== 'undefined') {
+                    globalThis.canvas = canvas;
+                    if (typeof globalThis.emscripten_compute_dom_pk_code !== 'function') {
+                        globalThis.emscripten_compute_dom_pk_code = function() { return 0; };
+                    }
+                }
+
+                await pyodide.runPythonAsync(`
+import os
+os.environ["PYGAME_DISPLAY"] = "canvas"
+os.environ["PYGAME_CANVAS_ID"] = "canvas"
+os.environ.setdefault("SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT", "#canvas")
+os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
+`);
+
+                await setupKeyboardBridge(canvas);
+                await setupPointerModifierBridge(canvas);
+
+                await pyodide.runPythonAsync(`
+try:
+    import main_web
+    print("Starting web simulation...")
+    import asyncio
+    await main_web.start_web_simulation_async()
+    print("Web simulation started successfully!")
+except Exception as e:
+    print("Error starting simulation:", str(e))
+    import traceback
+    traceback.print_exc()
+    raise e
+`);
+            } catch (error) {
+                simulationStarted = false;
+                throw error;
+            }
+        }
+
+        async function handleStartClick() {
+            if (simulationStarted) {
+                return;
+            }
+            if (errorContainer) {
+                errorContainer.style.display = 'none';
+            }
+            if (startButton) {
+                startButton.disabled = true;
+                startButton.textContent = 'Loading...';
+            }
+            if (startPanel) {
+                startPanel.style.display = 'none';
+            }
+            if (loadingContainer) {
+                loadingContainer.style.display = 'block';
+            }
+            try {
+                await ensureEnvironmentReady();
+                await launchSimulation();
+            } catch (error) {
+                console.error('Error starting simulation:', error);
+                showError('Failed to start simulation: ' + (error.message || String(error)));
+            }
         }
         
         async function loadPythonFiles() {
@@ -917,77 +1108,9 @@ def __set_web_last_mods(shift: bool, ctrl: bool, alt: bool) -> None:
             canvas.addEventListener('mousedown', onMouseDown);
         }
         
-        async function startSimulation() {
-            try {
-                const canvas = document.getElementById('canvas');
-                canvas.style.display = 'block';
-                document.getElementById('start-button').style.display = 'none';
-                // Ensure the canvas receives keyboard focus
-                canvas.setAttribute('tabindex', '0');
-                canvas.focus();
-                
-                // Bind SDL to our canvas for pygame-ce
-                // These env vars are read by SDL/pygame-ce in Pyodide
-                pyodide.setStdout({ batched: (s) => console.log(s) });
-                pyodide.setStderr({ batched: (s) => console.error(s) });
-
-                // Set Emscripten Module canvas so SDL knows where to draw
-                if (typeof window.Module === 'undefined') {
-                    window.Module = {};
-                }
-                window.Module.canvas = canvas;
-                // Also set on Pyodide's underlying module if available
-                if (pyodide && pyodide._module) {
-                    try { pyodide._module.canvas = canvas; } catch (e) { /* ignore */ }
-                }
-                // As an extra fallback make canvas globally visible
-                if (typeof globalThis !== 'undefined') {
-                    globalThis.canvas = canvas;
-                    // Provide stub for missing emscripten symbol seen in some browsers
-                    if (typeof globalThis.emscripten_compute_dom_pk_code !== 'function') {
-                        globalThis.emscripten_compute_dom_pk_code = function() { return 0; };
-                    }
-                }
-                
-                await pyodide.runPythonAsync(`
-                    import os
-                    os.environ["PYGAME_DISPLAY"] = "canvas"
-                    os.environ["PYGAME_CANVAS_ID"] = "canvas"
-                    os.environ.setdefault("SDL_HINT_EMSCRIPTEN_KEYBOARD_ELEMENT", "#canvas")
-                    # Avoid audio init issues in browsers
-                    os.environ.setdefault("SDL_AUDIODRIVER", "dummy")
-                `);
-
-                // Run the main simulation asynchronously (non-blocking)
-                // Install keyboard bridge before starting Python loop
-                await setupKeyboardBridge(canvas);
-                await setupPointerModifierBridge(canvas);
-
-                await pyodide.runPythonAsync(`
-                    try:
-                        import main_web
-                        print("Starting web simulation...")
-                        import asyncio
-                        await main_web.start_web_simulation_async()
-                        print("Web simulation started successfully!")
-                    except Exception as e:
-                        print("Error starting simulation:", str(e))
-                        import traceback
-                        traceback.print_exc()
-                        raise e
-                `);
-                
-            } catch (error) {
-                console.error('Error starting simulation:', error);
-                showError('Failed to start simulation: ' + error.message);
-            }
+        if (startButton) {
+            startButton.addEventListener('click', handleStartClick);
         }
-        
-        // Event listeners
-        document.getElementById('start-button').addEventListener('click', startSimulation);
-        
-        // Start loading when page loads
-        window.addEventListener('load', initializePyodide);
     </script>
 </body>
 </html>
