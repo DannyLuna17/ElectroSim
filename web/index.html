@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="google-site-verification" content="oaMZ4Q9RxdCMW_TgY7OFoh9YNegKHjmoQ6lUkx5NpF8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="ElectroSim is an interactive web-based charged particle simulator that helps students, teachers and researchers visualise electric fields, forces and trajectories in real time.">
-    <meta name="keywords" content="ElectroSim, charged particle simulator, electric field simulation, physics education, Coulomb's law, electric forces, computational physics">
+    <meta name="description" content="ElectroSim is an interactive web simulator for visualizing electric fields, forces and trajectories in real time, helping students and researchers.">
+    <meta name="keywords" content="ElectroSim, charged particle simulator, electric field simulation, physics education, Coulomb's law, electric forces, computational physics, online physics lab, electromagnetism visualization, STEM education tool, web-based physics simulator, Python, Pyodide">
     <meta name="author" content="Danny Luna">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://electro-sim.vercel.app/">
@@ -16,13 +16,18 @@
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <meta property="og:type" content="website">
     <meta property="og:title" content="ElectroSim - Charged Particle Simulation in the Browser">
-    <meta property="og:description" content="Experiment with electric fields, charges and vectors using ElectroSim's interactive 2D particle simulator built for physics learning and research.">
+    <meta property="og:description" content="Experiment with electric fields, charges and vectors using ElectroSim's interactive 2D particle simulator. Visualise Coulomb's law in real-time physics education.">
     <meta property="og:url" content="https://electro-sim.vercel.app/">
     <meta property="og:site_name" content="ElectroSim">
     <meta property="og:locale" content="en_US">
-    <meta name="twitter:card" content="summary">
+    <meta property="og:image" content="https://electro-sim.vercel.app/social-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="ElectroSim Interface showing charged particles and electric field lines">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="ElectroSim - Charged Particle Simulation in the Browser">
-    <meta name="twitter:description" content="Experiment with electric fields, charges and vectors using ElectroSim's interactive 2D particle simulator built for physics learning and research.">
+    <meta name="twitter:description" content="Experiment with electric fields, charges and vectors using ElectroSim's interactive 2D particle simulator. Visualise Coulomb's law in real-time.">
+    <meta name="twitter:image" content="https://electro-sim.vercel.app/social-preview.png">
     <title>ElectroSim - Interactive Charged Particle Simulator</title>
     <script type="application/ld+json">
     {
@@ -47,6 +52,7 @@
                 "applicationCategory": "EducationalApplication",
                 "description": "ElectroSim is an interactive 2D charged particle simulator that visualises electric fields, forces and trajectories directly in the browser.",
                 "url": "https://electro-sim.vercel.app/",
+                "screenshot": "https://electro-sim.vercel.app/social-preview.png",
                 "author": {
                     "@type": "Person",
                     "name": "Danny Luna"
@@ -520,7 +526,7 @@
                 </div>
 
                 <div id="game-container" class="game-container">
-                    <canvas id="canvas" width="1280" height="800" tabindex="0" style="display: none;"></canvas>
+                    <canvas id="canvas" width="1280" height="800" tabindex="0" style="display: none;" aria-label="Simulation Canvas: Interactive area to place and observe charged particles" role="application"></canvas>
 
                     <div class="controls">
                         <div class="control-section">
