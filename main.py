@@ -23,7 +23,7 @@ from electrosim.rendering.trails import draw_polyline_world
 
 def main() -> None:
 	"""Run the main event loop: handle input, step simulation, and render.
- 
+
 	Initializes Pygame and the window, constructs the `Simulation` and `InputState`,
 	and iterates frames by processing input, stepping the simulation by substeps,
 	drawing the scene, and overlaying performance and state metrics.

@@ -3,8 +3,8 @@ from __future__ import annotations
 """Global configuration constants (window, physics, visuals, UI)."""
 
 # Window
-WINDOW_WIDTH_PX: int = 1100
-WINDOW_HEIGHT_PX: int = 480
+WINDOW_WIDTH_PX: int = 1280
+WINDOW_HEIGHT_PX: int = 800
 FPS_TARGET: int = 60
 
 # World (m) and scale

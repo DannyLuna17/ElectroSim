@@ -20,6 +20,15 @@ def draw_overlay(screen: pygame.Surface, font: pygame.font.Font, sim_state: dict
 	overlay_enabled : bool
 		Whether to render the overlay. If False, nothing is drawn.
 	"""
+	credits_text = "Created by Danny Luna | dannyq@uninorte.edu.co"
+	credits_render = font.render(credits_text, True, config.OVERLAY_TEXT_COLOR)
+	credits_shadow = font.render(credits_text, True, config.OVERLAY_SHADOW_COLOR)
+	screen_width = screen.get_width()
+	credits_x = screen_width - credits_render.get_width() - 10
+	credits_y = 45
+	screen.blit(credits_shadow, (credits_x + config.OVERLAY_SHADOW_OFFSET[0], credits_y + config.OVERLAY_SHADOW_OFFSET[1]))
+	screen.blit(credits_render, (credits_x, credits_y))
+
 	if not overlay_enabled:
 		return
 	
