@@ -87,7 +87,7 @@ def main() -> None:
 
 		# Overlay
 		fps = clock.get_fps() or float(config.FPS_TARGET)
-		speed_label = {0: "0.5×", 1: "1×", 2: "2×", 3: "4×"}[sim.speed_index]
+		speed_label = {0: "0.5x", 1: "1x", 2: "2x", 3: "4x"}[sim.speed_index]
 		sim_state = {
 			"fps": fps,
 			"n": len(sim.particles),

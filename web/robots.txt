@@ -1,4 +1,14 @@
+# ElectroSim - Interactive Charged Particle Simulator
+# https://electro-sim.vercel.app/
+# Created by Danny Luna
+
 User-agent: *
 Allow: /
 
+# Sitemap
 Sitemap: https://electro-sim.vercel.app/sitemap.xml
+
+Disallow: /*.py$
+Disallow: /electrosim/
+
+Crawl-delay: 1

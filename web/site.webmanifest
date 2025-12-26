@@ -1,20 +1,31 @@
 {
-  "name": "ElectroSim",
+  "name": "ElectroSim - Interactive Charged Particle Simulator",
   "short_name": "ElectroSim",
+  "description": "Interactive 2D charged particle simulation for physics education by Danny Luna.",
+  "id": "/",
   "start_url": "/",
+  "scope": "/",
+  "lang": "en-US",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#1a1a1a",
   "background_color": "#1a1a1a",
-  "display": "standalone"
+  "display": "standalone",
+  "orientation": "any",
+  "categories": [
+    "education",
+    "utilities"
+  ]
 }
